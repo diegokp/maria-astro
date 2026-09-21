@@ -197,16 +197,18 @@ Tomado de la página "en construcción" (`docs/index.html`), que a su vez sigue 
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--color-cream` | `#EFEAE4` | fondo general |
+| `--color-canvas` | `#FFFFFF` | fondo por defecto de toda la web |
+| `--color-cream` | `#EFEAE4` | fondo de "superficies": footer, tarjetas de servicio |
 | `--color-mustard` | `#F8CD7E` | color de marca (logo), botones, iconos sociales |
 | `--color-mustard-soft` | `rgba(248, 205, 126, 0.35)` | fondos suaves, resaltados |
-| `--color-mint` | `#D2EAEA` | acento secundario, fondos de sección alternos |
+| `--color-mint` | `#D2EAEA` | acento secundario: fondo de la sección de servicios |
 | `--color-ink` | `#525252` | texto principal |
 | `--color-ink-soft` | `rgba(58, 58, 58, 0.66)` | texto secundario |
 | `--color-coral` | `#E47869` | hover, foco, enlaces activos |
 | `--color-sage` | `#7A8C38` | acento verde |
 | `--color-line` | `rgba(58, 58, 58, 0.15)` | bordes y separadores |
 
+- **Capas de fondo** (tokens semánticos en `global.css`): `--color-canvas` (blanco — `body`, header, panel del selector de idioma) · `--color-surface` (crema — footer, tarjetas) · `--color-surface-alt` (menta — sección de servicios). Header y panel del selector van en blanco para diferenciarse del resto de "superficies", que siguen en crema.
 - **Contraste:** el texto blanco sobre mostaza no llega a AA. En botones mostaza usa texto `ink`. Comprueba cualquier combinación nueva.
 - Radio de borde característico: `12px` (como los iconos sociales).
 
