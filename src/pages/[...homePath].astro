@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import Hero from '../components/sections/Hero.astro';
+import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import { localizedPath, t } from '../i18n/utils';
+import { DEFAULT_LOCALE, LOCALES, type Lang } from '../i18n/routes';
+
+export function getStaticPaths() {
+	return LOCALES.map((lang) => ({
+		params: { homePath: lang === DEFAULT_LOCALE ? undefined : lang },
+		props: { lang },
+	}));
+}
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<BaseLayout
+	title={t(lang, 'home.seo.title')}
+	description={t(lang, 'home.seo.description')}
+	routeKey="home"
+	lang={lang}
+	personSchema
+>
+	<Hero lang={lang} />
+	<ServicesGrid lang={lang} />
+	<section class="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6">
+		<h2 class="font-display text-3xl text-text">{t(lang, 'home.contact.heading')}</h2>
+		<p class="mx-auto mt-3 max-w-xl font-sans text-text-soft">{t(lang, 'home.contact.intro')}</p>
+		<div class="mt-6">
+			<Button variant="outline" href={localizedPath('contact', lang)}>
+				{t(lang, 'home.contact.cta')}
+			</Button>
+		</div>
+	</section>
+</BaseLayout>

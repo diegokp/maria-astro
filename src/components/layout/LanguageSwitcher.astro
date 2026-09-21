@@ -1,0 +1,100 @@
+---
+import { Icon } from 'astro-icon/components';
+import { LOCALES, type Lang, type RouteKey } from '../../i18n/routes';
+import { localizedPath, t } from '../../i18n/utils';
+
+export interface Props {
+	lang: Lang;
+	routeKey: RouteKey;
+}
+
+const { lang, routeKey } = Astro.props;
+
+// src/icons/{gr,es,gb}.svg (astro-icon: nombre = nombre de archivo local).
+const flagByLocale: Record<Lang, string> = { el: 'gr', es: 'es', en: 'gb' };
+
+// IDs únicos: el componente puede montarse varias veces en la misma página
+// (header de escritorio + dentro de MobileMenu).
+const uid = crypto.randomUUID();
+const toggleId = `lang-menu-toggle-${uid}`;
+const panelId = `lang-menu-panel-${uid}`;
+---
+
+<nav aria-label={t(lang, 'langSwitcher.ariaLabel')} data-lang-switcher class="relative font-mono text-sm">
+	<button
+		type="button"
+		id={toggleId}
+		data-lang-toggle
+		aria-expanded="false"
+		aria-controls={panelId}
+		class="flex items-center gap-2 rounded-base px-2 py-1.5 text-text hover:text-accent"
+	>
+		<Icon name={flagByLocale[lang]} class="h-4 w-6 rounded-sm" aria-hidden="true" />
+		<span>{t(lang, `langSwitcher.${lang}`)}</span>
+		<svg
+			aria-hidden="true"
+			width="12"
+			height="12"
+			viewBox="0 0 10 10"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="1.5"
+			class="transition-transform in-aria-expanded:rotate-180"
+		>
+			<path stroke-linecap="round" stroke-linejoin="round" d="m2 3.5 3 3 3-3" />
+		</svg>
+	</button>
+
+	<ul
+		id={panelId}
+		data-lang-panel
+		hidden
+		class="absolute right-0 top-full z-10 mt-2 min-w-40 rounded-base border border-border bg-surface p-1 shadow-sm"
+	>
+		{
+			LOCALES.map((locale) => (
+				<li>
+					<a
+						href={localizedPath(routeKey, locale)}
+						aria-current={locale === lang ? 'page' : undefined}
+						class="flex items-center gap-2 rounded-base px-2 py-1.5 text-text-soft hover:bg-surface-alt hover:text-accent aria-[current=page]:text-accent"
+					>
+						<Icon name={flagByLocale[locale]} class="h-4 w-6 rounded-sm" aria-hidden="true" />
+						{t(lang, `langSwitcher.${locale}`)}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</nav>
+
+<script>
+	document.querySelectorAll<HTMLElement>('[data-lang-switcher]').forEach((root) => {
+		const toggle = root.querySelector<HTMLButtonElement>('[data-lang-toggle]');
+		const panel = root.querySelector<HTMLElement>('[data-lang-panel]');
+		if (!toggle || !panel) return;
+
+		const close = () => {
+			toggle.setAttribute('aria-expanded', 'false');
+			panel.hidden = true;
+		};
+
+		toggle.addEventListener('click', () => {
+			const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+			toggle.setAttribute('aria-expanded', String(!isOpen));
+			panel.hidden = isOpen;
+			if (!isOpen) panel.querySelector('a')?.focus();
+		});
+
+		document.addEventListener('click', (event) => {
+			if (!root.contains(event.target as Node)) close();
+		});
+
+		panel.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape') {
+				close();
+				toggle.focus();
+			}
+		});
+	});
+</script>

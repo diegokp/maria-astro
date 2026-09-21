@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+
+@theme {
+	/* ---- Tokens de marca (ver CLAUDE.md · Sistema de diseño) ---- */
+	--color-cream: #efeae4;
+	--color-mustard: #f8cd7e;
+	--color-mustard-soft: rgba(248, 205, 126, 0.35);
+	--color-mint: #d2eaea;
+	--color-ink: #525252;
+	--color-ink-soft: rgba(58, 58, 58, 0.66);
+	--color-coral: #e47869;
+	--color-sage: #7a8c38;
+	--color-line: rgba(58, 58, 58, 0.15);
+
+	/* ---- Tokens semánticos: los componentes usan solo estos ---- */
+	--color-surface: var(--color-cream);
+	--color-surface-alt: var(--color-mint);
+	--color-text: var(--color-ink);
+	--color-text-soft: var(--color-ink-soft);
+	--color-accent: var(--color-coral);
+	--color-focus: var(--color-coral);
+	--color-border: var(--color-line);
+
+	/* ---- Tipografía ---- */
+	/* --font-roboto / --font-roboto-mono / --font-mandys los inyecta la Fonts
+	   API de Astro (astro.config.mjs) como variables globales con sus propios
+	   fallbacks. */
+	--font-sans: var(--font-roboto), system-ui, sans-serif;
+	--font-mono: var(--font-roboto-mono), ui-monospace, monospace;
+	--font-display: var(--font-mandys), cursive;
+
+	/* ---- Radio característico (iconos sociales) ---- */
+	--radius-base: 12px;
+}
+
+@layer base {
+	body {
+		background-color: var(--color-surface);
+		color: var(--color-text);
+		font-family: var(--font-sans);
+		font-weight: 300;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-focus);
+		outline-offset: 2px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+}

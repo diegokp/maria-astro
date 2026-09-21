@@ -1,0 +1,27 @@
+---
+export interface Props {
+	title: string;
+	description?: string;
+	href?: string;
+	class?: string;
+}
+
+const { title, description, href, class: className } = Astro.props;
+
+const base =
+	'block rounded-base border border-border bg-surface p-6 transition-colors hover:border-accent';
+---
+
+{
+	href ? (
+		<a href={href} class:list={[base, className]}>
+			<h3 class="font-display text-2xl text-text">{title}</h3>
+			{description && <p class="mt-2 font-sans text-sm text-text-soft">{description}</p>}
+		</a>
+	) : (
+		<div class:list={[base, className]}>
+			<h3 class="font-display text-2xl text-text">{title}</h3>
+			{description && <p class="mt-2 font-sans text-sm text-text-soft">{description}</p>}
+		</div>
+	)
+}

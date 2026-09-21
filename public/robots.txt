@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# TODO: añadir "Sitemap:" cuando @astrojs/sitemap se integre en la fase 5.

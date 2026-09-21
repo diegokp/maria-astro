@@ -1,0 +1,31 @@
+---
+export interface Props {
+	variant?: 'mustard' | 'outline';
+	href?: string;
+	type?: 'button' | 'submit';
+	class?: string;
+}
+
+const { variant = 'mustard', href, type = 'button', class: className } = Astro.props;
+
+// Texto `ink` sobre mostaza siempre: blanco no llega a AA (ver CLAUDE.md).
+const variants = {
+	mustard: 'bg-mustard text-ink hover:bg-coral hover:text-cream',
+	outline: 'border border-border text-text hover:border-accent hover:text-accent',
+} as const;
+
+const base =
+	'inline-flex items-center justify-center rounded-base px-6 py-3 font-sans text-sm font-normal transition-colors';
+---
+
+{
+	href ? (
+		<a href={href} class:list={[base, variants[variant], className]}>
+			<slot />
+		</a>
+	) : (
+		<button type={type} class:list={[base, variants[variant], className]}>
+			<slot />
+		</button>
+	)
+}

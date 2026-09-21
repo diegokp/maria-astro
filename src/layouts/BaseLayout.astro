@@ -1,0 +1,54 @@
+---
+import { Font } from 'astro:assets';
+import SEO, { type Breadcrumb } from '../components/seo/SEO.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import { t } from '../i18n/utils';
+import type { Lang, RouteKey } from '../i18n/routes';
+import '../styles/global.css';
+
+export interface Props {
+	title: string;
+	description: string;
+	routeKey: RouteKey;
+	lang: Lang;
+	personSchema?: boolean;
+	breadcrumbs?: Breadcrumb[];
+}
+
+const { title, description, routeKey, lang, personSchema, breadcrumbs } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<Font cssVariable="--font-roboto" preload />
+		<Font cssVariable="--font-roboto-mono" preload />
+		<Font cssVariable="--font-mandys" preload />
+		<SEO
+			title={title}
+			description={description}
+			routeKey={routeKey}
+			lang={lang}
+			personSchema={personSchema}
+			breadcrumbs={breadcrumbs}
+		/>
+	</head>
+	<body>
+		<a
+			href="#main-content"
+			class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-base focus:bg-mustard focus:px-4 focus:py-2 focus:text-ink"
+		>
+			{t(lang, 'a11y.skipToContent')}
+		</a>
+		<Header lang={lang} routeKey={routeKey} />
+		<main id="main-content">
+			<slot />
+		</main>
+		<Footer lang={lang} />
+	</body>
+</html>

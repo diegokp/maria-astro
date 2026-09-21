@@ -1,0 +1,102 @@
+---
+import { CONTACT, SITE, SITE_LAUNCHED, SITE_NAME, SOCIAL } from '../../consts';
+import { getAlternates, localizedPath, t, type Alternate } from '../../i18n/utils';
+import type { Lang, RouteKey } from '../../i18n/routes';
+
+export interface Breadcrumb {
+	name: string;
+	url: string;
+}
+
+export interface Props {
+	title: string;
+	description: string;
+	routeKey: RouteKey;
+	lang: Lang;
+	/** Emite los datos estructurados Person + ProfessionalService (home / sobre mí). */
+	personSchema?: boolean;
+	breadcrumbs?: Breadcrumb[];
+}
+
+const { title, description, routeKey, lang, personSchema = false, breadcrumbs } = Astro.props;
+
+const canonical = new URL(localizedPath(routeKey, lang), SITE).toString();
+const alternates: Alternate[] = getAlternates(routeKey);
+
+const personLd = personSchema
+	? {
+			'@type': 'Person' as const,
+			name: SITE_NAME,
+			jobTitle: t(lang, 'person.jobTitle'),
+			email: CONTACT.email,
+			sameAs: [SOCIAL.facebook, SOCIAL.instagram, SOCIAL.linkedin],
+		}
+	: null;
+
+// Dirección y teléfono son TODO en CLAUDE.md: se omiten hasta confirmarlos,
+// en vez de inventarlos.
+const professionalServiceLd = personSchema
+	? {
+			'@type': 'ProfessionalService' as const,
+			name: SITE_NAME,
+			url: SITE,
+			email: CONTACT.email,
+			availableLanguage: ['el', 'es', 'en'],
+			address: {
+				'@type': 'PostalAddress' as const,
+				addressLocality: 'Chalandri',
+				addressRegion: 'Attica',
+				addressCountry: 'GR',
+			},
+		}
+	: null;
+
+const breadcrumbLd =
+	breadcrumbs && breadcrumbs.length > 0
+		? {
+				'@type': 'BreadcrumbList' as const,
+				itemListElement: breadcrumbs.map((crumb, index) => ({
+					'@type': 'ListItem' as const,
+					position: index + 1,
+					name: crumb.name,
+					item: crumb.url,
+				})),
+			}
+		: null;
+
+const graph = [personLd, professionalServiceLd, breadcrumbLd].filter(
+	(entry): entry is NonNullable<typeof entry> => entry !== null,
+);
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+{!SITE_LAUNCHED && <meta name="robots" content="noindex, nofollow" />}
+
+{
+	alternates.map((alt) => (
+		<link rel="alternate" hreflang={alt.lang} href={alt.url} />
+	))
+}
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<!-- TODO: og:image — falta una imagen por defecto para compartir en redes. -->
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+
+{
+	graph.length > 0 && (
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}
+		/>
+	)
+}

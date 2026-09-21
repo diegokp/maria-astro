@@ -1,0 +1,99 @@
+---
+import { CONTACT, SOCIAL } from '../../consts';
+import { localizedPath, t } from '../../i18n/utils';
+import type { Lang } from '../../i18n/routes';
+
+export interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+
+// Iconos y estilo de botón (mostaza, radio 12px) tomados de la referencia
+// visual en public/demo.html.
+const socialLinks = [
+	{
+		label: 'Facebook',
+		href: SOCIAL.facebook,
+		path: 'M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.25-1.5 1.6-1.5h1.7V3.3C15.9 3.2 15 3.1 14 3.1c-2.5 0-4.2 1.5-4.2 4.3v2.4H7v3.2h2.8v8h3.7Z',
+	},
+	{
+		label: 'Instagram',
+		href: SOCIAL.instagram,
+		path: 'M12 2.2c2.7 0 3 0 4.1.06 1.1.05 1.8.22 2.2.37.55.2.95.46 1.37.88.42.42.68.82.88 1.37.15.4.32 1.1.37 2.2.06 1.1.06 1.4.06 4.1s0 3-.06 4.1c-.05 1.1-.22 1.8-.37 2.2-.2.55-.46.95-.88 1.37-.42.42-.82.68-1.37.88-.4.15-1.1.32-2.2.37-1.1.06-1.4.06-4.1.06s-3 0-4.1-.06c-1.1-.05-1.8-.22-2.2-.37a3.7 3.7 0 0 1-1.37-.88 3.7 3.7 0 0 1-.88-1.37c-.15-.4-.32-1.1-.37-2.2C2.2 15 2.2 14.7 2.2 12s0-3 .06-4.1c.05-1.1.22-1.8.37-2.2.2-.55.46-.95.88-1.37.42-.42.82-.68 1.37-.88.4-.15 1.1-.32 2.2-.37C8.02 2.2 8.32 2.2 12 2.2Zm0 1.8c-2.66 0-2.97 0-4.02.06-.9.04-1.4.19-1.72.32-.43.17-.74.37-1.06.7-.32.32-.52.63-.7 1.06-.13.32-.28.82-.32 1.72C4.12 9.03 4.11 9.34 4.11 12s0 2.97.06 4.02c.04.9.19 1.4.32 1.72.17.43.37.74.7 1.06.32.32.63.52 1.06.7.32.13.82.28 1.72.32 1.05.06 1.36.06 4.02.06s2.97 0 4.02-.06c.9-.04 1.4-.19 1.72-.32.43-.17.74-.37 1.06-.7.32-.32.52-.63.7-1.06.13-.32.28-.82.32-1.72.06-1.05.06-1.36.06-4.02s0-2.97-.06-4.02c-.04-.9-.19-1.4-.32-1.72-.17-.43-.37-.74-.7-1.06a2.9 2.9 0 0 0-1.06-.7c-.32-.13-.82-.28-1.72-.32C14.97 4 14.66 4 12 4Zm0 3.65a4.35 4.35 0 1 1 0 8.7 4.35 4.35 0 0 1 0-8.7Zm0 1.8a2.55 2.55 0 1 0 0 5.1 2.55 2.55 0 0 0 0-5.1Zm4.55-1.98a1.02 1.02 0 1 1 0-2.04 1.02 1.02 0 0 1 0 2.04Z',
+	},
+	{
+		label: 'LinkedIn',
+		href: SOCIAL.linkedin,
+		viewBox: '0 0 448 512',
+		path: 'M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z',
+	},
+];
+
+const labelClass = 'font-mono text-xs uppercase tracking-wide text-text';
+---
+
+<footer class="border-t border-border bg-surface-alt">
+	<div class="mx-auto grid max-w-6xl gap-8 px-4 py-10 font-mono text-sm sm:px-6 md:grid-cols-3">
+		<div>
+			<h2 class={labelClass}>{t(lang, 'footer.contactHeading')}</h2>
+			<ul class="mt-3 space-y-1 text-text-soft">
+				<li>
+					<a href={`mailto:${CONTACT.email}`} class="hover:text-accent">{CONTACT.email}</a>
+				</li>
+				<li>{t(lang, 'footer.addressTodo')}</li>
+				<li>{t(lang, 'footer.phoneTodo')}</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2 class={labelClass}>{t(lang, 'footer.followHeading')}</h2>
+			<ul class="mt-3 flex gap-3">
+				{
+					socialLinks.map((social) => (
+						<li>
+							<a
+								href={social.href}
+								aria-label={social.label}
+								rel="me noopener"
+								target="_blank"
+								class="flex h-10 w-10 items-center justify-center rounded-base bg-mustard text-ink transition-transform hover:-translate-y-0.5"
+							>
+								<svg
+									aria-hidden="true"
+									width="20"
+									height="20"
+									viewBox={social.viewBox ?? '0 0 24 24'}
+									fill="currentColor"
+								>
+									<path d={social.path} />
+								</svg>
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<div>
+			<h2 class={labelClass}>{t(lang, 'footer.legalHeading')}</h2>
+			<ul class="mt-3 space-y-1 text-text-soft">
+				<li>
+					<a href={localizedPath('privacy', lang)} class="hover:text-accent">
+						{t(lang, 'footer.privacy')}
+					</a>
+				</li>
+				<li>
+					<a href={localizedPath('cookies', lang)} class="hover:text-accent">
+						{t(lang, 'footer.cookies')}
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<p class="border-t border-border px-4 py-4 text-center font-mono text-xs text-text-soft sm:px-6">
+		© {year} María Dimitropoulou López. {t(lang, 'footer.rights')}
+	</p>
+</footer>

@@ -1,0 +1,21 @@
+---
+import Button from '../ui/Button.astro';
+import { localizedPath, t } from '../../i18n/utils';
+import type { Lang } from '../../i18n/routes';
+
+export interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<section class="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6 sm:py-24">
+	<h1 class="font-display text-4xl text-text sm:text-5xl">{t(lang, 'home.hero.title')}</h1>
+	<p class="mx-auto mt-4 max-w-2xl font-sans text-lg font-light text-text-soft">
+		{t(lang, 'home.hero.subtitle')}
+	</p>
+	<div class="mt-8">
+		<Button href={localizedPath('contact', lang)}>{t(lang, 'home.hero.cta')}</Button>
+	</div>
+</section>
