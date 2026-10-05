@@ -1,0 +1,187 @@
+---
+import Button from '../ui/Button.astro';
+import { localizedPath, t } from '../../i18n/utils';
+import type { Lang } from '../../i18n/routes';
+
+export interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+// Todos los textos salen de ui.ts. Los mensajes que dependen del resultado de
+// la validación o del envío viajan como data-* para el script de cliente.
+const fields = [
+	{ id: 'contact-name', name: 'name', type: 'text', autocomplete: 'given-name', label: t(lang, 'contact.form.name') },
+	{ id: 'contact-lastname', name: 'lastname', type: 'text', autocomplete: 'family-name', label: t(lang, 'contact.form.lastName') },
+	{ id: 'contact-email', name: 'email', type: 'email', autocomplete: 'email', label: t(lang, 'contact.form.email') },
+] as const;
+
+const inputClass =
+	'mt-2 w-full rounded-base border border-border bg-canvas px-4 py-3 font-sans text-text outline-none transition-colors hover:border-text-soft aria-[invalid=true]:border-2 aria-[invalid=true]:border-coral';
+const labelClass = 'block font-mono text-xs uppercase tracking-wide text-text-heading';
+const errorClass = 'mt-1 font-sans text-sm text-text';
+---
+
+<!-- Web3Forms: los envíos llegan al email asociado a la access key.
+     Sin JS el formulario sigue funcionando (POST normal a Web3Forms). -->
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  data-contact-form
+  data-msg-required={t(lang, 'contact.form.required')}
+  data-msg-email={t(lang, 'contact.form.invalidEmail')}
+  data-msg-privacy={t(lang, 'contact.form.privacyRequired')}
+  data-msg-sending={t(lang, 'contact.form.sending')}
+  data-msg-success={t(lang, 'contact.form.success')}
+  data-msg-error={t(lang, 'contact.form.error')}
+  class="space-y-5"
+  novalidate>
+  <input type="hidden" name="access_key" value="9d82199a-9ffc-4c7e-b714-5771d077ae64" />
+  <input type="hidden" name="from_name" value="María Dimitropoulou López — Web" />
+  <input type="hidden" name="subject" value={`Nuevo mensaje desde la web (${lang})`} />
+  <!-- Honeypot antispam: invisible para personas; si se marca, Web3Forms descarta el envío. -->
+  <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    {
+      fields.slice(0, 2).map((field) => (
+        <div>
+          <label for={field.id} class={labelClass}>{field.label}</label>
+          <input
+            id={field.id}
+            name={field.name}
+            type={field.type}
+            autocomplete={field.autocomplete}
+            required
+            aria-describedby={`${field.id}-error`}
+            class={inputClass}
+          />
+          <p id={`${field.id}-error`} class={errorClass} data-error hidden></p>
+        </div>
+      ))
+    }
+  </div>
+
+  <div>
+    <label for={fields[2].id} class={labelClass}>{fields[2].label}</label>
+    <input
+      id={fields[2].id}
+      name={fields[2].name}
+      type={fields[2].type}
+      autocomplete={fields[2].autocomplete}
+      required
+      aria-describedby={`${fields[2].id}-error`}
+      class={inputClass}
+    />
+    <p id={`${fields[2].id}-error`} class={errorClass} data-error hidden></p>
+  </div>
+
+  <div>
+    <label for="contact-message" class={labelClass}>{t(lang, 'contact.form.message')}</label>
+    <textarea
+      id="contact-message"
+      name="message"
+      rows="6"
+      required
+      aria-describedby="contact-message-error"
+      class:list={[inputClass, 'resize-y']}
+    ></textarea>
+    <p id="contact-message-error" class={errorClass} data-error hidden></p>
+  </div>
+
+  <div>
+    <div class="flex items-start gap-3">
+      <input
+        id="contact-privacy"
+        name="privacy"
+        type="checkbox"
+        required
+        aria-describedby="contact-privacy-error"
+        class="mt-1 size-4 shrink-0 cursor-pointer accent-mustard"
+      />
+      <label for="contact-privacy" class="cursor-pointer font-sans text-sm leading-relaxed text-text">
+        {t(lang, 'contact.form.privacyBefore')}
+        <a
+          href={localizedPath('privacy', lang)}
+          class="rounded-sm underline decoration-mustard decoration-2 underline-offset-4 transition-colors hover:bg-hover"
+        >
+          {t(lang, 'contact.form.privacyLink')}
+        </a>.
+      </label>
+    </div>
+    <p id="contact-privacy-error" class={errorClass} data-error hidden></p>
+  </div>
+
+  <div class="pt-2">
+    <Button type="submit" class="w-full sm:w-auto">{t(lang, 'contact.form.submit')}</Button>
+    <p data-result role="status" aria-live="polite" class="mt-4 font-sans text-sm text-text"></p>
+  </div>
+</form>
+
+<script>
+  // Validación accesible y envío sin recargar. Errores de validación: texto
+  // ink + borde coral en el campo (aria-invalid); nunca texto rojo.
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+  const result = form?.querySelector<HTMLElement>('[data-result]');
+
+  type Field = HTMLInputElement | HTMLTextAreaElement;
+
+  function errorFor(field: Field): string {
+    if (!form || field.validity.valid) return '';
+    if (field.type === 'checkbox') return form.dataset.msgPrivacy ?? '';
+    if (field.validity.typeMismatch) return form.dataset.msgEmail ?? '';
+    return form.dataset.msgRequired ?? '';
+  }
+
+  function showError(field: Field): boolean {
+    const message = errorFor(field);
+    const box = document.getElementById(`${field.id}-error`);
+    field.setAttribute('aria-invalid', String(Boolean(message)));
+    if (box) {
+      box.textContent = message;
+      box.hidden = !message;
+    }
+    return !message;
+  }
+
+  if (form && result) {
+    const fields = [...form.querySelectorAll<Field>('[required]')];
+
+    // Revalida al corregir un campo que ya mostraba error.
+    fields.forEach((field) =>
+      field.addEventListener('input', () => {
+        if (field.getAttribute('aria-invalid') === 'true') showError(field);
+      }),
+    );
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const invalid = fields.filter((field) => !showError(field));
+      if (invalid.length > 0) {
+        invalid[0].focus();
+        return;
+      }
+
+      const submit = form.querySelector<HTMLButtonElement>('[type="submit"]');
+      if (submit) submit.disabled = true;
+      result.textContent = form.dataset.msgSending ?? '';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        if (!response.ok) throw new Error(String(response.status));
+        result.textContent = form.dataset.msgSuccess ?? '';
+        form.reset();
+      } catch {
+        // Si falla, se conserva lo escrito para que no haya que repetirlo.
+        result.textContent = form.dataset.msgError ?? '';
+      } finally {
+        if (submit) submit.disabled = false;
+      }
+    });
+  }
+</script>

@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import Button from '../ui/Button.astro';
+import illustration from '../../assets/images/sonanddad.webp';
 import { localizedPath, t } from '../../i18n/utils';
 import type { Lang } from '../../i18n/routes';
 
@@ -10,12 +12,33 @@ export interface Props {
 const { lang } = Astro.props;
 ---
 
-<section class="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6 sm:py-24">
-	<h1 class="font-display text-4xl text-text sm:text-5xl">{t(lang, 'home.hero.title')}</h1>
-	<p class="mx-auto mt-4 max-w-2xl font-sans text-lg font-light text-text-soft">
-		{t(lang, 'home.hero.subtitle')}
-	</p>
-	<div class="mt-8">
-		<Button href={localizedPath('contact', lang)}>{t(lang, 'home.hero.cta')}</Button>
+<section class="mx-auto max-w-6xl px-4 pt-8 pb-16 sm:px-6 sm:pb-24 md:pt-12">
+	<div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+		<div class="text-center md:text-left">
+			<h1 class="font-display text-4xl text-text-heading sm:text-5xl lg:text-6xl">{t(lang, 'home.hero.title')}</h1>
+			<h2 class="mx-auto mt-5 max-w-xl font-sans text-lg font-light leading-relaxed text-text-soft md:mx-0 lg:text-xl">
+				{t(lang, 'home.hero.subtitle')}
+			</h2>
+			<div class="mt-8">
+				<Button href={localizedPath('contact', lang)}>{t(lang, 'home.hero.cta')}</Button>
+			</div>
+		</div>
+
+		<div class="relative isolate mx-auto w-full max-w-sm md:max-w-none">
+			<div
+				class="absolute inset-[12%] -z-10 rounded-full bg-mint/60 blur-2xl"
+				aria-hidden="true"
+			>
+			</div>
+			<Image
+				src={illustration}
+				alt=""
+				widths={[384, 576, 768, 1024]}
+				sizes="(min-width: 1152px) 552px, (min-width: 768px) 48vw, 384px"
+				loading="eager"
+				fetchpriority="high"
+				class="w-full"
+			/>
+		</div>
 	</div>
 </section>

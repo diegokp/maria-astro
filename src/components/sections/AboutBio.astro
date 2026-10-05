@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import Button from '../ui/Button.astro';
+import portrait from '../../assets/images/YoTumbo.webp';
+import { localizedPath, t } from '../../i18n/utils';
+import type { Lang } from '../../i18n/routes';
+import type { UIKey } from '../../i18n/ui';
+
+export interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const paragraphKeys: UIKey[] = ['about.p1', 'about.p2', 'about.p3', 'about.p4'];
+---
+
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+	<div class="grid items-start gap-10 sm:grid-cols-[14rem_1fr] sm:gap-12 lg:grid-cols-[18rem_1fr] lg:gap-16">
+		<div class="mx-auto w-full max-w-44 sm:max-w-none">
+			<div class="relative">
+				<div
+					class="absolute inset-0 translate-x-3 translate-y-3 rounded-base bg-mustard-soft sm:translate-x-4 sm:translate-y-4"
+					aria-hidden="true"
+				>
+				</div>
+				<Image
+					src={portrait}
+					alt={t(lang, 'about.photoAlt')}
+					widths={[176, 224, 288, 448, 576]}
+					sizes="(min-width: 1024px) 288px, (min-width: 640px) 224px, 176px"
+					loading="eager"
+					class="relative aspect-4/5 w-full rounded-base object-cover object-top"
+				/>
+			</div>
+		</div>
+
+		<div>
+			<h1 class="font-display text-4xl text-text-heading sm:text-5xl">{t(lang, 'about.title')}</h1>
+			<div class="mt-8 max-w-prose space-y-5 font-sans text-base leading-relaxed text-text sm:text-lg">
+				{paragraphKeys.map((key) => <p>{t(lang, key)}</p>)}
+			</div>
+			<div class="mt-10">
+				<Button href={localizedPath('contact', lang)}>{t(lang, 'about.cta')}</Button>
+			</div>
+		</div>
+	</div>
+</section>

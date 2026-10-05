@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import { absoluteUrl, localizedPath, t } from '../i18n/utils';
+import { LOCALES, routes, type Lang } from '../i18n/routes';
+
+export function getStaticPaths() {
+	return LOCALES.map((lang) => ({
+		params: { servicesPath: routes.services[lang].replace(/^\/|\/$/g, '') },
+		props: { lang },
+	}));
+}
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const breadcrumbs = [
+	{ name: t(lang, 'nav.home'), url: absoluteUrl(localizedPath('home', lang)) },
+	{ name: t(lang, 'nav.services'), url: absoluteUrl(localizedPath('services', lang)) },
+];
+---
+
+<BaseLayout
+	title={t(lang, 'services.seo.title')}
+	description={t(lang, 'services.seo.description')}
+	routeKey="services"
+	lang={lang}
+	breadcrumbs={breadcrumbs}
+>
+	<ServicesGrid lang={lang} variant="index" />
+</BaseLayout>

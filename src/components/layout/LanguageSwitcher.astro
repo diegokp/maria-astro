@@ -27,7 +27,7 @@ const panelId = `lang-menu-panel-${uid}`;
 		data-lang-toggle
 		aria-expanded="false"
 		aria-controls={panelId}
-		class="flex items-center gap-2 rounded-base px-2 py-1.5 text-text hover:text-accent"
+		class="flex items-center gap-2 rounded-base px-2 py-1.5 text-text transition-colors hover:bg-hover"
 	>
 		<Icon name={flagByLocale[lang]} class="h-4 w-6 rounded-sm" aria-hidden="true" />
 		<span>{t(lang, `langSwitcher.${lang}`)}</span>
@@ -57,7 +57,7 @@ const panelId = `lang-menu-panel-${uid}`;
 					<a
 						href={localizedPath(routeKey, locale)}
 						aria-current={locale === lang ? 'page' : undefined}
-						class="flex items-center gap-2 rounded-base px-2 py-1.5 text-text-soft hover:bg-surface-alt hover:text-accent aria-[current=page]:text-accent"
+						class="flex items-center gap-2 rounded-base px-2 py-1.5 text-text-soft transition-colors hover:bg-hover hover:text-text aria-[current=page]:bg-hover aria-[current=page]:text-text"
 					>
 						<Icon name={flagByLocale[locale]} class="h-4 w-6 rounded-sm" aria-hidden="true" />
 						{t(lang, `langSwitcher.${locale}`)}

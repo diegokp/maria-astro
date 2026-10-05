@@ -8,6 +8,7 @@
 	--color-mint: #d2eaea;
 	--color-ink: #525252;
 	--color-ink-soft: rgba(58, 58, 58, 0.66);
+	--color-heading: #606060;
 	--color-coral: #e47869;
 	--color-sage: #7a8c38;
 	--color-line: rgba(58, 58, 58, 0.15);
@@ -18,7 +19,11 @@
 	--color-surface-alt: var(--color-mint);
 	--color-text: var(--color-ink);
 	--color-text-soft: var(--color-ink-soft);
+	--color-text-heading: var(--color-heading);
 	--color-accent: var(--color-coral);
+	/* Resaltado al pasar el ratón: siempre como fondo (menta sobre texto ink),
+	   nunca como color de texto — la menta no tiene contraste sobre blanco. */
+	--color-hover: var(--color-mint);
 	--color-focus: var(--color-coral);
 	--color-border: var(--color-line);
 
@@ -56,5 +61,62 @@
 			transition-duration: 0.01ms !important;
 			scroll-behavior: auto !important;
 		}
+	}
+}
+
+/* Prosa del contenido en Markdown (páginas de servicio y, en la fase 4, posts
+   del blog). @apply permitido aquí según CLAUDE.md. */
+@layer components {
+	.prose-content {
+		@apply font-sans text-base leading-relaxed text-text sm:text-lg;
+	}
+	.prose-content > * + * {
+		@apply mt-5;
+	}
+	.prose-content h2 {
+		@apply mt-14 font-display text-3xl text-text-heading sm:text-4xl;
+	}
+	.prose-content h3 {
+		@apply mt-8 font-sans text-lg font-normal text-text-heading sm:text-xl;
+	}
+	.prose-content h2 + *,
+	.prose-content h3 + * {
+		@apply mt-3;
+	}
+	.prose-content > :first-child {
+		@apply mt-0;
+	}
+	.prose-content ul {
+		@apply space-y-2 pl-6;
+		list-style: none;
+	}
+	.prose-content li {
+		@apply relative;
+	}
+	/* Viñeta: punto mostaza suave, en la línea de los detalles de la marca. */
+	.prose-content li::before {
+		@apply absolute top-[0.6em] -left-5 size-2 rounded-full bg-mustard;
+		content: '';
+	}
+	.prose-content strong {
+		@apply font-normal text-text-heading;
+	}
+	/* Tablas (p. ej. datos identificativos del aviso legal). La cabecera vacía
+	   de las tablas de dos columnas se oculta. */
+	.prose-content table {
+		@apply w-full border-collapse text-left text-base;
+	}
+	.prose-content thead:has(th:empty) {
+		@apply sr-only;
+	}
+	.prose-content th,
+	.prose-content td {
+		@apply border-b border-border py-3 pr-4 align-top;
+	}
+	.prose-content td:first-child {
+		@apply w-2/5;
+	}
+	.prose-content a {
+		@apply rounded-sm underline decoration-mustard decoration-2 underline-offset-4 transition-colors hover:bg-hover;
 	}
 }

@@ -1,3 +1,5 @@
+import type { Lang } from './i18n/routes';
+
 export const SITE = 'https://mariadimitropouloulopez.com';
 export const SITE_NAME = 'María Dimitropoulou López';
 
@@ -7,7 +9,18 @@ export const SITE_LAUNCHED = false;
 
 export const CONTACT = {
 	email: 'dimitropoulou.mar@gmail.com',
-	// TODO: dirección exacta de la consulta (Chalandri, Atenas) y teléfono.
+	// Formato E.164 para enlaces tel: y JSON-LD; `phoneDisplay` para mostrar.
+	phone: "+306940270745",
+	phoneDisplay: "+30 694 027 0745",
+	// Dirección postal oficial (en griego) de la consulta. El texto visible y
+	// traducido de la dirección está en ui.ts (`footer.address`).
+	address: {
+		streetAddress: "Λέσβου 8",
+		addressLocality: "Χαλάνδρι",
+		addressRegion: "Αττική",
+		postalCode: "152 31",
+		addressCountry: "GR",
+	},
 };
 
 export const SOCIAL = {
@@ -15,4 +28,18 @@ export const SOCIAL = {
 	instagram: 'https://www.instagram.com/mariadimitropouloulopez/',
 	linkedin:
 		'https://www.linkedin.com/in/maria-dimitropoulou-lopez-53268375/',
+};
+
+// PENDIENTE: configurar en Mailchimp las etiquetas por idioma (el/es/en) y
+// pegar aquí sus IDs. Hasta entonces, los suscriptores no se etiquetan.
+// Newsletter (Mailchimp): una etiqueta por idioma para segmentar los envíos.
+// Mailchimp necesita el ID numérico de cada etiqueta, no su nombre. Para
+// obtenerlo: Audience → Tags → crear «el», «es» y «en»; luego Audience →
+// Signup forms → Embedded forms → añadir la etiqueta y copiar el `value` del
+// <input type="hidden" name="tags" value="…"> que genera.
+// Mientras un valor sea null, ese idioma se suscribe sin etiqueta.
+export const NEWSLETTER_TAG_IDS: Record<Lang, string | null> = {
+	el: null, // TODO: ID de la etiqueta «el» en Mailchimp
+	es: null, // TODO: ID de la etiqueta «es» en Mailchimp
+	en: null, // TODO: ID de la etiqueta «en» en Mailchimp
 };

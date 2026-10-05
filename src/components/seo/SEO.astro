@@ -29,24 +29,22 @@ const personLd = personSchema
 			name: SITE_NAME,
 			jobTitle: t(lang, 'person.jobTitle'),
 			email: CONTACT.email,
+			telephone: CONTACT.phone,
 			sameAs: [SOCIAL.facebook, SOCIAL.instagram, SOCIAL.linkedin],
 		}
 	: null;
 
-// Dirección y teléfono son TODO en CLAUDE.md: se omiten hasta confirmarlos,
-// en vez de inventarlos.
 const professionalServiceLd = personSchema
 	? {
 			'@type': 'ProfessionalService' as const,
 			name: SITE_NAME,
 			url: SITE,
 			email: CONTACT.email,
+			telephone: CONTACT.phone,
 			availableLanguage: ['el', 'es', 'en'],
 			address: {
 				'@type': 'PostalAddress' as const,
-				addressLocality: 'Chalandri',
-				addressRegion: 'Attica',
-				addressCountry: 'GR',
+				...CONTACT.address,
 			},
 		}
 	: null;

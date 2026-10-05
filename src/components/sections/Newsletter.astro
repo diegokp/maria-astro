@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import MailchimpForm from '../forms/MailchimpForm.astro';
+import banner from '../../assets/images/banner-white.webp';
+import { t } from '../../i18n/utils';
+import type { Lang } from '../../i18n/routes';
+
+export interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+{/* Banda crema con el título sobre una tira de papel rasgado con cinta
+    (banner-white), y el formulario de Mailchimp centrado debajo. */}
+<section id="newsletter" class="bg-surface">
+	<div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+		<div class="relative mx-auto max-w-3xl px-12 py-4 text-center sm:px-16 sm:py-6">
+			{/* Decorativa: alt vacío. object-fill estira la tira al alto del título. */}
+			<Image
+				src={banner}
+				alt=""
+				widths={[480, 768, 1077]}
+				sizes="(min-width: 768px) 768px, 100vw"
+				class="absolute inset-0 size-full object-fill"
+			/>
+			<h3 class="relative font-display text-3xl text-text-heading sm:text-4xl">
+				{t(lang, 'newsletter.title')}
+			</h3>
+		</div>
+
+		<div class="mt-12">
+			<MailchimpForm lang={lang} />
+		</div>
+	</div>
+</section>

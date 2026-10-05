@@ -1,0 +1,53 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { absoluteUrl, localizedPath, t } from '../i18n/utils';
+import { routes } from '../i18n/routes';
+
+// Aviso legal, privacidad y cookies: una página por entrada de la colección
+// `legal` (página × idioma). La URL sale del mapa de rutas.
+export async function getStaticPaths() {
+	const pages = await getCollection('legal');
+	return pages.map((page) => ({
+		params: { legalPath: routes[page.data.legalKey][page.data.lang].replace(/^\/|\/$/g, '') },
+		props: { page },
+	}));
+}
+
+interface Props {
+	page: CollectionEntry<'legal'>;
+}
+
+const { page } = Astro.props;
+const { legalKey, lang, title, description, updatedDate } = page.data;
+const { Content } = await render(page);
+
+const dateLocale = { el: 'el-GR', es: 'es-ES', en: 'en-GB' }[lang];
+const updated = updatedDate.toLocaleDateString(dateLocale, {
+	day: 'numeric',
+	month: 'long',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
+
+const breadcrumbs = [
+	{ name: t(lang, 'nav.home'), url: absoluteUrl(localizedPath('home', lang)) },
+	{ name: title, url: absoluteUrl(localizedPath(legalKey, lang)) },
+];
+---
+
+<BaseLayout title={`${title} — María Dimitropoulou López`} description={description} routeKey={legalKey} lang={lang} breadcrumbs={breadcrumbs}>
+	<article class="mx-auto max-w-3xl px-4 pt-12 pb-20 sm:px-6 sm:pt-16">
+		<header class="border-b border-border pb-10 text-center">
+			<h1 class="font-display text-4xl text-text-heading sm:text-5xl">{title}</h1>
+			<p class="mx-auto mt-4 max-w-2xl font-sans text-lg leading-relaxed text-text-soft">{description}</p>
+			<p class="mt-4 font-mono text-xs tracking-wide text-text-soft uppercase">
+				{t(lang, 'legal.updated')}: <time datetime={updatedDate.toISOString().slice(0, 10)}>{updated}</time>
+			</p>
+		</header>
+
+		<div class="prose-content mt-12">
+			<Content />
+		</div>
+	</article>
+</BaseLayout>

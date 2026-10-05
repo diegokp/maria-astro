@@ -1,0 +1,60 @@
+---
+import { getImage } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
+import illustration from '../assets/images/maria-contact.webp';
+import { absoluteUrl, localizedPath, t } from '../i18n/utils';
+import { LOCALES, routes, type Lang } from '../i18n/routes';
+
+export function getStaticPaths() {
+	return LOCALES.map((lang) => ({
+		params: { contactPath: routes.contact[lang].replace(/^\/|\/$/g, '') },
+		props: { lang },
+	}));
+}
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+// Hoja de cuaderno como fondo del formulario (solo escritorio; ver abajo).
+const notebook = await getImage({ src: illustration, width: 1200, format: 'webp' });
+
+const breadcrumbs = [
+	{ name: t(lang, 'nav.home'), url: absoluteUrl(localizedPath('home', lang)) },
+	{ name: t(lang, 'nav.contact'), url: absoluteUrl(localizedPath('contact', lang)) },
+];
+---
+
+<BaseLayout
+	title={t(lang, 'contact.seo.title')}
+	description={t(lang, 'contact.seo.description')}
+	routeKey="contact"
+	lang={lang}
+	breadcrumbs={breadcrumbs}
+>
+	{/* 2 columnas en escritorio: texto | formulario, alineados arriba (el H1 arranca a la altura del borde superior de la hoja). En móvil se apilan. */}
+	<section
+		class="mx-auto grid max-w-6xl items-start gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-16"
+	>
+		<div class="text-center lg:text-left">
+			<h1 class="font-display text-4xl text-text-heading sm:text-5xl">{t(lang, 'contact.title')}</h1>
+			<p class="mx-auto mt-5 max-w-xl font-sans text-lg leading-relaxed text-text-soft lg:mx-0">
+				{t(lang, 'contact.intro')}
+			</p>
+		</div>
+
+		{/* Fondo: crema en móvil/tablet; desde lg, la hoja de cuaderno. En pantallas
+		    estrechas la hoja se deformaría (el formulario es mucho más alto que
+		    ancho). Los paddings en lg dejan libres la espiral y el margen rojo
+		    (izquierda, ~18 % del ancho) y el avión de papel (arriba a la derecha). */}
+		<div
+			style={`--notebook: url(${notebook.src})`}
+			class="rounded-base bg-surface p-6 sm:p-8 lg:rounded-none lg:bg-transparent lg:bg-(image:--notebook) lg:bg-[length:100%_100%] lg:bg-no-repeat lg:pt-36 lg:pr-[9%] lg:pb-14 lg:pl-[22%]"
+		>
+			<ContactForm lang={lang} />
+		</div>
+	</section>
+</BaseLayout>

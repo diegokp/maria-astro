@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AboutBio from '../components/sections/AboutBio.astro';
+import { absoluteUrl, localizedPath, t } from '../i18n/utils';
+import { LOCALES, routes, type Lang } from '../i18n/routes';
+
+export function getStaticPaths() {
+	return LOCALES.map((lang) => ({
+		params: { aboutPath: routes.about[lang].replace(/^\/|\/$/g, '') },
+		props: { lang },
+	}));
+}
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const breadcrumbs = [
+	{ name: t(lang, 'nav.home'), url: absoluteUrl(localizedPath('home', lang)) },
+	{ name: t(lang, 'about.title'), url: absoluteUrl(localizedPath('about', lang)) },
+];
+---
+
+<BaseLayout
+	title={t(lang, 'about.seo.title')}
+	description={t(lang, 'about.seo.description')}
+	routeKey="about"
+	lang={lang}
+	personSchema
+	breadcrumbs={breadcrumbs}
+>
+	<AboutBio lang={lang} />
+</BaseLayout>

@@ -22,6 +22,8 @@ Lee este archivo al inicio de cada sesión. Si una decisión contradice lo que h
 npm run build      # build de producción (debe pasar sin errores)
 npm run preview    # previsualizar el build
 npx astro check    # tipos y diagnósticos; ejecutar antes de cada commit
+npm run images:webp              # convierte PNG/JPG nuevos a WebP (conserva originales)
+npm run images:webp -- --delete  # convierte y borra los originales
 ```
 
 Al terminar cualquier tarea, ejecuta `npx astro check` y `npm run build`, y corrige lo que falle antes de dar la tarea por cerrada.
@@ -35,6 +37,18 @@ astro dev --background
 ```
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
+
+### Imágenes: todo en WebP
+
+- **Todas las imágenes del repo son `.webp`.** No se versionan PNG ni JPG (las fuentes SVG, como `src/icons/`, quedan fuera de esta regla).
+- La conversión se hace con **sharp**, la misma librería que Astro usa para optimizar imágenes en el build. Está declarada en `devDependencies` con la misma versión que trae Astro, para que el script no dependa de una dependencia transitiva.
+- Script: `scripts/images-to-webp.mjs` (`npm run images:webp`). Recorre `public/images/` y `src/assets/images/`, convierte cada `.png`/`.jpg`/`.jpeg` a `.webp` (calidad 85, transparencia intacta, orientación EXIF aplicada) y reduce a un máximo de 2400 px por lado sin ampliar las pequeñas. No sobrescribe un `.webp` existente.
+- Flujo al añadir una imagen nueva:
+  1. Copia el original en `src/assets/images/` (si se muestra con `<Image />`, lo habitual) o en `public/images/` (solo si debe servirse tal cual, p. ej. el logo).
+  2. `npm run images:webp -- --delete`.
+  3. Referencia el `.webp` en el código.
+  4. `npx astro check && npm run build`.
+- Las imágenes de `src/assets/` además las reoptimiza Astro en el build (tamaños responsivos vía `widths`/`sizes`); las de `public/` se sirven tal cual, así que deben convertirse antes de añadirse.
 
 ## Documentation
 
@@ -81,13 +95,17 @@ Reglas:
 |---|---|---|---|
 | `home` | `/` | `/es/` | `/en/` |
 | `services` | `/ypiresies/` | `/es/servicios/` | `/en/services/` |
-| `service.psychological` | `/ypiresies/psychologiki-ypostirixi/` | `/es/servicios/apoyo-psicologico/` | `/en/services/psychological-support/` |
-| `service.parental` | `/ypiresies/symvouleftiki-goneon/` | `/es/servicios/asesoramiento-parental/` | `/en/services/parental-guidance/` |
-| `service.mindfulness` | `/ypiresies/mindfulness/` | `/es/servicios/mindfulness/` | `/en/services/mindfulness/` |
-| `service.training` | `/ypiresies/epaggelmatiki-katartisi/` | `/es/servicios/formacion-profesional/` | `/en/services/professional-training/` |
+| `service.psychotherapy` | `/ypiresies/psychotherapeftiki-ypostirixi/` | `/es/servicios/apoyo-psicoterapeutico/` | `/en/services/psychotherapeutic-support/` |
+| `service.parental` | `/ypiresies/goneiki-oikogeneiaki-therapeia/` | `/es/servicios/terapia-parental-familiar/` | `/en/services/parental-family-therapy/` |
+| `service.matrescence` | `/ypiresies/metavasi-sti-mitrotita/` | `/es/servicios/matrescencia/` | `/en/services/matrescence/` |
+| `service.teacher-talk` | `/ypiresies/teacher-talk/` | `/es/servicios/teacher-talk/` | `/en/services/teacher-talk/` |
+| `service.abc-beyond` | `/ypiresies/abc-and-beyond/` | `/es/servicios/abc-and-beyond/` | `/en/services/abc-and-beyond/` |
+| `service.mindful-parenting` | `/ypiresies/mindful-parenting/` | `/es/servicios/mindful-parenting/` | `/en/services/mindful-parenting/` |
+| `service.talks` | `/ypiresies/seminaria-kai-omilies/` | `/es/servicios/seminarios-y-charlas/` | `/en/services/seminars-and-talks/` |
 | `about` | `/sxetika/` | `/es/sobre-mi/` | `/en/about/` |
 | `blog` | `/nea/` | `/es/blog/` | `/en/blog/` |
 | `contact` | `/epikoinonia/` | `/es/contacto/` | `/en/contact/` |
+| `legal` | `/nomiko-simeioma/` | `/es/aviso-legal/` | `/en/legal-notice/` |
 | `privacy` | `/aporrito/` | `/es/privacidad/` | `/en/privacy/` |
 | `cookies` | `/cookies/` | `/es/cookies/` | `/en/cookies/` |
 
@@ -108,10 +126,11 @@ Los slugs griegos son una propuesta; María debe validarlos antes del lanzamient
 ```
 src/
   components/
+    forms/         ContactForm (Web3Forms, textos desde ui.ts, validación accesible)
     layout/        Header, Footer, LanguageSwitcher, MobileMenu
     seo/           SEO.astro (title, description, canonical, hreflang, OG)
     ui/            Button, Card, SectionTitle… (piezas reutilizables sin lógica de negocio)
-    sections/      Hero, ServicesGrid, Testimonials, LatestPosts, Newsletter…
+    sections/      Hero, ServicesGrid, Newsletter, CallToAction (reutilizable: home, servicios, posts), Testimonials, LatestPosts…
   content/
     blog/{el,es,en}/*.md
     services/{el,es,en}/*.md
@@ -166,18 +185,36 @@ Para evitar triplicar páginas, usa rutas dinámicas con `getStaticPaths()` que 
 
 ```ts
 {
-  serviceKey: 'psychological' | 'parental' | 'mindfulness' | 'training',
+  serviceKey: 'psychotherapy' | 'parental' | 'matrescence' | 'teacher-talk'
+            | 'abc-beyond' | 'mindful-parenting' | 'talks',   // SERVICE_KEYS en routes.ts
   lang: 'el' | 'es' | 'en',
-  title: string,              // H1
+  title: string,              // H1 y título de la tarjeta
+  description: string,        // entradilla bajo el H1 («Descripción» de María)
   metaTitle: string,
-  metaDescription: string,
-  order: number,              // orden en la home y el índice
-  cta: string,
+  metaDescription: string,    // máx. 160
+  order: number,              // orden en el índice; la home muestra los 3 primeros
+  cta: string,                // texto del botón a Contacto
+  image: image(),             // ilustración decorativa de la tarjeta y la cabecera
   testimonialKey?: string
 }
 ```
 
-Cuerpo en markdown con las secciones: Qué incluye / Para quién / Cómo trabajamos / Duración y frecuencia. El copy en español está en `docs/arquitectura-contenido.md`.
+- Archivos: `src/content/services/{el,es,en}/<serviceKey>.md`. La URL **no** sale del nombre del archivo sino de `routes.ts` (`service.<serviceKey>`); una sola ruta dinámica, `src/pages/[...servicePath].astro`, genera todas las páginas de detalle. `ServicesGrid` (home e índice) también lee de la colección.
+- Cuerpo en markdown con las secciones de María: **¿Para quién es?** / **Duración y frecuencia** / **¿Qué se trabaja?** (en el/en: «Σε ποιους απευθύνεται; / Διάρκεια και συχνότητα / Σε τι δουλεύουμε;» y «Who is it for? / Duration and frequency / What do we work on?»). Si falta una sección, se omite con un comentario `<!-- TODO -->`.
+- Valores de texto del frontmatter **siempre entre comillas** (un `: ` dentro de un valor sin comillas rompe el YAML).
+- **Textos:** el español es de María y se publica tal cual (incluido su lenguaje inclusivo: «niñes», «Adult@s», «l@s niñ@s»); solo se corrigen erratas de tecleo evidentes. Durante la construcción, el/en son borradores con `# TODO: revisar traducción` en el frontmatter; María los revisa antes del lanzamiento y, una vez publicado el sitio, entregará siempre los textos ya corregidos en los tres idiomas.
+- Prosa del markdown: clase `.prose-content` en `global.css` (se reutilizará en el blog).
+
+### `legal`
+
+```ts
+{ legalKey: 'legal' | 'privacy' | 'cookies', lang, title: string, description: string, updatedDate: Date }
+```
+
+- Archivos: `src/content/legal/{el,es,en}/<legalKey>.md`; la clave legal es directamente su `routeKey`. Ruta única: `src/pages/[...legalPath].astro`.
+- **Marco legal: solo RGPD** (y Directiva 2002/58/CE para cookies). La ley nacional aplicable, la autoridad de control, la jurisdicción, el ΑΦΜ y la colegiación profesional son `TODO` para revisión por un/a abogado/a; no se inventan.
+- Los textos deben describir la web real: hoy **no usa cookies** (fuentes autoalojadas, sin analítica ni embeds) y el formulario pasa por **Web3Forms** → Gmail. Si cambia algo de esto (analítica, mapa, newsletter, hosting), actualiza Privacidad y Cookies en los tres idiomas.
+- Al editar un texto legal, actualiza `updatedDate`.
 
 ### `testimonials`
 
@@ -198,17 +235,20 @@ Tomado de la página "en construcción" (`docs/index.html`), que a su vez sigue 
 | Token | Valor | Uso |
 |---|---|---|
 | `--color-canvas` | `#FFFFFF` | fondo por defecto de toda la web |
-| `--color-cream` | `#EFEAE4` | fondo de "superficies": footer, tarjetas de servicio |
+| `--color-cream` | `#EFEAE4` | fondo de "superficies": footer |
 | `--color-mustard` | `#F8CD7E` | color de marca (logo), botones, iconos sociales |
 | `--color-mustard-soft` | `rgba(248, 205, 126, 0.35)` | fondos suaves, resaltados |
-| `--color-mint` | `#D2EAEA` | acento secundario: fondo de la sección de servicios |
+| `--color-mint` | `#D2EAEA` | acento secundario: fondo de hover y enlace activo |
 | `--color-ink` | `#525252` | texto principal |
 | `--color-ink-soft` | `rgba(58, 58, 58, 0.66)` | texto secundario |
-| `--color-coral` | `#E47869` | hover, foco, enlaces activos |
+| `--color-heading` | `#606060` | color de los títulos (`h1`/`h2`/`h3`), distinto del texto principal |
+| `--color-coral` | `#E47869` | solo foco (**nunca hover ni enlace activo**) |
 | `--color-sage` | `#7A8C38` | acento verde |
 | `--color-line` | `rgba(58, 58, 58, 0.15)` | bordes y separadores |
 
-- **Capas de fondo** (tokens semánticos en `global.css`): `--color-canvas` (blanco — `body`, header, panel del selector de idioma) · `--color-surface` (crema — footer, tarjetas) · `--color-surface-alt` (menta — sección de servicios). Header y panel del selector van en blanco para diferenciarse del resto de "superficies", que siguen en crema.
+- **Capas de fondo** (tokens semánticos en `global.css`): `--color-canvas` (blanco — `body`, header, panel del selector de idioma) · `--color-surface` (crema — footer) · `--color-surface-alt` (menta — reservado; ninguna sección lo usa ahora). Header, panel del selector y sección de servicios van en blanco; las tarjetas de servicio son transparentes (solo ilustración + texto).
+- **Títulos:** todo `h1`/`h2`/`h3` real usa el token semántico `--color-text-heading` (→ `--color-heading`, `#606060`), no `--color-text`. Enlaces de navegación y botones que comparten tono con el texto principal siguen en `--color-text` — el cambio de color afecta solo a los encabezados, no a la interacción.
+- **Hover y enlace activo** (`aria-current="page"`): el resaltado es menta, nunca coral/rojo. Se aplica como **fondo** con el token semántico `--color-hover` (→ `--color-mint`, `hover:bg-hover`) y el texto se queda en `ink`; nunca como color de texto (menta sobre blanco no tiene contraste).
 - **Contraste:** el texto blanco sobre mostaza no llega a AA. En botones mostaza usa texto `ink`. Comprueba cualquier combinación nueva.
 - Radio de borde característico: `12px` (como los iconos sociales).
 
@@ -251,7 +291,7 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
 
 ## Formularios y servicios externos
 
-- Proveedor del formulario de contacto  Web3Forms y del newsletter (**⚠️ Pendiente de decidir:**) .
+- Formulario de contacto: **Web3Forms** (`src/components/forms/ContactForm.astro`). Newsletter: **Mailchimp** (`src/components/forms/MailchimpForm.astro`, sección `sections/Newsletter.astro` en la home tras los servicios): formulario de inserción adaptado, sin JS ni recursos de Mailchimp/Intuit (se quitó la insignia), validación nativa y confirmación en pestaña nueva. No modificar el `action` ni el campo honeypot `b_…`, que identifican la lista. **Segmentación por idioma:** cada suscriptor recibe la etiqueta de Mailchimp de su idioma (`el`/`es`/`en`) mediante un campo oculto `tags`; los IDs numéricos de las etiquetas se configuran en `NEWSLETTER_TAG_IDS` (`src/consts.ts`) — ⚠️ pendientes (`TODO`): mientras sean `null`, se suscribe sin etiqueta.
 - Todo formulario lleva casilla de aceptación de la política de privacidad (enlace a `privacy` en el idioma actual) y protección antispam (honeypot).
 - No cargar scripts de terceros (analítica, mapas, vídeos embebidos) sin consentimiento de cookies. El mapa de Contacto es opcional: si se incluye, que sea una imagen estática enlazada a Google Maps, no un iframe.
 
@@ -275,7 +315,8 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
 - Facebook: https://www.facebook.com/MariaDimitropoulouPhD/
 - Instagram: https://www.instagram.com/mariadimitropouloulopez/
 - LinkedIn: https://www.linkedin.com/in/maria-dimitropoulou-lopez-53268375/
-- Consulta: Chalandri, Atenas (dirección exacta: `TODO`). Teléfono: `TODO`.
+- Teléfono: +30 694 027 0745 (`+306940270745`)
+- Consulta: Λέσβου 8, Χαλάνδρι, 152 31 Αθήνα, Ελλάδα (es/en: Lesvou 8, Chalandri, 152 31 Atenas/Athens). Fuente única en código: `CONTACT` en `src/consts.ts` (JSON-LD y enlace `tel:`); texto visible traducido en `ui.ts` (`footer.address`).
 
 ## Fases del proyecto
 
@@ -285,4 +326,4 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
 4. **Blog:** índice filtrable por categoría, post, RSS por idioma.
 5. **Pulido:** sitemap, OG, `llms.txt`, accesibilidad, Lighthouse, deploy.
 
-Estado actual: **Fase 2 — pendiente de empezar.** (Actualizar esta línea al cerrar cada fase.)
+Estado actual: **Fase 2 completada** (colección `services` con 7 servicios × 3 idiomas; esquema `blog` definido, sin posts hasta la fase 4 — el build avisa de que la colección está vacía). **Fase 3 en curso:** hechas Inicio, Servicios (índice + 7 detalles), Sobre mí y Contacto (formulario Web3Forms en `src/components/forms/ContactForm.astro`), y una página temporal «Próximamente» en Blog; y legales (Aviso legal, Privacidad, Cookies) como borradores pendientes de revisión legal. Pendiente para cerrar la fase: auditoría SEO (skill `seo-audit`) y revisión de María/abogado/a de los textos legales. (Actualizar esta línea al cerrar cada fase.)

@@ -1,0 +1,61 @@
+---
+import Button from '../ui/Button.astro';
+import { NEWSLETTER_TAG_IDS } from '../../consts';
+import { localizedPath, t } from '../../i18n/utils';
+import type { Lang } from '../../i18n/routes';
+
+export interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+// Etiqueta de Mailchimp del idioma de la página, para segmentar los envíos.
+// PENDIENTE: IDs de las etiquetas por idioma sin configurar (ver NEWSLETTER_TAG_IDS en consts.ts).
+const tagId = NEWSLETTER_TAG_IDS[lang];
+
+// Placeholders centrados como en el diseño; las etiquetas existen pero solo
+// para lectores de pantalla (sr-only).
+const inputClass =
+	'w-full rounded-base border border-border bg-canvas px-4 py-3 text-center font-sans text-text placeholder:text-text-soft hover:border-text-soft';
+---
+
+<!-- Formulario de inserción de Mailchimp, adaptado: sin JS ni recursos de
+     terceros (se quitó la insignia de Intuit/Mailchimp), textos desde ui.ts y
+     validación nativa del navegador. Al enviar, Mailchimp abre su página de
+     confirmación en una pestaña nueva. -->
+    <form action="https://mariadimitropouloulopez.us19.list-manage.com/subscribe/post?u=2b6777f876af145cfbd589d82&amp;id=8ce7aa257d&amp;f_id=006fb5e7f0" method="post" target="_blank" class="mx-auto max-w-lg space-y-4">
+        <div>
+            <label for="mce-FNAME" class="sr-only">{t(lang, 'newsletter.name')}</label>
+            <input type="text" name="FNAME" id="mce-FNAME" autocomplete="given-name" placeholder={t(lang, 'newsletter.name')} class={inputClass} />
+        </div>
+        <div>
+            <label for="mce-EMAIL" class="sr-only">{t(lang, 'newsletter.email')}</label>
+            <input type="email" name="EMAIL" id="mce-EMAIL" autocomplete="email" required placeholder={t(lang, 'newsletter.email')} class={inputClass} />
+        </div>
+    {tagId && <input type="hidden" name="tags" value={tagId} />}
+    {/* Honeypot de Mailchimp: invisible para personas. No eliminar. */}
+    <div aria-hidden="true" class="absolute left-[-5000px]">
+        <input type="text" name="b_2b6777f876af145cfbd589d82_8ce7aa257d" tabindex="-1" value="">
+    </div>
+        {/* Consentimiento: sin `name`, no se envía a Mailchimp; solo bloquea el
+            envío (validación nativa) hasta que se marca. */}
+        <div class="flex items-start justify-center gap-3 text-left">
+            <input
+                id="mce-consent"
+                type="checkbox"
+                required
+                class="mt-1 size-4 shrink-0 cursor-pointer accent-mustard"
+            />
+            <label for="mce-consent" class="cursor-pointer font-sans text-sm leading-relaxed text-text">
+                {t(lang, 'newsletter.consent')}
+                <a
+                    href={localizedPath('privacy', lang)}
+                    class="rounded-sm underline decoration-mustard decoration-2 underline-offset-4 transition-colors hover:bg-hover"
+                >
+                    {t(lang, 'contact.form.privacyLink')}
+                </a>.
+            </label>
+        </div>
+        <Button type="submit" class="w-full text-base">{t(lang, 'newsletter.submit')}</Button>
+</form>

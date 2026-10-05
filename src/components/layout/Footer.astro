@@ -31,25 +31,39 @@ const socialLinks = [
 	},
 ];
 
-const labelClass = 'font-mono text-xs uppercase tracking-wide text-text';
+const labelClass = 'font-mono text-xs uppercase tracking-wide text-text-heading';
 ---
 
 <footer class="border-t border-border bg-surface">
-	<div class="mx-auto grid max-w-6xl gap-8 px-4 py-10 font-mono text-sm sm:px-6 md:grid-cols-3">
-		<div>
-			<h2 class={labelClass}>{t(lang, 'footer.contactHeading')}</h2>
-			<ul class="mt-3 space-y-1 text-text-soft">
+	<!-- 4 columnas iguales (contacto · sígueme · legal · estrellas) alineadas
+	     arriba; 2×2 en tablet y apiladas en móvil. Texto centrado salvo en
+	     escritorio (lg), donde va a la izquierda. -->
+	<div
+		class="mx-auto grid max-w-6xl grid-cols-1 items-start justify-items-center gap-10 px-4 py-12 text-center lg:text-left font-mono text-sm sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:gap-8"
+	>
+		<div class="w-full">
+			<h3 class={labelClass}>{t(lang, 'footer.contactHeading')}</h3>
+			<ul class="mt-4 space-y-2 text-text-soft">
 				<li>
-					<a href={`mailto:${CONTACT.email}`} class="hover:text-accent">{CONTACT.email}</a>
+					<a href={`mailto:${CONTACT.email}`} class="rounded-sm px-1 lg:-mx-1 wrap-break-word transition-colors hover:bg-hover hover:text-text">{CONTACT.email}</a>
 				</li>
-				<li>{t(lang, 'footer.addressTodo')}</li>
-				<li>{t(lang, 'footer.phoneTodo')}</li>
+				<li>
+					<a
+						href={`tel:${CONTACT.phone}`}
+						class="rounded-sm px-1 transition-colors hover:bg-hover hover:text-text lg:-mx-1"
+					>
+						<span aria-hidden="true">{t(lang, 'footer.phoneLabel')} </span>{CONTACT.phoneDisplay}
+					</a>
+				</li>
+				<li>
+					<address class="not-italic">{t(lang, 'footer.address')}</address>
+				</li>
 			</ul>
 		</div>
 
-		<div>
-			<h2 class={labelClass}>{t(lang, 'footer.followHeading')}</h2>
-			<ul class="mt-3 flex gap-3">
+		<div class="w-full">
+			<h3 class={labelClass}>{t(lang, 'footer.followHeading')}</h3>
+			<ul class="mt-4 flex justify-center gap-3 lg:justify-start">
 				{
 					socialLinks.map((social) => (
 						<li>
@@ -76,20 +90,37 @@ const labelClass = 'font-mono text-xs uppercase tracking-wide text-text';
 			</ul>
 		</div>
 
-		<div>
-			<h2 class={labelClass}>{t(lang, 'footer.legalHeading')}</h2>
-			<ul class="mt-3 space-y-1 text-text-soft">
+		<div class="w-full">
+			<h3 class={labelClass}>{t(lang, 'footer.legalHeading')}</h3>
+			<ul class="mt-4 space-y-2 text-text-soft">
 				<li>
-					<a href={localizedPath('privacy', lang)} class="hover:text-accent">
+					<a href={localizedPath('legal', lang)} class="rounded-sm px-1 lg:-mx-1 transition-colors hover:bg-hover hover:text-text">
+						{t(lang, 'footer.legalNotice')}
+					</a>
+				</li>
+				<li>
+					<a href={localizedPath('privacy', lang)} class="rounded-sm px-1 lg:-mx-1 transition-colors hover:bg-hover hover:text-text">
 						{t(lang, 'footer.privacy')}
 					</a>
 				</li>
 				<li>
-					<a href={localizedPath('cookies', lang)} class="hover:text-accent">
+					<a href={localizedPath('cookies', lang)} class="rounded-sm px-1 lg:-mx-1 transition-colors hover:bg-hover hover:text-text">
 						{t(lang, 'footer.cookies')}
 					</a>
 				</li>
 			</ul>
+		</div>
+
+		<div class="flex w-full justify-center">
+			<!-- Decorativa: alt vacío. Mismo tamaño que el logo del header. -->
+			<img
+				src="/images/stars-psychologos-online.webp"
+				alt=""
+				class="h-24 w-24 sm:h-30.5 sm:w-30.5"
+				width="300"
+				height="300"
+				loading="lazy"
+			/>
 		</div>
 	</div>
 

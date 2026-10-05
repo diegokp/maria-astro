@@ -16,7 +16,7 @@ const { lang, routeKey } = Astro.props;
 	id="mobile-menu-toggle"
 	aria-expanded="false"
 	aria-controls="mobile-menu-panel"
-	class="rounded-base border border-border p-2.5 text-text hover:text-accent md:hidden"
+	class="rounded-base border border-border p-2.5 text-text transition-colors hover:bg-hover md:hidden"
 >
 	<span class="sr-only" data-label-open={t(lang, 'nav.mobileMenu.open')} data-label-close={t(lang, 'nav.mobileMenu.close')}>
 		{t(lang, 'nav.mobileMenu.open')}
