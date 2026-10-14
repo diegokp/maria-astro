@@ -5,12 +5,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/ui/Button.astro';
 import CallToAction from '../components/sections/CallToAction.astro';
 import { absoluteUrl, localizedPath, t } from '../i18n/utils';
-import { routes, serviceRouteKey } from '../i18n/routes';
+import { routes, serviceGroupOf, serviceRouteKey } from '../i18n/routes';
 
 // Una página por entrada de la colección `services` (servicio × idioma).
-// La URL sale del mapa de rutas, no del nombre del archivo.
+// La URL sale del mapa de rutas, no del nombre del archivo. Los servicios sin
+// grupo (`talks`, aparcado) no generan página.
 export async function getStaticPaths() {
-	const services = await getCollection('services');
+	const services = await getCollection(
+		'services',
+		({ data }) => serviceGroupOf(data.serviceKey) !== undefined,
+	);
 	return services.map((service) => ({
 		params: {
 			servicePath: routes[serviceRouteKey(service.data.serviceKey)][service.data.lang].replace(
@@ -30,11 +34,13 @@ const { service } = Astro.props;
 const { lang, serviceKey, title, description, metaTitle, metaDescription, cta, image } =
 	service.data;
 const routeKey = serviceRouteKey(serviceKey);
+// getStaticPaths ya descarta los servicios sin grupo.
+const group = serviceGroupOf(serviceKey)!;
 const { Content } = await render(service);
 
 const breadcrumbs = [
 	{ name: t(lang, 'nav.home'), url: absoluteUrl(localizedPath('home', lang)) },
-	{ name: t(lang, 'nav.services'), url: absoluteUrl(localizedPath('services', lang)) },
+	{ name: t(lang, `nav.${group}`), url: absoluteUrl(localizedPath(group, lang)) },
 	{ name: title, url: absoluteUrl(localizedPath(routeKey, lang)) },
 ];
 ---
@@ -60,10 +66,10 @@ const breadcrumbs = [
 			</div>
 			<div class="text-center sm:text-left">
 				<a
-					href={localizedPath('services', lang)}
+					href={localizedPath(group, lang)}
 					class="-mx-1 rounded-sm px-1 font-mono text-xs tracking-wide text-text-heading uppercase transition-colors hover:bg-hover"
 				>
-					{t(lang, 'nav.services')}
+					{t(lang, `nav.${group}`)}
 				</a>
 				<h1 class="mt-3 font-display text-4xl text-text-heading sm:text-5xl">{title}</h1>
 				<p class="mt-5 max-w-2xl font-sans text-lg leading-relaxed text-text-soft">{description}</p>
@@ -80,8 +86,8 @@ const breadcrumbs = [
 
 	<CallToAction lang={lang} button={cta} />
 	<div class="-mt-6 pb-20 text-center">
-		<Button variant="outline" href={localizedPath('services', lang)}>
-			{t(lang, 'home.services.cta')}
+		<Button variant="outline" href={localizedPath(group, lang)}>
+			{t(lang, `${group}.cta`)}
 		</Button>
 	</div>
 </BaseLayout>

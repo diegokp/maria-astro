@@ -5,7 +5,9 @@ const el = {
 	'a11y.skipToContent': 'Ir al contenido',
 	'nav.ariaLabel': 'Navegación principal',
 	'nav.home': 'Αρχική',
-	'nav.services': 'Υπηρεσίες',
+	// TODO: revisar traducción — «Συνεδρίες»/«Προγράμματα» son una propuesta.
+	'nav.sessions': 'Συνεδρίες',
+	'nav.courses': 'Προγράμματα',
 	'nav.about': 'Σχετικά',
 	'nav.blog': 'Νέα',
 	'nav.contact': 'Επικοινωνία',
@@ -25,9 +27,15 @@ const el = {
 	'home.hero.cta': 'Κλείστε ραντεβού',
 	'home.intro.text':
 		'Είμαι η Μαρία Δημητροπούλου Λόπεζ, ψυχολόγος και διδάκτωρ Γνωστικής Νευροεπιστήμης. Προσφέρω εξειδικευμένη ψυχολογική υποστήριξη και εργαλεία Mindfulness και γονεϊκότητας με σεβασμό, για να σας καθοδηγήσω στον δρόμο της αυτοσυμπόνιας, της συνειδητής γονεϊκότητας και της κοινής γονεϊκής ευθύνης. Έναν συμπονετικό χώρο, απαλλαγμένο από κρίσεις, για να μειώσετε τη νοητική σας επιβάρυνση, να φροντίσετε τη συναισθηματική σας ευεξία και να μεγαλώσετε τα παιδιά σας μέσα από την παρουσία και τον αμοιβαίο σεβασμό.',
-	'home.services.heading':
-		'Υπηρεσίες ψυχολογικής υποστήριξης για παιδιά, ενηλίκους και οικογένειες',
-	'home.services.cta': 'Όλες οι υπηρεσίες μου',
+	'home.intro.imageAlt': 'Η Μαρία Δημητροπούλου Λόπεζ χαμογελά με σταυρωμένα τα χέρια, φορώντας ριγέ πουκάμισο.',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'sessions.heading':
+		'Συνεδρίες ψυχολογικής υποστήριξης για παιδιά, ενήλικες και οικογένειες',
+	'sessions.cta': 'Όλες οι συνεδρίες μου',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'courses.heading':
+		'Εκπαιδευτικά προγράμματα για γονείς και επαγγελματίες',
+	'courses.cta': 'Όλα τα προγράμματά μου',
 	'cta.heading': 'Να κάνουμε μαζί το πρώτο βήμα;',
 	'cta.text':
 		'Πείτε μου τι χρειάζεστε εσείς ή η οικογένειά σας. Θα σας απαντήσω προσωπικά για να βρούμε μαζί τη συνοδεία, τη θεραπεία ή το σεμινάριο που σας ταιριάζει, online ή στο Χαλάνδρι.',
@@ -81,9 +89,12 @@ const el = {
 	'contact.form.success': 'Ευχαριστώ! Το μήνυμά σας στάλθηκε. Θα σας απαντήσω σύντομα.',
 	'contact.form.error': 'Το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά ή γράψτε μου στο email.',
 
-	'services.seo.title': 'Υπηρεσίες — Μαρία Δημητροπούλου Λόπεζ',
-	'services.seo.description':
-		'Ψυχοθεραπευτική υποστήριξη, γονεϊκή θεραπεία, μητρότητα, Mindful Parenting, σεμινάρια Hanen και ομιλίες για παιδιά, ενήλικες και οικογένειες.',
+	'sessions.seo.title': 'Συνεδρίες — Μαρία Δημητροπούλου Λόπεζ',
+	'sessions.seo.description':
+		'Ψυχοθεραπευτική υποστήριξη, γονεϊκή και οικογενειακή θεραπεία και μετάβαση στη μητρότητα για παιδιά, ενήλικες και οικογένειες.',
+	'courses.seo.title': 'Προγράμματα — Μαρία Δημητροπούλου Λόπεζ',
+	'courses.seo.description':
+		'Εκπαιδευτικά προγράμματα Teacher Talk, ABC and Beyond (Hanen) και Mindful Parenting για γονείς και επαγγελματίες της παιδικής ηλικίας.',
 
 
 	'person.jobTitle': 'Ψυχολόγος',
@@ -105,7 +116,8 @@ const es: Record<UIKey, string> = {
 	'a11y.skipToContent': 'Ir al contenido',
 	'nav.ariaLabel': 'Navegación principal',
 	'nav.home': 'Inicio',
-	'nav.services': 'Servicios',
+	'nav.sessions': 'Sesiones',
+	'nav.courses': 'Cursos',
 	'nav.about': 'Sobre mí',
 	'nav.blog': 'Blog',
 	'nav.contact': 'Contacto',
@@ -125,9 +137,13 @@ const es: Record<UIKey, string> = {
 	'home.hero.cta': 'Pide cita',
 	'home.intro.text':
 		'Soy María Dimitropoulou López, psicóloga y doctora en neurociencia de la cognición. Ofrezco apoyo psicológico especializado y herramientas de Mindfulness y parentalidad respetuosa para guiaros en el camino de la autocompasión, la parentalidad consciente y la corresponsabilidad parental. Un espacio compasivo y libre de juicios para reducir la carga mental, sanar tu bienestar emocional y educar a tus hijos desde la presencia y el respeto mutuo.',
-	'home.services.heading':
-		'Servicios de apoyo psicológico para niños, adultos y familias',
-	'home.services.cta': 'Todos mis servicios',
+	'home.intro.imageAlt': 'María Dimitropoulou López sonríe con los brazos cruzados, vestida con una camisa de rayas.',
+	'sessions.heading':
+		'Sesiones de apoyo psicológico para niños, adultos y familias',
+	'sessions.cta': 'Todas mis sesiones',
+	'courses.heading':
+		'Cursos de formación para padres y profesionales',
+	'courses.cta': 'Todos mis cursos',
 	'cta.heading': '¿Damos juntos el primer paso?',
 	'cta.text':
 		'Cuéntame qué necesitas tú o tu familia. Te responderé personalmente para encontrar juntos el acompañamiento, la terapia o el curso que mejor encaje contigo, online o en Chalandri.',
@@ -172,17 +188,20 @@ const es: Record<UIKey, string> = {
 	'contact.form.message': 'Mensaje',
 	'contact.form.required': 'Este campo es obligatorio.',
 	'contact.form.invalidEmail': 'Introduce un email válido.',
-	'contact.form.privacyBefore': 'He leído y acepto la ',
-	'contact.form.privacyLink': 'política de privacidad',
+	'contact.form.privacyBefore': 'He leído y acepto la',
+	'contact.form.privacyLink': ' política de privacidad',
 	'contact.form.privacyRequired': 'Debes aceptar la política de privacidad.',
 	'contact.form.submit': 'Enviar mensaje',
 	'contact.form.sending': 'Enviando…',
 	'contact.form.success': '¡Gracias! Tu mensaje se ha enviado. Te responderé lo antes posible.',
 	'contact.form.error': 'No se ha podido enviar el mensaje. Inténtalo de nuevo o escríbeme por email.',
 
-	'services.seo.title': 'Servicios — María Dimitropoulou López',
-	'services.seo.description':
-		'Apoyo psicoterapéutico, terapia parental, matrescencia, Mindful Parenting, cursos Hanen y charlas para niños, adultos, familias y profesionales.',
+	'sessions.seo.title': 'Sesiones — María Dimitropoulou López',
+	'sessions.seo.description':
+		'Apoyo psicoterapéutico, terapia parental y familiar y matrescencia para niños, adultos y familias.',
+	'courses.seo.title': 'Cursos — María Dimitropoulou López',
+	'courses.seo.description':
+		'Cursos Teacher Talk, ABC and Beyond (Hanen) y Mindful Parenting para padres y profesionales de primera infancia.',
 
 
 	'person.jobTitle': 'Psicóloga',
@@ -202,7 +221,8 @@ const en: Record<UIKey, string> = {
 	'a11y.skipToContent': 'Skip to content',
 	'nav.ariaLabel': 'Main navigation',
 	'nav.home': 'Home',
-	'nav.services': 'Services',
+	'nav.sessions': 'Sessions',
+	'nav.courses': 'Courses',
 	'nav.about': 'About',
 	'nav.blog': 'Blog',
 	'nav.contact': 'Contact',
@@ -222,9 +242,14 @@ const en: Record<UIKey, string> = {
 	'home.hero.cta': 'Book a session',
 	'home.intro.text':
 		"I'm María Dimitropoulou López, psychologist and PhD in Cognitive Neuroscience. I offer specialized psychological support and Mindfulness and respectful-parenting tools to guide you on the path of self-compassion, conscious parenting and shared parental responsibility. A compassionate, judgment-free space to reduce your mental load, tend to your emotional well-being, and raise your children from a place of presence and mutual respect.",
-	'home.services.heading':
-		'Psychological support services for children, adults and families',
-	'home.services.cta': 'All my services',
+	'home.intro.imageAlt': 'María Dimitropoulou López smiling with her arms crossed, wearing a striped shirt.',
+	'sessions.heading':
+		'Psychological support sessions for children, adults and families',
+	'sessions.cta': 'All my sessions',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'courses.heading':
+		'Training courses for parents and professionals',
+	'courses.cta': 'All my courses',
 	'cta.heading': 'Shall we take the first step together?',
 	'cta.text':
 		"Tell me what you or your family need. I'll reply personally so we can find the support, therapy or course that suits you best, online or in Chalandri.",
@@ -271,17 +296,20 @@ const en: Record<UIKey, string> = {
 	'contact.form.message': 'Message',
 	'contact.form.required': 'This field is required.',
 	'contact.form.invalidEmail': 'Please enter a valid email.',
-	'contact.form.privacyBefore': 'I have read and accept the ',
-	'contact.form.privacyLink': 'privacy policy',
+	'contact.form.privacyBefore': 'I have read and accept the',
+	'contact.form.privacyLink': ' privacy policy',
 	'contact.form.privacyRequired': 'You must accept the privacy policy.',
 	'contact.form.submit': 'Send message',
 	'contact.form.sending': 'Sending…',
 	'contact.form.success': 'Thank you! Your message has been sent. I will reply as soon as possible.',
 	'contact.form.error': 'Your message could not be sent. Please try again or email me.',
 
-	'services.seo.title': 'Services — María Dimitropoulou López',
-	'services.seo.description':
-		'Psychotherapeutic support, parental therapy, matrescence, Mindful Parenting, Hanen courses and talks for children, adults, families and professionals.',
+	'sessions.seo.title': 'Sessions — María Dimitropoulou López',
+	'sessions.seo.description':
+		'Psychotherapeutic support, parental and family therapy and matrescence for children, adults and families.',
+	'courses.seo.title': 'Courses — María Dimitropoulou López',
+	'courses.seo.description':
+		'Teacher Talk, ABC and Beyond (Hanen) and Mindful Parenting courses for parents and early childhood professionals.',
 
 
 	'person.jobTitle': 'Psychologist',

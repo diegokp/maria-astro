@@ -3,30 +3,40 @@ import { getCollection } from 'astro:content';
 import Button from '../ui/Button.astro';
 import Card from '../ui/Card.astro';
 import { localizedPath, t } from '../../i18n/utils';
-import { serviceRouteKey, type Lang } from '../../i18n/routes';
+import {
+	SERVICE_GROUPS,
+	serviceRouteKey,
+	type Lang,
+	type ServiceGroup,
+	type ServiceKey,
+} from '../../i18n/routes';
 
 export interface Props {
 	lang: Lang;
+	/** Grupo de servicios a listar: «Sesiones» (por defecto) o «Cursos». */
+	group?: ServiceGroup;
 	/**
-	 * `home`: los 3 primeros servicios (por `order`) + botón al índice.
-	 * `index`: página /servicios/ — todos, título como h1 y sin botón.
+	 * `home`: el grupo en la home (título h3, solo ilustración + título) + botón al índice.
+	 * `index`: página índice del grupo — título como h1, descripción corta en cada tarjeta y sin botón.
 	 */
 	variant?: 'home' | 'index';
 }
 
-const { lang, variant = 'home' } = Astro.props;
+const { lang, group = 'sessions', variant = 'home' } = Astro.props;
 const isIndex = variant === 'index';
-const HOME_LIMIT = 3;
 const Heading = isIndex ? 'h1' : 'h3';
 
-const services = (await getCollection('services', ({ data }) => data.lang === lang)).sort(
-	(a, b) => a.data.order - b.data.order,
-);
-const shown = isIndex ? services : services.slice(0, HOME_LIMIT);
+const groupKeys: readonly ServiceKey[] = SERVICE_GROUPS[group];
+const shown = (
+	await getCollection(
+		'services',
+		({ data }) => data.lang === lang && groupKeys.includes(data.serviceKey),
+	)
+).sort((a, b) => a.data.order - b.data.order);
 ---
 
-{/* Home: título h3 + 3 tarjetas + botón «todos mis servicios».
-    Índice /servicios/: título h1 + todas las tarjetas, sin botón. */}
+{/* Home: título h3 + tarjetas del grupo + botón «todas mis sesiones».
+    Índice del grupo: título h1 + tarjetas con descripción corta, sin botón. */}
 <section id="services" class="bg-canvas">
 	<div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
 		<Heading
@@ -35,10 +45,10 @@ const shown = isIndex ? services : services.slice(0, HOME_LIMIT);
 				isIndex ? 'text-4xl sm:text-5xl' : 'text-3xl sm:text-4xl',
 			]}
 		>
-			{t(lang, 'home.services.heading')}
+			{t(lang, `${group}.heading`)}
 		</Heading>
 		{/* Flex centrado: con un número de tarjetas que no llena la última fila
-		    (p. ej. 7 = 3 + 3 + 1), la fila incompleta queda centrada. */}
+		    (p. ej. 4 = 3 + 1), la fila incompleta queda centrada. */}
 		<ul class="mt-10 flex flex-wrap justify-center gap-6">
 			{
 				shown.map((service) => (
@@ -47,6 +57,7 @@ const shown = isIndex ? services : services.slice(0, HOME_LIMIT);
 							title={service.data.title}
 							titleAs={isIndex ? 'h2' : 'h3'}
 							href={localizedPath(serviceRouteKey(service.data.serviceKey), lang)}
+							description={isIndex ? service.data.description : undefined}
 							image={service.data.image}
 						/>
 					</li>
@@ -56,7 +67,7 @@ const shown = isIndex ? services : services.slice(0, HOME_LIMIT);
 		{
 			!isIndex && (
 				<div class="mt-10 text-center">
-					<Button href={localizedPath('services', lang)}>{t(lang, 'home.services.cta')}</Button>
+					<Button href={localizedPath(group, lang)}>{t(lang, `${group}.cta`)}</Button>
 				</div>
 			)
 		}

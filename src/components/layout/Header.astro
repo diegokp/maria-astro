@@ -13,7 +13,8 @@ const { lang, routeKey } = Astro.props;
 
 const navItems: { routeKey: RouteKey; label: string }[] = [
 	{ routeKey: 'home', label: t(lang, 'nav.home') },
-	{ routeKey: 'services', label: t(lang, 'nav.services') },
+	{ routeKey: 'sessions', label: t(lang, 'nav.sessions') },
+	{ routeKey: 'courses', label: t(lang, 'nav.courses') },
 	{ routeKey: 'about', label: t(lang, 'nav.about') },
 	{ routeKey: 'blog', label: t(lang, 'nav.blog') },
 	{ routeKey: 'contact', label: t(lang, 'nav.contact') },
@@ -32,7 +33,7 @@ const navItems: { routeKey: RouteKey; label: string }[] = [
 			/>
 		</a>
 
-		<nav aria-label={t(lang, 'nav.ariaLabel')} class="hidden md:block">
+		<nav aria-label={t(lang, 'nav.ariaLabel')} class="hidden lg:block">
 			<ul class="flex gap-8 font-sans text-base">
 				{
 					navItems.map((item) => (
@@ -51,7 +52,7 @@ const navItems: { routeKey: RouteKey; label: string }[] = [
 		</nav>
 
 		<div class="flex items-center gap-4">
-			<div class="hidden md:block">
+			<div class="hidden lg:block">
 				<LanguageSwitcher lang={lang} routeKey={routeKey} />
 			</div>
 			<MobileMenu lang={lang} routeKey={routeKey}>

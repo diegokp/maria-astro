@@ -94,14 +94,19 @@ Reglas:
 | Clave (`routeKey`) | el | es | en |
 |---|---|---|---|
 | `home` | `/` | `/es/` | `/en/` |
-| `services` | `/ypiresies/` | `/es/servicios/` | `/en/services/` |
-| `service.psychotherapy` | `/ypiresies/psychotherapeftiki-ypostirixi/` | `/es/servicios/apoyo-psicoterapeutico/` | `/en/services/psychotherapeutic-support/` |
-| `service.parental` | `/ypiresies/goneiki-oikogeneiaki-therapeia/` | `/es/servicios/terapia-parental-familiar/` | `/en/services/parental-family-therapy/` |
-| `service.matrescence` | `/ypiresies/metavasi-sti-mitrotita/` | `/es/servicios/matrescencia/` | `/en/services/matrescence/` |
-| `service.teacher-talk` | `/ypiresies/teacher-talk/` | `/es/servicios/teacher-talk/` | `/en/services/teacher-talk/` |
-| `service.abc-beyond` | `/ypiresies/abc-and-beyond/` | `/es/servicios/abc-and-beyond/` | `/en/services/abc-and-beyond/` |
-| `service.mindful-parenting` | `/ypiresies/mindful-parenting/` | `/es/servicios/mindful-parenting/` | `/en/services/mindful-parenting/` |
-| `service.talks` | `/ypiresies/seminaria-kai-omilies/` | `/es/servicios/seminarios-y-charlas/` | `/en/services/seminars-and-talks/` |
+| `sessions` | `/synedries/` | `/es/sesiones/` | `/en/sessions/` |
+| `service.psychotherapy` | `/synedries/psychotherapeftiki-ypostirixi/` | `/es/sesiones/apoyo-psicoterapeutico/` | `/en/sessions/psychotherapeutic-support/` |
+| `service.parental` | `/synedries/goneiki-oikogeneiaki-therapeia/` | `/es/sesiones/terapia-parental-familiar/` | `/en/sessions/parental-family-therapy/` |
+| `service.matrescence` | `/synedries/metavasi-sti-mitrotita/` | `/es/sesiones/matrescencia/` | `/en/sessions/matrescence/` |
+| `courses` | `/programmata/` | `/es/cursos/` | `/en/courses/` |
+| `service.teacher-talk` | `/programmata/teacher-talk/` | `/es/cursos/teacher-talk/` | `/en/courses/teacher-talk/` |
+| `service.abc-beyond` | `/programmata/abc-and-beyond/` | `/es/cursos/abc-and-beyond/` | `/en/courses/abc-and-beyond/` |
+| `service.mindful-parenting` | `/programmata/mindful-parenting/` | `/es/cursos/mindful-parenting/` | `/en/courses/mindful-parenting/` |
+| `service.talks` (aparcado: sin página) | `/ypiresies/seminaria-kai-omilies/` | `/es/servicios/seminarios-y-charlas/` | `/en/services/seminars-and-talks/` |
+
+- **Sesiones y Cursos:** `SERVICE_GROUPS` en `routes.ts` reparte los servicios en dos índices: `sessions` (`psychotherapy`, `parental`, `matrescence`) y `courses` (`teacher-talk`, `abc-beyond`, `mindful-parenting`). El grupo se deriva de `serviceKey`, no del frontmatter.
+- **`talks` (Seminarios y charlas) está aparcado:** sigue en `SERVICE_KEYS` y en la colección, pero sin grupo no se genera su página ni aparece en listados ni en la nav. Su ruta es provisional hasta decidir dónde se reubica (otra página o la home). En el índice de cada grupo, las tarjetas muestran la `description` del servicio.
+- Cabecera: con 6 ítems en la nav, el menú de escritorio aparece desde `lg` (1024 px); por debajo, menú móvil.
 | `about` | `/sxetika/` | `/es/sobre-mi/` | `/en/about/` |
 | `blog` | `/nea/` | `/es/blog/` | `/en/blog/` |
 | `contact` | `/epikoinonia/` | `/es/contacto/` | `/en/contact/` |
@@ -199,7 +204,7 @@ Para evitar triplicar páginas, usa rutas dinámicas con `getStaticPaths()` que 
 }
 ```
 
-- Archivos: `src/content/services/{el,es,en}/<serviceKey>.md`. La URL **no** sale del nombre del archivo sino de `routes.ts` (`service.<serviceKey>`); una sola ruta dinámica, `src/pages/[...servicePath].astro`, genera todas las páginas de detalle. `ServicesGrid` (home e índice) también lee de la colección.
+- Archivos: `src/content/services/{el,es,en}/<serviceKey>.md`. La URL **no** sale del nombre del archivo sino de `routes.ts` (`service.<serviceKey>`); una sola ruta dinámica, `src/pages/[...servicePath].astro`, genera todas las páginas de detalle (omite los servicios sin grupo). Los índices «Sesiones» y «Cursos» los genera `src/pages/[...servicesPath].astro` (grupo × idioma). `ServicesGrid` (home e índices) también lee de la colección, filtrada por grupo.
 - Cuerpo en markdown con las secciones de María: **¿Para quién es?** / **Duración y frecuencia** / **¿Qué se trabaja?** (en el/en: «Σε ποιους απευθύνεται; / Διάρκεια και συχνότητα / Σε τι δουλεύουμε;» y «Who is it for? / Duration and frequency / What do we work on?»). Si falta una sección, se omite con un comentario `<!-- TODO -->`.
 - Valores de texto del frontmatter **siempre entre comillas** (un `: ` dentro de un valor sin comillas rompe el YAML).
 - **Textos:** el español es de María y se publica tal cual (incluido su lenguaje inclusivo: «niñes», «Adult@s», «l@s niñ@s»); solo se corrigen erratas de tecleo evidentes. Durante la construcción, el/en son borradores con `# TODO: revisar traducción` en el frontmatter; María los revisa antes del lanzamiento y, una vez publicado el sitio, entregará siempre los textos ya corregidos en los tres idiomas.
@@ -289,6 +294,13 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
   · Sin datos inventados: dirección, teléfono u horarios en `TODO` se omiten del JSON-LD hasta confirmarlos.
 - **Mientras el sitio no esté lanzado, los despliegues de preview llevan `noindex`.** La página "en construcción" sigue en producción hasta el lanzamiento.
 
+## Despliegue
+
+- **Producción: servidor de Nicalia** (hosting compartido). Se sube el contenido de `dist/` tras `npm run build`; el sitio es 100 % estático (`output: 'static'`), sin funciones de servidor.
+- **Vercel solo para vistas previas** de revisión con María (rama `draft/revision-maria` y similares). No añadir el dominio real en Vercel ni usar APIs específicas de Vercel (funciones, `@astrojs/vercel`, middleware en edge).
+- Pendiente para la fase 5: página `404` (y `ErrorDocument` en `.htaccess` si el servidor es Apache), `robots.txt`, método de subida a Nicalia (FTP/SFTP o despliegue automático) y poner `SITE_LAUNCHED = true` al lanzar.
+- Nicalia figura como encargado del tratamiento en Privacidad y como proveedor de alojamiento en el Aviso legal (tres idiomas).
+
 ## Formularios y servicios externos
 
 - Formulario de contacto: **Web3Forms** (`src/components/forms/ContactForm.astro`). Newsletter: **Mailchimp** (`src/components/forms/MailchimpForm.astro`, sección `sections/Newsletter.astro` en la home tras los servicios): formulario de inserción adaptado, sin JS ni recursos de Mailchimp/Intuit (se quitó la insignia), validación nativa y confirmación en pestaña nueva. No modificar el `action` ni el campo honeypot `b_…`, que identifican la lista. **Segmentación por idioma:** cada suscriptor recibe la etiqueta de Mailchimp de su idioma (`el`/`es`/`en`) mediante un campo oculto `tags`; los IDs numéricos de las etiquetas se configuran en `NEWSLETTER_TAG_IDS` (`src/consts.ts`) — ⚠️ pendientes (`TODO`): mientras sean `null`, se suscribe sin etiqueta.
@@ -326,4 +338,4 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
 4. **Blog:** índice filtrable por categoría, post, RSS por idioma.
 5. **Pulido:** sitemap, OG, `llms.txt`, accesibilidad, Lighthouse, deploy.
 
-Estado actual: **Fase 2 completada** (colección `services` con 7 servicios × 3 idiomas; esquema `blog` definido, sin posts hasta la fase 4 — el build avisa de que la colección está vacía). **Fase 3 en curso:** hechas Inicio, Servicios (índice + 7 detalles), Sobre mí y Contacto (formulario Web3Forms en `src/components/forms/ContactForm.astro`), y una página temporal «Próximamente» en Blog; y legales (Aviso legal, Privacidad, Cookies) como borradores pendientes de revisión legal. Pendiente para cerrar la fase: auditoría SEO (skill `seo-audit`) y revisión de María/abogado/a de los textos legales. (Actualizar esta línea al cerrar cada fase.)
+Estado actual: **Fase 2 completada** (colección `services` con 7 servicios × 3 idiomas; esquema `blog` definido, sin posts hasta la fase 4 — el build avisa de que la colección está vacía). **Fase 3 en curso:** hechas Inicio, Sesiones (índice + 3 detalles), Cursos (índice + 3 detalles; «Seminarios y charlas» aparcado), Sobre mí y Contacto (formulario Web3Forms en `src/components/forms/ContactForm.astro`), y una página temporal «Próximamente» en Blog; y legales (Aviso legal, Privacidad, Cookies) como borradores pendientes de revisión legal. Pendiente para cerrar la fase: auditoría SEO (skill `seo-audit`) y revisión de María/abogado/a de los textos legales. (Actualizar esta línea al cerrar cada fase.)

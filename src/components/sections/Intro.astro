@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { t } from '../../i18n/utils';
 import type { Lang } from '../../i18n/routes';
+import portrait from '../../assets/images/maria-intro.webp';
 
 export interface Props {
 	lang: Lang;
@@ -9,6 +11,21 @@ export interface Props {
 const { lang } = Astro.props;
 ---
 
-<section class="mx-auto max-w-3xl px-4 py-4 text-center sm:px-6">
-	<p class="font-sans text-base text-text-soft sm:text-lg">{t(lang, 'home.intro.text')}</p>
+<section class="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16">
+	<div class="grid items-center gap-10 sm:grid-cols-[14rem_1fr] sm:gap-12 lg:grid-cols-[18rem_1fr] lg:gap-16">
+		{/* Retrato con máscara ovoidal irregular: border-radius muy asimétrico (no es un óvalo perfecto) y trazo del color de los títulos. */}
+		<div class="mx-auto w-full max-w-44 sm:max-w-none">
+			<Image
+				src={portrait}
+				alt={t(lang, 'home.intro.imageAlt')}
+				widths={[176, 224, 288, 448, 576]}
+				sizes="(min-width: 1024px) 288px, (min-width: 640px) 224px, 176px"
+				class="aspect-[4/5] w-full rounded-[62%_38%_46%_54%/42%_58%_36%_64%] border-[5px] border-text-heading object-cover object-[50%_20%]"
+			/>
+		</div>
+
+		<p class="text-center font-sans text-base leading-relaxed text-text-soft sm:text-lg sm:text-left">
+			{t(lang, 'home.intro.text')}
+		</p>
+	</div>
 </section>

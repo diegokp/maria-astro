@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Button from '../ui/Button.astro';
-import cloud from '../../assets/images/cloud.webp';
+import cup from '../../assets/images/cta-cup.webp';
 import { localizedPath, t } from '../../i18n/utils';
 import type { Lang } from '../../i18n/routes';
 
@@ -26,18 +26,18 @@ const {
 
 {/* Llamada a la acción reutilizable (home, servicios y, en la fase 4, posts):
     transparente, enmarcada con un borde del color de los títulos y radio 12px,
-    con la nube a la izquierda y el botón a Contacto. */}
+    con la taza a la izquierda y el botón a Contacto. */}
 <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
 	<div
-		class="grid items-center gap-6 rounded-base border border-text-heading px-6 py-10 text-center sm:grid-cols-[10rem_1fr] sm:gap-10 sm:px-10 sm:text-left lg:grid-cols-[12rem_1fr] lg:px-14"
+		class="grid items-center gap-6 rounded-base border border-text-heading px-6 py-10 text-center sm:grid-cols-[14rem_1fr] sm:gap-8 sm:px-10 sm:text-left lg:grid-cols-[16rem_1fr] lg:px-14"
 	>
 		{/* Decorativa: alt vacío. */}
 		<Image
-			src={cloud}
+			src={cup}
 			alt=""
-			widths={[160, 240, 384]}
-			sizes="(min-width: 1024px) 192px, 160px"
-			class="mx-auto w-32 sm:w-full"
+			widths={[176, 224, 256, 384, 512]}
+			sizes="(min-width: 1024px) 256px, (min-width: 640px) 224px, 176px"
+			class="mx-auto -my-6 w-44 sm:-my-10 sm:w-full"
 		/>
 		<div>
 			<Heading class="font-display text-3xl text-text-heading sm:text-4xl">{heading}</Heading>

@@ -57,9 +57,7 @@ This website has been reviewed and tested to work correctly. However, the CONTRO
 
 ### IP addresses
 
-The website hosting provider's servers may automatically record the IP address and domain name used by the user, for technical and security purposes.
-
-<!-- TODO: name the hosting provider once deployment is decided. -->
+The servers of the website hosting provider (Nicalia) may automatically record the IP address and domain name used by the user, for technical and security purposes.
 
 ## Applicable law and jurisdiction
 

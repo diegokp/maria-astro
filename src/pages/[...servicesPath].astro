@@ -2,33 +2,38 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServicesGrid from '../components/sections/ServicesGrid.astro';
 import { absoluteUrl, localizedPath, t } from '../i18n/utils';
-import { LOCALES, routes, type Lang } from '../i18n/routes';
+import { LOCALES, SERVICE_GROUPS, routes, type Lang, type ServiceGroup } from '../i18n/routes';
 
+// Un índice por grupo de servicios e idioma: «Sesiones» y «Cursos».
 export function getStaticPaths() {
-	return LOCALES.map((lang) => ({
-		params: { servicesPath: routes.services[lang].replace(/^\/|\/$/g, '') },
-		props: { lang },
-	}));
+	const groups = Object.keys(SERVICE_GROUPS) as ServiceGroup[];
+	return groups.flatMap((group) =>
+		LOCALES.map((lang) => ({
+			params: { servicesPath: routes[group][lang].replace(/^\/|\/$/g, '') },
+			props: { lang, group },
+		})),
+	);
 }
 
 interface Props {
 	lang: Lang;
+	group: ServiceGroup;
 }
 
-const { lang } = Astro.props;
+const { lang, group } = Astro.props;
 
 const breadcrumbs = [
 	{ name: t(lang, 'nav.home'), url: absoluteUrl(localizedPath('home', lang)) },
-	{ name: t(lang, 'nav.services'), url: absoluteUrl(localizedPath('services', lang)) },
+	{ name: t(lang, `nav.${group}`), url: absoluteUrl(localizedPath(group, lang)) },
 ];
 ---
 
 <BaseLayout
-	title={t(lang, 'services.seo.title')}
-	description={t(lang, 'services.seo.description')}
-	routeKey="services"
+	title={t(lang, `${group}.seo.title`)}
+	description={t(lang, `${group}.seo.description`)}
+	routeKey={group}
 	lang={lang}
 	breadcrumbs={breadcrumbs}
 >
-	<ServicesGrid lang={lang} variant="index" />
+	<ServicesGrid lang={lang} group={group} variant="index" />
 </BaseLayout>

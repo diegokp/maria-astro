@@ -8,7 +8,7 @@ metaTitle: "Μετάβαση στη μητρότητα (matrescence) — Μαρ�
 metaDescription: "Ασφαλής και συμπονετική ατομική συνοδεία για να κατανοήσετε και να επεξεργαστείτε τη μεταμόρφωση του να γίνεστε μητέρα."
 order: 3
 cta: "Κλείστε ραντεβού"
-image: ../../../assets/images/cloud.webp
+image: ../../../assets/images/matrescencia.webp
 ---
 
 ## Σε ποιους απευθύνεται;

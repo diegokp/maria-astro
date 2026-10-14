@@ -7,7 +7,7 @@ metaTitle: "Matrescencia, transición a la maternidad — María Dimitropoulou L
 metaDescription: "Acompañamiento 1:1 seguro y compasivo para comprender, procesar y validar la transformación psicológica, física y social de convertirse en madre."
 order: 3
 cta: "Pide cita"
-image: ../../../assets/images/cloud.webp
+image: ../../../assets/images/matrescencia.webp
 ---
 
 ## ¿Para quién es?

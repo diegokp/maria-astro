@@ -42,10 +42,11 @@ No disclosure of personal data to third parties is planned except, where necessa
 - **Web3Forms**, the service that delivers contact form messages to the controller's e-mail.
 - **Google (Gmail)**, the e-mail provider where messages are received.
 - **Mailchimp (Intuit)**, the platform used to manage and send the newsletter.
+- **Nicalia**, the website hosting provider.
 
 These providers may process data outside the European Economic Area. In that case, transfers are covered by the safeguards set out in Chapter V of the GDPR.
 
-<!-- TODO: confirm the data processing agreements and international transfer safeguards for Web3Forms, Google and Mailchimp, and add the hosting provider (pending legal review). -->
+<!-- TODO: confirm the data processing agreements and international transfer safeguards for Web3Forms, Google and Mailchimp, and the processing agreement with Nicalia (pending legal review). -->
 
 ### What are your rights?
 

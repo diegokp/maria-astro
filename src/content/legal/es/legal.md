@@ -57,9 +57,7 @@ Este sitio web se ha revisado y probado para que funcione correctamente. Sin emb
 
 ### Direcciones IP
 
-Los servidores del proveedor de alojamiento del sitio web pueden registrar de manera automática la dirección IP y el nombre de dominio utilizados por el usuario, con fines técnicos y de seguridad del servicio.
-
-<!-- TODO: indicar el proveedor de alojamiento cuando se decida el despliegue. -->
+Los servidores del proveedor de alojamiento del sitio web (Nicalia) pueden registrar de manera automática la dirección IP y el nombre de dominio utilizados por el usuario, con fines técnicos y de seguridad del servicio.
 
 ## Ley aplicable y jurisdicción
 

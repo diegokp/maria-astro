@@ -8,7 +8,7 @@ metaTitle: "Matrescence, the transition to motherhood — María Dimitropoulou L
 metaDescription: "Safe, compassionate 1:1 support to understand, process and validate the psychological, physical and social transformation of becoming a mother."
 order: 3
 cta: "Book a session"
-image: ../../../assets/images/cloud.webp
+image: ../../../assets/images/matrescencia.webp
 ---
 
 ## Who is it for?

@@ -42,10 +42,11 @@ No está prevista ninguna comunicación de datos personales a terceros salvo, si
 - **Web3Forms**, servicio que envía al e-mail de la responsable los mensajes del formulario de contacto.
 - **Google (Gmail)**, proveedor del correo electrónico en el que se reciben los mensajes.
 - **Mailchimp (Intuit)**, plataforma de gestión y envío del boletín.
+- **Nicalia**, proveedor de alojamiento del sitio web.
 
 Estos proveedores pueden tratar datos fuera del Espacio Económico Europeo. En ese caso, las transferencias se amparan en las garantías previstas en el Capítulo V del RGPD.
 
-<!-- TODO: confirmar los contratos de encargo del tratamiento y las garantías de transferencia internacional de Web3Forms, Google y Mailchimp, y añadir el proveedor de alojamiento (pendiente de revisión legal). -->
+<!-- TODO: confirmar los contratos de encargo del tratamiento y las garantías de transferencia internacional de Web3Forms, Google y Mailchimp, y los datos del contrato de encargo con Nicalia (pendiente de revisión legal). -->
 
 ### ¿Cuáles son tus derechos?
 
