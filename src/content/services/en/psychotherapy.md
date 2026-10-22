@@ -3,7 +3,7 @@
 serviceKey: psychotherapy
 lang: en
 title: "Psychotherapeutic support"
-description: "Online 1:1 psychological support sessions for children (play therapy), adolescents and adults (Mindfulness)."
+description: "**Online 1:1** psychological support sessions for **children** (play therapy), **adolescents** and **adults** (Mindfulness)."
 metaTitle: "Psychotherapeutic support — María Dimitropoulou López"
 metaDescription: "Online 1:1 psychological support sessions for children (play therapy), adolescents and adults (Mindfulness)."
 order: 1
@@ -21,9 +21,9 @@ The service is tailored to three specific age groups, adapting the methodology t
 
 ## Duration and frequency
 
-Individual sessions usually last 55 minutes. For young children, direct screen time may be shorter or combined with parent guidance to avoid digital fatigue.
+Individual sessions usually last <span class="highlight">55 minutes</span>. For young children, direct screen time may be shorter or combined with parent guidance to avoid digital fatigue.
 
-We usually start with one session a week to build the therapeutic relationship and assess the case. Later, depending on progress and the goals reached, sessions can be spaced out to every two weeks.
+We usually start with <span class="highlight">one session a week</span> to build the therapeutic relationship and assess the case. Later, depending on progress and the goals reached, sessions can be spaced out to <span class="highlight">every two weeks</span>.
 
 ## What do we work on?
 

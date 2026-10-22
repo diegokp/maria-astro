@@ -24,14 +24,22 @@ const el = {
 	'home.hero.title': 'Μαρία Δημητροπούλου Λόπεζ',
 	'home.hero.subtitle':
 		'Ψυχολογική υποστήριξη για την απελευθέρωση του άγχους όλης της οικογένειας και την εύρεση ροής και εσωτερικής γαλήνης στην καθημερινότητα.',
-	'home.hero.cta': 'Κλείστε ραντεβού',
+	'home.hero.cta': 'Επικοινωνήστε μαζί μου',
+	// TODO: revisar traducción (borrador a partir del texto en español).
 	'home.intro.text':
-		'Είμαι η Μαρία Δημητροπούλου Λόπεζ, ψυχολόγος και διδάκτωρ Γνωστικής Νευροεπιστήμης. Προσφέρω εξειδικευμένη ψυχολογική υποστήριξη και εργαλεία Mindfulness και γονεϊκότητας με σεβασμό, για να σας καθοδηγήσω στον δρόμο της αυτοσυμπόνιας, της συνειδητής γονεϊκότητας και της κοινής γονεϊκής ευθύνης. Έναν συμπονετικό χώρο, απαλλαγμένο από κρίσεις, για να μειώσετε τη νοητική σας επιβάρυνση, να φροντίσετε τη συναισθηματική σας ευεξία και να μεγαλώσετε τα παιδιά σας μέσα από την παρουσία και τον αμοιβαίο σεβασμό.',
+		'Είμαι η Μαρία, ψυχολόγος και ψυχοπαιδαγωγός, ειδικευμένη στο **Mindfulness** και τη **Συνειδητή Γονεϊκότητα**.',
+	'home.intro.quote':
+		'Η πραγματική αλλαγή ξεκινά όταν κοιτάμε προς τα μέσα με συμπόνια. Η εύρεση ισορροπίας δεν είναι πάντα εύκολη· οι απαιτήσεις της καθημερινότητας, το στρες της ανατροφής και οι οικογενειακές δυναμικές συχνά μας απομακρύνουν από ό,τι πραγματικά μετράει: να είμαστε παρόντες στη δική μας ζωή.',
+	'home.intro.quoteGoal':
+		'**Αν θέλεις να βάλεις έναν προσωπικό στόχο, βάλε να είσαι πιο καλός/ή με τον εαυτό σου.**',
+	'home.intro.cta': 'Γνώρισέ με καλύτερα',
 	'home.intro.imageAlt': 'Η Μαρία Δημητροπούλου Λόπεζ χαμογελά με σταυρωμένα τα χέρια, φορώντας ριγέ πουκάμισο.',
 	// TODO: revisar traducción (borrador a partir del texto en español).
 	'sessions.heading':
 		'Συνεδρίες ψυχολογικής υποστήριξης για παιδιά, ενήλικες και οικογένειες',
 	'sessions.cta': 'Όλες οι συνεδρίες μου',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'home.services.heading': 'Ένας χώρος για να φροντίσετε τον εαυτό σας και να μάθετε',
 	// TODO: revisar traducción (borrador a partir del texto en español).
 	'courses.heading':
 		'Εκπαιδευτικά προγράμματα για γονείς και επαγγελματίες',
@@ -48,14 +56,6 @@ const el = {
 		'Ψυχολόγος, ψυχοπαιδαγωγός και Διδάκτωρ Γνωστικής Ψυχολογίας. Η πορεία και η προσέγγισή μου για παιδιά, οικογένειες και επαγγελματίες.',
 	'about.title': 'Σχετικά με εμένα',
 	'about.photoAlt': 'Πορτρέτο της Μαρίας Δημητροπούλου Λόπεζ',
-	'about.p1':
-		'Είμαι ψυχολόγος, ψυχοπαιδαγωγός και Διδάκτωρ Γνωστικής Ψυχολογίας. Με κινητοποίησε μια έντονη κλήση να στηρίξω τα παιδιά στον δρόμο τους προς την ανακάλυψη και την αποδοχή της αληθινής τους φύσης και, μέσα από την παρατήρηση των δικών μου δυσκολιών ως γυναίκα στους διάφορους ρόλους μου, ξεκίνησα να μελετώ την ανάπτυξη των γνωστικών διεργασιών, τη σύνδεση νου–καρδιάς, τον γονεϊκό ρόλο και τη δυναμική της οικογένειας.',
-	'about.p2':
-		'Έχω ερευνήσει σε βάθος τις γνωστικές διεργασίες σε πανεπιστήμια και ερευνητικά κέντρα της Ελλάδας, της Αγγλίας, των Ηνωμένων Πολιτειών και της Ισπανίας, έχω ολοκληρώσει δύο μεταπτυχιακά προγράμματα και έχω δημοσιεύσει και παρουσιάσει διεθνώς τα επιστημονικά μου ευρήματα. Από την αρχή των σπουδών μου εργάστηκα με παιδιά και οικογένειες σε διαφορετικά θεραπευτικά και εκπαιδευτικά πλαίσια, αποκτώντας εμπειρία σε διάφορες ψυχοεκπαιδευτικές πρακτικές.',
-	'about.p3':
-		'Η διαδρομή αυτή με οδήγησε να αναπτύξω μια μοναδική προσέγγιση στον τρόπο που στηρίζω τους ανθρώπους, από την παιδική ηλικία έως την εφηβεία και την ενήλικη ζωή. Η προσέγγιση αυτή συνδυάζει αρχές από διαφορετικούς κλάδους και τεχνικές, όπως το Mindfulness/Πλήρης Επίγνωση, η Συνειδητή Γονεϊκότητα, η Μη Κατευθυντική Παιγνιοθεραπεία με Επίκεντρο το Παιδί και η Πρώιμη Παρέμβαση με Επίκεντρο την Οικογένεια και τις Καθημερινές Ρουτίνες.',
-	'about.p4':
-		'Σήμερα προσφέρω υπηρεσίες ψυχολογικής υποστήριξης, σεμινάρια και ομιλίες, και διδάσκω σε διάφορα προπτυχιακά και μεταπτυχιακά προγράμματα σπουδών σε πανεπιστήμια της Ελλάδας, της Ισπανίας και της Κύπρου. Προσφέρω επίσης εκπαιδευτικά προγράμματα για γονείς και επαγγελματίες της πρώιμης παιδικής ηλικίας σε όλο τον κόσμο.',
 	'about.cta': 'Επικοινωνήστε μαζί μου',
 
 	// Página temporal del blog hasta que haya publicaciones.
@@ -134,13 +134,19 @@ const es: Record<UIKey, string> = {
 	'home.hero.title': 'María Dimitropoulou López',
 	'home.hero.subtitle':
 		'Apoyo psicológico para liberar el estrés de toda la familia y encontrar la fluidez y la paz interior en el día a día.',
-	'home.hero.cta': 'Pide cita',
+	'home.hero.cta': 'Contáctame',
 	'home.intro.text':
-		'Soy María Dimitropoulou López, psicóloga y doctora en neurociencia de la cognición. Ofrezco apoyo psicológico especializado y herramientas de Mindfulness y parentalidad respetuosa para guiaros en el camino de la autocompasión, la parentalidad consciente y la corresponsabilidad parental. Un espacio compasivo y libre de juicios para reducir la carga mental, sanar tu bienestar emocional y educar a tus hijos desde la presencia y el respeto mutuo.',
+		'Soy María psicóloga y psicopedagoga especialista en **Mindfulness** y **Parentalidad Consciente**.',
+	'home.intro.quote':
+		'El verdadero cambio comienza cuando miramos hacia adentro con compasión. Encontrar el equilibrio no siempre es fácil; las exigencias del día a día, el estrés de la crianza y las dinámicas familiares a menudo nos alejan de lo que verdaderamente importa: estar presentes en nuestra propia vida.',
+	'home.intro.quoteGoal':
+		'**Si vas a proponerte un objetivo personal, proponte ser más buen@ contigo mism@**',
+	'home.intro.cta': 'Conóceme mejor',
 	'home.intro.imageAlt': 'María Dimitropoulou López sonríe con los brazos cruzados, vestida con una camisa de rayas.',
 	'sessions.heading':
 		'Sesiones de apoyo psicológico para niños, adultos y familias',
 	'sessions.cta': 'Todas mis sesiones',
+	'home.services.heading': 'Un espacio para cuidarte y aprender',
 	'courses.heading':
 		'Cursos de formación para padres y profesionales',
 	'courses.cta': 'Todos mis cursos',
@@ -155,14 +161,6 @@ const es: Record<UIKey, string> = {
 		'Psicóloga, psicopedagoga y doctora en Psicología Cognitiva. Mi trayectoria y mi enfoque con niñ@s, familias y profesionales.',
 	'about.title': 'Sobre mí',
 	'about.photoAlt': 'Retrato de María Dimitropoulou López',
-	'about.p1':
-		'Soy psicóloga, psicopedagoga y Doctora en Psicología Cognitiva. Motivada por una intensa llamada a apoyar a l@s niñ@s en su camino hacia el descubrimiento y la aceptación de su verdadera naturaleza, y a través de la observación de mis propias dificultades como mujer en mis diferentes facetas, comencé a estudiar el desarrollo de los procesos cognitivos, la conexión mente-corazón, el rol parental y las dinámicas familiares.',
-	'about.p2':
-		'He investigado a fondo los procesos cognitivos en universidades y en centros de investigación de Grecia, Inglaterra, Estados Unidos y España, he completado dos Másteres universitarios y publicado y comunicado internacionalmente mis hallazgos científicos. Desde el comienzo de mis estudios trabajé con niñ@s y familias en diferentes contextos terapéuticos y educativos, adquiriendo experiencia en diferentes prácticas psicoeducativas.',
-	'about.p3':
-		'Este proceso me llevó a desarrollar un enfoque único en la forma en la que presto apoyo a las personas, desde la infancia, a la adolescencia, a la edad adulta. Este enfoque combina los principios de diferentes disciplinas y técnicas, como el Mindfulness/Conciencia Plena, la Parentalidad Consciente, la Terapia de Juego No Dirigida y Centrada en el Niño y la Atención Temprana Centrada en la Familia y en las Rutinas.',
-	'about.p4':
-		'Actualmente, ofrezco servicios de apoyo psicológico, cursos, charlas y doy clases en diferentes programas de estudios de grado y postgrado en Universidades de Grecia, España y Chipre, y ofrezco cursos de formación para padres y profesionales de primera infancia en todo el mundo.',
 	'about.cta': 'Ponte en contacto',
 
 	// Página temporal del blog hasta que haya publicaciones.
@@ -239,13 +237,21 @@ const en: Record<UIKey, string> = {
 	'home.hero.title': 'María Dimitropoulou López',
 	'home.hero.subtitle':
 		'Psychological support to release stress for the whole family and find flow and inner peace in everyday life.',
-	'home.hero.cta': 'Book a session',
+	'home.hero.cta': 'Contact me',
+	// TODO: revisar traducción (borrador a partir del texto en español).
 	'home.intro.text':
-		"I'm María Dimitropoulou López, psychologist and PhD in Cognitive Neuroscience. I offer specialized psychological support and Mindfulness and respectful-parenting tools to guide you on the path of self-compassion, conscious parenting and shared parental responsibility. A compassionate, judgment-free space to reduce your mental load, tend to your emotional well-being, and raise your children from a place of presence and mutual respect.",
+		"I'm María, a psychologist and psychopedagogue specialising in **Mindfulness** and **Mindful Parenting**.",
+	'home.intro.quote':
+		"Real change begins when we look inward with compassion. Finding balance isn't always easy; the demands of everyday life, the stress of parenting and family dynamics often pull us away from what truly matters: being present in our own lives.",
+	'home.intro.quoteGoal':
+		"**If you're going to set yourself a personal goal, let it be to be kinder to yourself.**",
+	'home.intro.cta': 'Get to know me',
 	'home.intro.imageAlt': 'María Dimitropoulou López smiling with her arms crossed, wearing a striped shirt.',
 	'sessions.heading':
 		'Psychological support sessions for children, adults and families',
 	'sessions.cta': 'All my sessions',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'home.services.heading': 'A space to care for yourself and to learn',
 	// TODO: revisar traducción (borrador a partir del texto en español).
 	'courses.heading':
 		'Training courses for parents and professionals',
@@ -263,14 +269,6 @@ const en: Record<UIKey, string> = {
 		'Psychologist, educational psychologist and PhD in Cognitive Psychology. My background and my approach with children, families and professionals.',
 	'about.title': 'About me',
 	'about.photoAlt': 'Portrait of María Dimitropoulou López',
-	'about.p1':
-		'I am a psychologist, educational psychologist and PhD in Cognitive Psychology. Driven by a deep calling to support children on their path to discovering and accepting their true nature, and by observing my own difficulties as a woman in my different roles, I began to study the development of cognitive processes, the mind–heart connection, the parental role and family dynamics.',
-	'about.p2':
-		'I have researched cognitive processes in depth at universities and research centers in Greece, England, the United States and Spain, completed two university Master’s degrees, and published and presented my scientific findings internationally. From the very beginning of my studies I worked with children and families in a variety of therapeutic and educational settings, gaining experience in different psychoeducational practices.',
-	'about.p3':
-		'This process led me to develop a unique approach to the way I support people, from childhood through adolescence to adulthood. This approach combines the principles of different disciplines and techniques, such as Mindfulness, Conscious Parenting, Non-Directive Child-Centered Play Therapy, and Family- and Routines-Based Early Intervention.',
-	'about.p4':
-		'I currently offer psychological support services, courses and talks, and I teach on undergraduate and postgraduate programs at universities in Greece, Spain and Cyprus. I also offer training courses for parents and early childhood professionals worldwide.',
 	'about.cta': 'Get in touch',
 
 	// Página temporal del blog hasta que haya publicaciones.

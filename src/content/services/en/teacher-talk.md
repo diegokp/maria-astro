@@ -3,7 +3,7 @@
 serviceKey: teacher-talk
 lang: en
 title: "Teacher Talk® course"
-description: "International certification for early childhood professionals in the Hanen method, to promote the development of language, communication and social skills in children's natural environments."
+description: "**International certification** for early childhood professionals in the **Hanen method**, to promote the development of language, communication and social skills in children's natural environments."
 metaTitle: "Teacher Talk® course (Hanen) — María Dimitropoulou López"
 metaDescription: "International Hanen certification for early childhood professionals: language, communication and social skills in natural environments."
 order: 4
@@ -13,7 +13,7 @@ image: ../../../assets/images/FormProfesional.webp
 
 ## Who is it for?
 
-It is aimed at early childhood educators (preschool teachers, classroom assistants, home-based educators and childcare staff) who work with children from birth to 5 years old.
+It is aimed at <span class="highlight">early childhood educators</span> (preschool teachers, classroom assistants, home-based educators and childcare staff) who work with children <span class="highlight">from birth to 5 years old</span>.
 
 <!-- TODO: Duración y frecuencia — pendiente de María. -->
 

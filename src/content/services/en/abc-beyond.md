@@ -3,7 +3,7 @@
 serviceKey: abc-beyond
 lang: en
 title: "ABC and Beyond™ course"
-description: "International Hanen certification for early childhood professionals, providing practical strategies to promote emergent literacy and language skills in children aged 3 to 5 in school or childcare settings."
+description: "**International Hanen certification** for early childhood professionals, providing practical strategies to promote emergent literacy and language skills in **children aged 3 to 5** in school or childcare settings."
 metaTitle: "ABC and Beyond™ course (Hanen) — María Dimitropoulou López"
 metaDescription: "International Hanen certification with practical strategies to promote emergent literacy and language in children aged 3 to 5."
 order: 5
@@ -13,12 +13,12 @@ image: ../../../assets/images/rainbow-psychologos-online.webp
 
 ## Who is it for?
 
-It is designed for early childhood educators (preschool teachers, nursery staff and caregivers) who work with children aged 3 to 5, with or without developmental difficulties.
+It is designed for <span class="highlight">early childhood educators</span> (preschool teachers, nursery staff and caregivers) who work with <span class="highlight">children aged 3 to 5</span>, with or without developmental difficulties.
 
 ## Duration and frequency
 
-- 7 interactive group sessions (approximately 15 to 18 hours of theoretical and practical training).
-- 3 individual video-feedback and personalised coaching sessions, analysing how the strategies are being applied.
+- <span class="highlight">7 interactive group sessions</span> (approximately <span class="highlight">15 to 18 hours</span> of theoretical and practical training).
+- <span class="highlight">3 individual video-feedback and personalised coaching sessions</span>, analysing how the strategies are being applied.
 
 ## What do we work on?
 

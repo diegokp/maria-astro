@@ -3,7 +3,7 @@
 serviceKey: parental
 lang: en
 title: "Parental/family therapy"
-description: "Online 1:1 sessions applying Mindfulness and respectful parenting to face the daily challenges of raising children, with the aim of respecting each person's individuality and strengthening co-parenting and parent–child bonds - Online format"
+description: "**Online 1:1** sessions applying **Mindfulness** and **respectful parenting** to face the daily challenges of raising children, with the aim of respecting each person's individuality and strengthening co-parenting and parent–child bonds - Online format"
 metaTitle: "Parental/family therapy — María Dimitropoulou López"
 metaDescription: "Online 1:1 sessions on Mindfulness and respectful parenting to face the daily challenges of raising children and strengthen family bonds."
 order: 2
@@ -21,7 +21,7 @@ For mothers, fathers, co-parenting couples and primary caregivers who:
 
 ## Duration and frequency
 
-The structure adapts to each family. Sessions last 55 minutes. They are usually scheduled weekly or every two weeks at first to give continuity to the learning, and become more spaced out (monthly or follow-up sessions) as the tools take hold at home.
+The structure adapts to each family. Sessions last <span class="highlight">55 minutes</span>. They are usually scheduled <span class="highlight">weekly or every two weeks</span> at first to give continuity to the learning, and become more spaced out (monthly or follow-up sessions) as the tools take hold at home.
 
 ## What do we work on?
 

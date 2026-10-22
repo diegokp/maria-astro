@@ -2,7 +2,7 @@
 serviceKey: abc-beyond
 lang: es
 title: "Curso ABC and Beyond™"
-description: "Certificación internacional Hanen para profesionales de la primera infancia con el objetivo de proporcionar estrategias prácticas para promover la alfabetización emergente y las habilidades de lenguaje en niños de 3 a 5 años en entornos escolares o de cuidado infantil."
+description: "**Certificación internacional Hanen** para profesionales de la primera infancia con el objetivo de proporcionar estrategias prácticas para promover la alfabetización emergente y las habilidades de lenguaje en **niños de 3 a 5 años** en entornos escolares o de cuidado infantil."
 metaTitle: "Curso ABC and Beyond™ (Hanen) — María Dimitropoulou López"
 metaDescription: "Certificación internacional Hanen con estrategias prácticas para promover la alfabetización emergente y el lenguaje en niños de 3 a 5 años."
 order: 5
@@ -12,12 +12,12 @@ image: ../../../assets/images/rainbow-psychologos-online.webp
 
 ## ¿Para quién es?
 
-Está diseñado para educadores de la primera infancia (maestros de preescolar, personal de guarderías y cuidadores) que trabajan con niños de 3 a 5 años, con o sin dificultades del desarrollo.
+Está diseñado para <span class="highlight">educadores de la primera infancia</span> (maestros de preescolar, personal de guarderías y cuidadores) que trabajan con <span class="highlight">niños de 3 a 5 años</span>, con o sin dificultades del desarrollo.
 
 ## Duración y frecuencia
 
-- 7 sesiones grupales interactivas (aproximadamente entre 15 y 18 horas de formación teórica/práctica).
-- 3 sesiones individuales de videofeedback y coaching individualizado en las que se analiza la aplicación de las estrategias.
+- <span class="highlight">7 sesiones grupales</span> interactivas (aproximadamente <span class="highlight">entre 15 y 18 horas</span> de formación teórica/práctica).
+- <span class="highlight">3 sesiones individuales</span> de videofeedback y coaching individualizado en las que se analiza la aplicación de las estrategias.
 
 ## ¿Qué se trabaja?
 

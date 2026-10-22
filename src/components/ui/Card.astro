@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import { stripHighlight } from '../../utils/highlight';
 
 export interface Props {
 	title: string;
@@ -8,8 +9,8 @@ export interface Props {
 	href?: string;
 	/** Ilustración sobre el texto. Decorativa: el título ya describe la tarjeta. */
 	image?: ImageMetadata;
-	/** Nivel del título según la jerarquía de la página (h2 bajo un h1, h3 bajo un h2/h3). */
-	titleAs?: 'h2' | 'h3';
+	/** Nivel del título según la jerarquía de la página (h2 bajo un h1, h3 bajo un h2, h4 bajo un h3). */
+	titleAs?: 'h2' | 'h3' | 'h4';
 	class?: string;
 }
 
@@ -35,5 +36,5 @@ const base = 'block rounded-base p-4 text-center transition-colors';
 		)
 	}
 	<Title class="mt-4 font-display text-2xl text-text-heading">{title}</Title>
-	{description && <p class="mt-2 font-sans text-sm text-text-soft">{description}</p>}
+	{description && <p class="mt-2 font-sans text-sm text-text-soft">{stripHighlight(description)}</p>}
 </Tag>

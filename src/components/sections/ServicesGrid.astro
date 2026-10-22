@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import Button from '../ui/Button.astro';
 import Card from '../ui/Card.astro';
+import sessionsImage from '../../assets/images/ApoyoPsico.webp';
+import coursesImage from '../../assets/images/FormProfesional.webp';
 import { localizedPath, t } from '../../i18n/utils';
 import {
 	SERVICE_GROUPS,
@@ -13,18 +15,21 @@ import {
 
 export interface Props {
 	lang: Lang;
-	/** Grupo de servicios a listar: «Sesiones» (por defecto) o «Cursos». */
+	/** Grupo de servicios a listar en el índice: «Sesiones» (por defecto) o «Cursos». */
 	group?: ServiceGroup;
 	/**
-	 * `home`: el grupo en la home (título h3, solo ilustración + título) + botón al índice.
-	 * `index`: página índice del grupo — título como h1, descripción corta en cada tarjeta y sin botón.
+	 * `home`: dos tarjetas (Sesiones y Cursos), cada una con ilustración, título y botón «Ver más» a su índice.
+	 * `index`: página índice del grupo — título como h1, una tarjeta por servicio con su descripción corta y sin botón.
 	 */
 	variant?: 'home' | 'index';
 }
 
 const { lang, group = 'sessions', variant = 'home' } = Astro.props;
 const isIndex = variant === 'index';
-const Heading = isIndex ? 'h1' : 'h3';
+
+// Ilustración de cada grupo en la home (decorativa).
+const groupImages = { sessions: sessionsImage, courses: coursesImage } as const;
+const groups = Object.keys(SERVICE_GROUPS) as ServiceGroup[];
 
 const groupKeys: readonly ServiceKey[] = SERVICE_GROUPS[group];
 const shown = (
@@ -35,41 +40,53 @@ const shown = (
 ).sort((a, b) => a.data.order - b.data.order);
 ---
 
-{/* Home: título h3 + tarjetas del grupo + botón «todas mis sesiones».
-    Índice del grupo: título h1 + tarjetas con descripción corta, sin botón. */}
-<section id="services" class="bg-canvas">
-	<div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-		<Heading
-			class:list={[
-				'mx-auto max-w-3xl text-center font-display text-text-heading',
-				isIndex ? 'text-4xl sm:text-5xl' : 'text-3xl sm:text-4xl',
-			]}
-		>
-			{t(lang, `${group}.heading`)}
-		</Heading>
-		{/* Flex centrado: con un número de tarjetas que no llena la última fila
-		    (p. ej. 4 = 3 + 1), la fila incompleta queda centrada. */}
-		<ul class="mt-10 flex flex-wrap justify-center gap-6">
-			{
-				shown.map((service) => (
-					<li class="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
-						<Card
-							title={service.data.title}
-							titleAs={isIndex ? 'h2' : 'h3'}
-							href={localizedPath(serviceRouteKey(service.data.serviceKey), lang)}
-							description={isIndex ? service.data.description : undefined}
-							image={service.data.image}
-						/>
-					</li>
-				))
-			}
-		</ul>
-		{
-			!isIndex && (
-				<div class="mt-10 text-center">
-					<Button href={localizedPath(group, lang)}>{t(lang, `${group}.cta`)}</Button>
-				</div>
-			)
-		}
-	</div>
-</section>
+{
+	isIndex ? (
+		<section id="services" class="bg-canvas">
+			<div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+				<h1 class="mx-auto max-w-3xl text-center font-display text-4xl text-text-heading sm:text-5xl">
+					{t(lang, `${group}.heading`)}
+				</h1>
+				{/* Flex centrado: con un número de tarjetas que no llena la última fila
+				    (p. ej. 4 = 3 + 1), la fila incompleta queda centrada. */}
+				<ul class="mt-10 flex flex-wrap justify-center gap-6">
+					{shown.map((service) => (
+						<li class="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
+							<Card
+								title={service.data.title}
+								titleAs="h2"
+								href={localizedPath(serviceRouteKey(service.data.serviceKey), lang)}
+								description={service.data.description}
+								image={service.data.image}
+							/>
+						</li>
+					))}
+				</ul>
+			</div>
+		</section>
+	) : (
+		<section id="services" class="bg-canvas">
+			<div class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+				{/* Home: título h3 + una tarjeta por grupo (Sesiones, Cursos) con su botón al índice. */}
+				<h3 class="mx-auto max-w-3xl text-center font-display text-3xl text-text-heading sm:text-4xl">
+					{t(lang, 'home.services.heading')}
+				</h3>
+				<ul class="mt-10 grid gap-12 sm:grid-cols-2 sm:gap-8">
+					{groups.map((key) => (
+						<li class="mx-auto flex w-full max-w-sm flex-col items-center">
+							<Card
+								title={t(lang, `${key}.heading`)}
+								image={groupImages[key]}
+								titleAs="h4"
+								class="w-full flex-1"
+							/>
+							<Button href={localizedPath(key, lang)} class="mt-4">
+								{t(lang, `${key}.cta`)}
+							</Button>
+						</li>
+					))}
+				</ul>
+			</div>
+		</section>
+	)
+}

@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import { t } from '../../i18n/utils';
+import Button from '../ui/Button.astro';
+import { localizedPath, t } from '../../i18n/utils';
+import { highlightHtml } from '../../utils/highlight';
 import type { Lang } from '../../i18n/routes';
 import portrait from '../../assets/images/maria-intro.webp';
 
@@ -24,8 +26,22 @@ const { lang } = Astro.props;
 			/>
 		</div>
 
-		<p class="text-center font-sans text-base leading-relaxed text-text-soft sm:text-lg sm:text-left">
-			{t(lang, 'home.intro.text')}
-		</p>
+		<div>
+			<p
+				class="font-sans text-base leading-relaxed text-text-heading sm:text-lg"
+				set:html={highlightHtml(t(lang, 'home.intro.text'))}
+			/>
+			{/* Cita entrecomillada con filete mostaza a la izquierda; el objetivo personal va debajo, fuera de las comillas. */}
+			<blockquote class="mt-8 border-l-4 border-mustard pl-5 font-sans text-base leading-relaxed text-text-soft sm:text-lg">
+				<p>“{t(lang, 'home.intro.quote')}”</p>
+			</blockquote>
+			<p
+				class="mt-6 font-sans text-base leading-relaxed text-text-soft sm:text-lg"
+				set:html={highlightHtml(t(lang, 'home.intro.quoteGoal'))}
+			/>
+			<div class="mt-8">
+				<Button href={localizedPath('about', lang)}>{t(lang, 'home.intro.cta')}</Button>
+			</div>
+		</div>
 	</div>
 </section>

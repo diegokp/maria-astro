@@ -2,7 +2,7 @@
 serviceKey: parental
 lang: es
 title: "Terapia parental/familiar"
-description: "Sesiones online 1:1 en las aplicaciones de la Conciencia Plena y la crianza respetuosa para afrontar los desafíos diarios de la crianza con el objetivo de respetar las individualidades y fortalecer los vínculos coparentales y paternofiliales - Modalidad online"
+description: "Sesiones **online 1:1** en las aplicaciones de la **Conciencia Plena** y la **crianza respetuosa** para afrontar los desafíos diarios de la crianza con el objetivo de respetar las individualidades y fortalecer los vínculos coparentales y paternofiliales - Modalidad online"
 metaTitle: "Terapia parental/familiar — María Dimitropoulou López"
 metaDescription: "Sesiones online 1:1 de Conciencia Plena y crianza respetuosa para afrontar los desafíos diarios de la crianza y fortalecer los vínculos familiares."
 order: 2
@@ -20,7 +20,7 @@ Para madres, padres, parejas coparentales y cuidadores principales que:
 
 ## Duración y frecuencia
 
-La estructura se adapta a cada familia. Las sesiones duran 55 minutos por encuentro. Generalmente se programan de forma semanal o quincenal al inicio para dar continuidad al aprendizaje, pasando a ser más espaciadas (mensuales o de seguimiento) a medida que se consolidan las herramientas en casa.
+La estructura se adapta a cada familia. Las sesiones duran <span class="highlight">55 minutos</span> por encuentro. Generalmente se programan de forma <span class="highlight">semanal o quincenal</span> al inicio para dar continuidad al aprendizaje, pasando a ser más espaciadas (mensuales o de seguimiento) a medida que se consolidan las herramientas en casa.
 
 ## ¿Qué se trabaja?
 

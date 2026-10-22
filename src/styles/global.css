@@ -64,6 +64,14 @@
 	}
 }
 
+/* Puntos clave de un texto: <span class="highlight"> en el markdown y `**…**`
+   en los textos planos del frontmatter (ver src/utils/highlight.ts). */
+@layer components {
+	.highlight {
+		@apply font-normal text-text-heading;
+	}
+}
+
 /* Prosa del contenido en Markdown (páginas de servicio y, en la fase 4, posts
    del blog). @apply permitido aquí según CLAUDE.md. */
 @layer components {

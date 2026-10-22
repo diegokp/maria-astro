@@ -59,4 +59,11 @@ const legal = defineCollection({
 	}),
 });
 
-export const collections = { services, blog, legal };
+// Cuerpo de «Sobre mí»: src/content/about/<lang>/about.md (uno por idioma).
+// Los títulos de sección van como `##` y los datos clave en negrita (`**…**`).
+const about = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/about' }),
+	schema: z.object({ lang: z.enum(LOCALES) }),
+});
+
+export const collections = { services, blog, legal, about };

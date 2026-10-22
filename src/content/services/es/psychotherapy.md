@@ -2,7 +2,7 @@
 serviceKey: psychotherapy
 lang: es
 title: "Apoyo psicoterapéutico"
-description: "Sesiones online 1:1 de apoyo psicológico para niños (terapia de juego), adolescentes y adultos (conciencia plena/Mindfulness)."
+description: "Sesiones **online 1:1** de apoyo psicológico para **niños** (terapia de juego), **adolescentes** y **adultos** (conciencia plena/Mindfulness)."
 metaTitle: "Apoyo psicoterapéutico — María Dimitropoulou López"
 metaDescription: "Sesiones online 1:1 de apoyo psicológico para niños (terapia de juego), adolescentes y adultos (conciencia plena/Mindfulness)."
 order: 1
@@ -20,9 +20,9 @@ El servicio está segmentado para tres perfiles de edad específicos, adaptando 
 
 ## Duración y frecuencia
 
-Las sesiones individuales duran generalmente 55 minutos. En el caso de niñes pequeñes, el tiempo de pantalla directa puede ser menor o combinarse con asesoramiento a los padres para evitar la fatiga digital.
+Las sesiones individuales duran generalmente <span class="highlight">55 minutos</span>. En el caso de niñes pequeñes, el tiempo de pantalla directa puede ser menor o combinarse con asesoramiento a los padres para evitar la fatiga digital.
 
-Se inicia habitualmente con una sesión semanal para establecer el vínculo terapéutico y evaluar el caso. Posteriormente, según la evolución y los objetivos alcanzados, se puede espaciar a una frecuencia quincenal.
+Se inicia habitualmente con <span class="highlight">una sesión semanal</span> para establecer el vínculo terapéutico y evaluar el caso. Posteriormente, según la evolución y los objetivos alcanzados, se puede espaciar a una frecuencia <span class="highlight">quincenal</span>.
 
 ## ¿Qué se trabaja?
 

@@ -140,6 +140,7 @@ src/
     blog/{el,es,en}/*.md
     services/{el,es,en}/*.md
     testimonials/{el,es,en}/*.md
+    about/{el,es,en}/about.md
   i18n/
     ui.ts          diccionario de strings de interfaz
     routes.ts      mapa de rutas traducidas
@@ -220,6 +221,15 @@ Para evitar triplicar páginas, usa rutas dinámicas con `getStaticPaths()` que 
 - **Marco legal: solo RGPD** (y Directiva 2002/58/CE para cookies). La ley nacional aplicable, la autoridad de control, la jurisdicción, el ΑΦΜ y la colegiación profesional son `TODO` para revisión por un/a abogado/a; no se inventan.
 - Los textos deben describir la web real: hoy **no usa cookies** (fuentes autoalojadas, sin analítica ni embeds) y el formulario pasa por **Web3Forms** → Gmail. Si cambia algo de esto (analítica, mapa, newsletter, hosting), actualiza Privacidad y Cookies en los tres idiomas.
 - Al editar un texto legal, actualiza `updatedDate`.
+
+### `about`
+
+```ts
+{ lang: 'el' | 'es' | 'en' }
+```
+
+- Cuerpo de «Sobre mí» en markdown: `src/content/about/{el,es,en}/about.md`, renderizado por `AboutBio.astro` con `.prose-content`. Secciones como `##`; los datos clave en negrita (`**…**`).
+- El español es de María y se publica tal cual (solo erratas de tecleo evidentes); el/en son borradores con `# TODO: revisar traducción` en el frontmatter.
 
 ### `testimonials`
 
