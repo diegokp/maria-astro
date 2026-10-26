@@ -3,7 +3,7 @@
 serviceKey: parental
 lang: en
 title: "Parental/family therapy"
-description: "**Online 1:1** sessions applying **Mindfulness** and **respectful parenting** to face the daily challenges of raising children, with the aim of respecting each person's individuality and strengthening co-parenting and parent–child bonds - Online format"
+description: "**Online 1:1** sessions applying **Mindfulness and respectful parenting** to face the daily challenges of raising children, with the aim of **respecting each person's individuality and strengthening co-parenting and parent–child bonds**"
 metaTitle: "Parental/family therapy — María Dimitropoulou López"
 metaDescription: "Online 1:1 sessions on Mindfulness and respectful parenting to face the daily challenges of raising children and strengthen family bonds."
 order: 2
@@ -13,7 +13,7 @@ image: ../../../assets/images/ApoypParental.webp
 
 ## Who is it for?
 
-For mothers, fathers, co-parenting couples and primary caregivers who:
+For <span class="highlight">mothers, fathers, co-parenting couples and primary caregivers</span> who:
 
 - Feel overwhelmed by the challenges and stress of everyday life with their children.
 - Are looking for an alternative to traditional parenting methods based on punishment or shouting.

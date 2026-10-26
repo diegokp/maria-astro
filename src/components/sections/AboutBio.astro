@@ -20,14 +20,14 @@ const { Content } = await render(bio);
 <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
 	<div class="grid items-start gap-10 sm:grid-cols-[14rem_1fr] sm:gap-12 lg:grid-cols-[18rem_1fr] lg:gap-16">
 		<div class="mx-auto w-full max-w-44 sm:max-w-none">
-			{/* Misma máscara ovoidal irregular y trazo del color de los títulos que en Intro. */}
+			{/* Misma máscara ovoidal irregular y trazo gris suave (text-soft) que en Intro. */}
 			<Image
 				src={portrait}
 				alt={t(lang, 'about.photoAlt')}
 				widths={[176, 224, 288, 448, 576]}
 				sizes="(min-width: 1024px) 288px, (min-width: 640px) 224px, 176px"
 				loading="eager"
-				class="aspect-4/5 w-full rounded-[62%_38%_46%_54%/42%_58%_36%_64%] border-[5px] border-text-heading object-cover object-top"
+				class="aspect-4/5 w-full rounded-[62%_38%_46%_54%/42%_58%_36%_64%] border-[5px] border-text-soft object-cover object-top"
 			/>
 		</div>
 

@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import { t } from '../../i18n/utils';
+import { SERVICE_GROUPS, type Lang, type ServiceGroup, type ServiceKey } from '../../i18n/routes';
+
+export interface Props {
+	lang: Lang;
+	/** Índice de un grupo: todos los testimonios de sus servicios. */
+	group?: ServiceGroup;
+	/** Página de un servicio: solo los suyos. Tiene prioridad sobre `group`. */
+	serviceKey?: ServiceKey;
+	/** Clases extra para la sección (p. ej. separación con lo que hay encima). */
+	class?: string;
+}
+
+const { lang, group, serviceKey, class: className } = Astro.props;
+
+// El `serviceKey` del testimonio es su etiqueta: decide dónde aparece.
+const keys: readonly ServiceKey[] = serviceKey ? [serviceKey] : group ? SERVICE_GROUPS[group] : [];
+
+// Solo aprobados (CLAUDE.md): las traducciones sin validar no se publican.
+const items = (
+	await getCollection(
+		'testimonials',
+		({ data }) =>
+			data.approved &&
+			data.lang === lang &&
+			data.serviceKey !== undefined &&
+			keys.includes(data.serviceKey),
+	)
+).sort((a, b) => a.data.order - b.data.order);
+
+// Etiqueta visible: el título del servicio en el idioma de la página.
+const services = await getCollection('services', ({ data }) => data.lang === lang);
+const serviceTitle = new Map(services.map((s) => [s.data.serviceKey, s.data.title]));
+---
+
+{/* Sección a todo el ancho sobre crema (--color-surface, como el footer) para que se
+    lea como un bloque distinto de las tarjetas de servicios, que van sobre blanco.
+    Sin testimonios aprobados para este grupo/servicio e idioma, no se renderiza nada.
+    Slider con scroll-snap (funciona sin JS: gesto, trackpad o teclado) que avanza solo
+    cada pocos segundos (ver script). Se ven 1, 2 o
+    3 citas según el ancho; con menos citas que huecos, quedan centradas. Todas las
+    tarjetas miden lo mismo y la firma va anclada abajo, así los nombres se alinean. */}
+{
+	items.length > 0 && (
+		<section aria-labelledby="testimonials-heading" class:list={['bg-surface', className]}>
+			<div class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+			<h2
+				id="testimonials-heading"
+				class="text-center font-display text-3xl text-text-heading sm:text-4xl"
+			>
+				{t(lang, 'testimonials.heading')}
+			</h2>
+
+			<div class="mt-10" data-slider>
+				<ul
+					class="flex snap-x snap-mandatory justify-center-safe gap-8 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] motion-reduce:scroll-auto [&::-webkit-scrollbar]:hidden"
+					tabindex="0"
+					aria-label={t(lang, 'testimonials.heading')}
+					data-track
+				>
+					{items.map(({ data }) => (
+						<li class="flex shrink-0 basis-full snap-start sm:basis-[calc((100%-2rem)/2)] lg:basis-[calc((100%-4rem)/3)]">
+							<figure class="flex w-full flex-col">
+								<blockquote class="font-sans text-base leading-relaxed text-text">
+									<p>“{data.quote}”</p>
+								</blockquote>
+								<figcaption class="mt-auto pt-6 font-mono text-xs text-text-heading">
+									— {data.author}
+									{data.serviceKey && <span class="text-text-soft"> · {serviceTitle.get(data.serviceKey)}</span>}
+								</figcaption>
+							</figure>
+						</li>
+					))}
+				</ul>
+
+			</div>
+			</div>
+		</section>
+	)
+}
+
+<script>
+	// Avance automático: una cita cada INTERVAL ms y vuelta al principio al llegar al
+	// final. Se pausa al pasar el ratón, con el foco dentro, al tocar/desplazar a mano
+	// y con la pestaña oculta. No se activa con prefers-reduced-motion ni si todas
+	// las citas caben a la vez.
+	const INTERVAL = 6000;
+	const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	for (const slider of document.querySelectorAll<HTMLElement>('[data-slider]')) {
+		const track = slider.querySelector<HTMLElement>('[data-track]');
+		if (!track || reduced) continue;
+
+		let paused = false;
+		const pause = () => (paused = true);
+		const resume = () => (paused = false);
+		slider.addEventListener('mouseenter', pause);
+		slider.addEventListener('mouseleave', resume);
+		slider.addEventListener('focusin', pause);
+		slider.addEventListener('focusout', resume);
+		slider.addEventListener('touchstart', pause, { passive: true });
+		slider.addEventListener('touchend', () => setTimeout(resume, INTERVAL), { passive: true });
+
+		setInterval(() => {
+			const max = track.scrollWidth - track.clientWidth;
+			if (paused || document.hidden || max <= 1) return;
+			const item = track.querySelector<HTMLElement>('li');
+			const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+			const step = item ? item.offsetWidth + gap : track.clientWidth;
+			const atEnd = track.scrollLeft >= max - 1;
+			track.scrollTo({ left: atEnd ? 0 : track.scrollLeft + step });
+		}, INTERVAL);
+	}
+</script>

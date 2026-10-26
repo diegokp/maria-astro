@@ -15,14 +15,14 @@ const { lang } = Astro.props;
 
 <section class="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16">
 	<div class="grid items-center gap-10 sm:grid-cols-[14rem_1fr] sm:gap-12 lg:grid-cols-[18rem_1fr] lg:gap-16">
-		{/* Retrato con máscara ovoidal irregular: border-radius muy asimétrico (no es un óvalo perfecto) y trazo del color de los títulos. */}
+		{/* Retrato con máscara ovoidal irregular: border-radius muy asimétrico (no es un óvalo perfecto) y trazo gris suave (text-soft). */}
 		<div class="mx-auto w-full max-w-44 sm:max-w-none">
 			<Image
 				src={portrait}
 				alt={t(lang, 'home.intro.imageAlt')}
 				widths={[176, 224, 288, 448, 576]}
 				sizes="(min-width: 1024px) 288px, (min-width: 640px) 224px, 176px"
-				class="aspect-[4/5] w-full rounded-[62%_38%_46%_54%/42%_58%_36%_64%] border-[5px] border-text-heading object-cover object-[50%_20%]"
+				class="aspect-[4/5] w-full rounded-[62%_38%_46%_54%/42%_58%_36%_64%] border-[5px] border-text-soft object-cover object-[50%_20%]"
 			/>
 		</div>
 
@@ -39,7 +39,7 @@ const { lang } = Astro.props;
 				class="mt-6 font-sans text-base leading-relaxed text-text-soft sm:text-lg"
 				set:html={highlightHtml(t(lang, 'home.intro.quoteGoal'))}
 			/>
-			<div class="mt-8">
+			<div class="mt-8 text-center sm:text-left">
 				<Button href={localizedPath('about', lang)}>{t(lang, 'home.intro.cta')}</Button>
 			</div>
 		</div>

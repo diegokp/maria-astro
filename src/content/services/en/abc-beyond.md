@@ -8,7 +8,7 @@ metaTitle: "ABC and Beyond™ course (Hanen) — María Dimitropoulou López"
 metaDescription: "International Hanen certification with practical strategies to promote emergent literacy and language in children aged 3 to 5."
 order: 5
 cta: "Request information"
-image: ../../../assets/images/rainbow-psychologos-online.webp
+image: ../../../assets/images/abc-beyond.webp
 ---
 
 ## Who is it for?

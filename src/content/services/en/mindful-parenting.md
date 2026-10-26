@@ -3,7 +3,7 @@
 serviceKey: mindful-parenting
 lang: en
 title: "Mindful Parenting"
-description: "**Online** parenting school on Mindful Parenting - a cycle of **8 group meetings** - remote."
+description: "**Parenting school on Mindful Parenting** - a cycle of 8 group meetings - **Live remote format**"
 metaTitle: "Mindful Parenting, online parenting school — María Dimitropoulou López"
 metaDescription: "Online parenting school on Mindful Parenting: a cycle of 8 remote group meetings."
 order: 6
@@ -13,16 +13,16 @@ image: ../../../assets/images/Mindfulness.webp
 
 ## Who is it for?
 
-This course is designed for mothers, fathers, guardians and primary caregivers of <span class="highlight">children of any age</span>, especially those who:
+This course is designed for <span class="highlight">mothers, fathers, guardians and primary caregivers</span> of children of any age, especially those who:
 
-- Feel stress, overwhelm or burnout from parenting.
-- Tend to react with shouting, anger or impulsiveness and want to respond more calmly.
-- Want to improve emotional connection and communication with their children.
-- Want to break automatic or inherited parenting patterns and parent from a place of respect.
+- <span class="highlight">Feel stress</span>, overwhelm or burnout from parenting.
+- <span class="highlight">Tend to react with shouting</span>, anger or impulsiveness and want to respond more calmly.
+- <span class="highlight">Want to improve emotional connection</span> and communication with their children.
+- <span class="highlight">Want to break automatic</span> or inherited parenting patterns and parent from a place of respect.
 
 ## Duration and frequency
 
-The standard programme usually lasts <span class="highlight">8 weeks</span>, with <span class="highlight">one 2–2.5-hour group session a week</span> and <span class="highlight">15–20 minutes</span> of daily practice at home. Intensive weekend workshops and 4-week introductory workshops are also offered.
+The programme lasts <span class="highlight">8 weeks</span>, with <span class="highlight">one 2–2.5-hour group session a week</span>, plus <span class="highlight">daily practice</span> at home of <span class="highlight">15–20 minutes</span>. <span class="highlight">Intensive weekend workshops</span> and 4-week introductory workshops are also offered.
 
 ## What do we work on?
 

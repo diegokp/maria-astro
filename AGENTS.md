@@ -234,8 +234,12 @@ Para evitar triplicar páginas, usa rutas dinámicas con `getStaticPaths()` que 
 ### `testimonials`
 
 ```ts
-{ testimonialKey: string, lang, author: string, quote: string, serviceKey?: string, approved: boolean }
+{ testimonialKey: string, lang, author: string, quote: string, serviceKey?: ServiceKey, order: number, approved: boolean }
 ```
+
+- Archivos: `src/content/testimonials/{el,es,en}/<testimonialKey>.md` (solo frontmatter). Componente: `sections/Testimonials.astro`.
+- `serviceKey` es la etiqueta: en el índice de un grupo (Sesiones/Cursos) salen los testimonios de sus servicios; en la página de un servicio, solo los suyos. Si no hay ninguno aprobado, la sección no se renderiza (hoy Cursos y Matrescencia no tienen).
+- Los originales están en griego; las traducciones es/en están validadas por María. Todos con `approved: true`. ⚠️ `TODO`: confirmar el consentimiento escrito de cada persona antes del lanzamiento (datos de salud, RGPD).
 
 **Solo se publican testimonios con `approved: true`.** Las citas deben estar confirmadas por María; nunca inventes ni "mejores" un testimonio.
 
@@ -261,7 +265,7 @@ Tomado de la página "en construcción" (`docs/index.html`), que a su vez sigue 
 | `--color-sage` | `#7A8C38` | acento verde |
 | `--color-line` | `rgba(58, 58, 58, 0.15)` | bordes y separadores |
 
-- **Capas de fondo** (tokens semánticos en `global.css`): `--color-canvas` (blanco — `body`, header, panel del selector de idioma) · `--color-surface` (crema — footer) · `--color-surface-alt` (menta — reservado; ninguna sección lo usa ahora). Header, panel del selector y sección de servicios van en blanco; las tarjetas de servicio son transparentes (solo ilustración + texto).
+- **Capas de fondo** (tokens semánticos en `global.css`): `--color-canvas` (blanco — `body`, header, panel del selector de idioma) · `--color-surface` (crema — footer, newsletter y testimonios: secciones a todo el ancho que se separan del blanco) · `--color-surface-alt` (menta — reservado; ninguna sección lo usa ahora). Header, panel del selector y sección de servicios van en blanco; las tarjetas de servicio son transparentes (solo ilustración + texto).
 - **Títulos:** todo `h1`/`h2`/`h3` real usa el token semántico `--color-text-heading` (→ `--color-heading`, `#606060`), no `--color-text`. Enlaces de navegación y botones que comparten tono con el texto principal siguen en `--color-text` — el cambio de color afecta solo a los encabezados, no a la interacción.
 - **Hover y enlace activo** (`aria-current="page"`): el resaltado es menta, nunca coral/rojo. Se aplica como **fondo** con el token semántico `--color-hover` (→ `--color-mint`, `hover:bg-hover`) y el texto se queda en `ink`; nunca como color de texto (menta sobre blanco no tiene contraste).
 - **Contraste:** el texto blanco sobre mostaza no llega a AA. En botones mostaza usa texto `ink`. Comprueba cualquier combinación nueva.

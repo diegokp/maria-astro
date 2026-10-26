@@ -8,7 +8,7 @@ metaTitle: "Σεμινάριο ABC and Beyond™ (Hanen) — Μαρία Δημη
 metaDescription: "Διεθνής πιστοποίηση Hanen με πρακτικές στρατηγικές για τον αναδυόμενο γραμματισμό και τη γλώσσα σε παιδιά 3 έως 5 ετών."
 order: 5
 cta: "Ζητήστε πληροφορίες"
-image: ../../../assets/images/rainbow-psychologos-online.webp
+image: ../../../assets/images/abc-beyond.webp
 ---
 
 ## Σε ποιους απευθύνεται;

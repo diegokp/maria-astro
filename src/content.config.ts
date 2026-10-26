@@ -66,4 +66,20 @@ const about = defineCollection({
 	schema: z.object({ lang: z.enum(LOCALES) }),
 });
 
-export const collections = { services, blog, legal, about };
+// Testimonios: src/content/testimonials/<lang>/<testimonialKey>.md (solo frontmatter).
+// `serviceKey` es la «etiqueta» que decide dónde se muestran (índice del grupo y
+// página del servicio). Solo se publican los `approved: true` (CLAUDE.md).
+const testimonials = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/testimonials' }),
+	schema: z.object({
+		testimonialKey: z.string(),
+		lang: z.enum(LOCALES),
+		author: z.string(),
+		quote: z.string(),
+		serviceKey: z.enum(SERVICE_KEYS).optional(),
+		order: z.number().int().positive(),
+		approved: z.boolean(),
+	}),
+});
+
+export const collections = { services, blog, legal, about, testimonials };

@@ -46,8 +46,17 @@ const el = {
 	'courses.cta': 'Όλα τα προγράμματά μου',
 	'cta.heading': 'Να κάνουμε μαζί το πρώτο βήμα;',
 	'cta.text':
-		'Πείτε μου τι χρειάζεστε εσείς ή η οικογένειά σας. Θα σας απαντήσω προσωπικά για να βρούμε μαζί τη συνοδεία, τη θεραπεία ή το σεμινάριο που σας ταιριάζει, online ή στο Χαλάνδρι.',
+		'Πείτε μου τι χρειάζεστε εσείς ή η οικογένειά σας. Θα σας απαντήσω προσωπικά για να βρούμε μαζί τη συνοδεία, τη θεραπεία ή το πρόγραμμα που σας ταιριάζει.',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'testimonials.heading': 'Εμπειρίες που μοιράστηκαν μαζί μου',
 	'cta.button': 'Γράψτε μου',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'cta.sessions.heading': 'Ένας χώρος για να σταματήσετε, να αναπνεύσετε και να φροντίσετε τον εαυτό σας',
+	'cta.sessions.text':
+		'Αν νιώθετε ότι είναι η στιγμή να σταματήσετε και να κοιτάξετε τον εαυτό σας με περισσότερη συμπόνια, γράψτε μου. Θα σας συνοδεύσω στον δικό σας ρυθμό και χωρίς κρίσεις, είτε για εσάς, είτε για τα παιδιά σας, είτε για ολόκληρη την οικογένεια.',
+	'cta.courses.heading': 'Να μάθουμε για να συνοδεύουμε καλύτερα',
+	'cta.courses.text':
+		'Είτε συνοδεύετε την ανατροφή των παιδιών σας είτε εργάζεστε με παιδιά, πείτε μου τι χρειάζεστε και θα σας βοηθήσω να βρείτε το πρόγραμμα που σας ταιριάζει, για εσάς, το εκπαιδευτικό σας κέντρο ή την ομάδα σας.',
 
 	// TODO: revisar traducción — texto fuente en español (es), traducido sin
 	// revisión de María. «psicopedagoga» se ha vertido como «ψυχοπαιδαγωγός».
@@ -62,7 +71,7 @@ const el = {
 	'blog.seo.title': 'Νέα — Μαρία Δημητροπούλου Λόπεζ',
 	'blog.seo.description': 'Τα νέα και τα άρθρα θα είναι διαθέσιμα σύντομα.',
 	'blog.comingSoon': 'Σύντομα',
-	'newsletter.title': 'Εγγραφείτε στο newsletter',
+	'newsletter.title': 'Εγγραφείτε στο newsletter μου',
 	'newsletter.name': 'Όνομα',
 	'newsletter.email': 'Email',
 	'newsletter.submit': 'Εγγραφή',
@@ -152,8 +161,15 @@ const es: Record<UIKey, string> = {
 	'courses.cta': 'Todos mis cursos',
 	'cta.heading': '¿Damos juntos el primer paso?',
 	'cta.text':
-		'Cuéntame qué necesitas tú o tu familia. Te responderé personalmente para encontrar juntos el acompañamiento, la terapia o el curso que mejor encaje contigo, online o en Chalandri.',
+		'Cuéntame qué necesitas tú o tu familia. Te responderé personalmente para encontrar juntos el acompañamiento, la terapia o el curso que mejor encaje contigo.',
+	'testimonials.heading': 'Experiencias compartidas',
 	'cta.button': 'Escríbeme',
+	'cta.sessions.heading': 'Un espacio para parar, respirar y cuidarte',
+	'cta.sessions.text':
+		'Si sientes que es el momento de parar y mirarte con más compasión, escríbeme. Te acompaño a tu ritmo y sin juicios, ya sea para ti, para tus hijos o para toda la familia.',
+	'cta.courses.heading': 'Aprender para acompañar mejor',
+	'cta.courses.text':
+		'Tanto si acompañas la crianza de tus hijos como si trabajas con la infancia, cuéntame qué necesitas y te ayudaré a encontrar el curso que mejor encaje contigo, para ti, tu centro educativo o tu equipo.',
 
 	// Texto de María (erratas corregidas). «l@s niñ@s» se mantiene tal cual.
 	'about.seo.title': 'Sobre mí — María Dimitropoulou López',
@@ -167,7 +183,7 @@ const es: Record<UIKey, string> = {
 	'blog.seo.title': 'Blog — María Dimitropoulou López',
 	'blog.seo.description': 'Los artículos del blog estarán disponibles próximamente.',
 	'blog.comingSoon': 'Próximamente',
-	'newsletter.title': 'Suscríbete al boletín',
+	'newsletter.title': 'Suscríbete a mi newsletter',
 	'newsletter.name': 'Nombre',
 	'newsletter.email': 'Correo electrónico',
 	'newsletter.submit': 'Regístrate',
@@ -258,8 +274,17 @@ const en: Record<UIKey, string> = {
 	'courses.cta': 'All my courses',
 	'cta.heading': 'Shall we take the first step together?',
 	'cta.text':
-		"Tell me what you or your family need. I'll reply personally so we can find the support, therapy or course that suits you best, online or in Chalandri.",
+		"Tell me what you or your family need. I'll reply personally so we can find the support, therapy or course that suits you best.",
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'testimonials.heading': 'Shared experiences',
 	'cta.button': 'Write to me',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'cta.sessions.heading': 'A space to pause, breathe and take care of yourself',
+	'cta.sessions.text':
+		"If you feel it's time to pause and look at yourself with more compassion, write to me. I'll walk alongside you at your own pace and without judgment, whether for you, for your children or for the whole family.",
+	'cta.courses.heading': 'Learning to support better',
+	'cta.courses.text':
+		"Whether you support your own children's upbringing or work with children, tell me what you need and I'll help you find the course that suits you best, for you, your educational centre or your team.",
 
 	// TODO: revisar traducción — texto fuente en español (es), traducido sin
 	// revisión de María. «psicopedagoga» se ha vertido como «educational
@@ -275,7 +300,7 @@ const en: Record<UIKey, string> = {
 	'blog.seo.title': 'Blog — María Dimitropoulou López',
 	'blog.seo.description': 'Blog articles will be available soon.',
 	'blog.comingSoon': 'Coming soon',
-	'newsletter.title': 'Subscribe to the newsletter',
+	'newsletter.title': 'Subscribe to my newsletter',
 	'newsletter.name': 'Name',
 	'newsletter.email': 'Email',
 	'newsletter.submit': 'Sign up',
