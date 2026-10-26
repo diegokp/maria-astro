@@ -30,16 +30,13 @@ export const SOCIAL = {
 		'https://www.linkedin.com/in/maria-dimitropoulou-lopez-53268375/',
 };
 
-// PENDIENTE: configurar en Mailchimp las etiquetas por idioma (el/es/en) y
-// pegar aquí sus IDs. Hasta entonces, los suscriptores no se etiquetan.
 // Newsletter (Mailchimp): una etiqueta por idioma para segmentar los envíos.
 // Mailchimp necesita el ID numérico de cada etiqueta, no su nombre. Para
 // obtenerlo: Audience → Tags → crear «el», «es» y «en»; luego Audience →
 // Signup forms → Embedded forms → añadir la etiqueta y copiar el `value` del
 // <input type="hidden" name="tags" value="…"> que genera.
-// Mientras un valor sea null, ese idioma se suscribe sin etiqueta.
 export const NEWSLETTER_TAG_IDS: Record<Lang, string | null> = {
-	el: null, // TODO: ID de la etiqueta «el» en Mailchimp
-	es: null, // TODO: ID de la etiqueta «es» en Mailchimp
-	en: null, // TODO: ID de la etiqueta «en» en Mailchimp
+	el: '24268402',
+	es: '24268403',
+	en: '24268404',
 };

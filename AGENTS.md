@@ -257,7 +257,7 @@ Tomado de la página "en construcción" (`docs/index.html`), que a su vez sigue 
 | `--color-cream` | `#EFEAE4` | fondo de "superficies": footer |
 | `--color-mustard` | `#F8CD7E` | color de marca (logo), botones, iconos sociales |
 | `--color-mustard-soft` | `rgba(248, 205, 126, 0.35)` | fondos suaves, resaltados |
-| `--color-mint` | `#D2EAEA` | acento secundario: fondo de hover y enlace activo |
+| `--color-mint` | `#E9F6F3` | acento secundario: fondo de hover y enlace activo |
 | `--color-ink` | `#525252` | texto principal |
 | `--color-ink-soft` | `rgba(58, 58, 58, 0.66)` | texto secundario |
 | `--color-heading` | `#606060` | color de los títulos (`h1`/`h2`/`h3`), distinto del texto principal |

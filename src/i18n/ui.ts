@@ -66,6 +66,7 @@ const el = {
 	'about.title': 'Σχετικά με εμένα',
 	'about.photoAlt': 'Πορτρέτο της Μαρίας Δημητροπούλου Λόπεζ',
 	'about.cta': 'Επικοινωνήστε μαζί μου',
+	'about.linkedinCta': 'Δείτε το πλήρες βιογραφικό μου εδώ',
 
 	// Página temporal del blog hasta que haya publicaciones.
 	'blog.seo.title': 'Νέα — Μαρία Δημητροπούλου Λόπεζ',
@@ -81,13 +82,13 @@ const el = {
 	'contact.seo.title': 'Επικοινωνία — Μαρία Δημητροπούλου Λόπεζ',
 	'contact.seo.description':
 		'Κλείστε το ραντεβού σας ή ρωτήστε για τα σεμινάρια και τις υπηρεσίες της Μαρίας Δημητροπούλου Λόπεζ. Χαλάνδρι και online.',
-	'contact.title': 'Κλείστε το ραντεβού σας με τη Μαρία',
-	'contact.intro':
-		'Χρειάζεστε πληροφορίες; Μπορώ να σας βοηθήσω και να λύσω τις απορίες σας για τα σεμινάρια ή τις υπηρεσίες μου.',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'contact.title': 'Είμαι εδώ',
+	'contact.intro': 'Γράψτε μου με τα δικά σας λόγια, χωρίς βιασύνη και χωρίς να χρειάζεται να τα έχετε όλα ξεκάθαρα. Διαβάζω κάθε μήνυμα και σας απαντώ προσωπικά, για να δούμε μαζί πώς μπορώ να σας συνοδεύσω, online ή στο γραφείο μου.',
 	'contact.form.name': 'Όνομα',
 	'contact.form.lastName': 'Επώνυμο',
 	'contact.form.email': 'Email',
-	'contact.form.message': 'Μήνυμα',
+	'contact.form.message': 'Πείτε μου τι χρειάζεστε',
 	'contact.form.required': 'Αυτό το πεδίο είναι υποχρεωτικό.',
 	'contact.form.invalidEmail': 'Εισαγάγετε ένα έγκυρο email.',
 	'contact.form.privacyBefore': 'Έχω διαβάσει και αποδέχομαι την',
@@ -95,7 +96,7 @@ const el = {
 	'contact.form.privacyRequired': 'Πρέπει να αποδεχτείτε την πολιτική απορρήτου.',
 	'contact.form.submit': 'Αποστολή μηνύματος',
 	'contact.form.sending': 'Αποστολή…',
-	'contact.form.success': 'Ευχαριστώ! Το μήνυμά σας στάλθηκε. Θα σας απαντήσω σύντομα.',
+	'contact.form.success': 'Ευχαριστώ που μου γράψατε. Έλαβα το μήνυμά σας και θα σας απαντήσω προσωπικά μόλις μπορέσω.',
 	'contact.form.error': 'Το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά ή γράψτε μου στο email.',
 
 	'sessions.seo.title': 'Συνεδρίες — Μαρία Δημητροπούλου Λόπεζ',
@@ -178,6 +179,7 @@ const es: Record<UIKey, string> = {
 	'about.title': 'Sobre mí',
 	'about.photoAlt': 'Retrato de María Dimitropoulou López',
 	'about.cta': 'Ponte en contacto',
+	'about.linkedinCta': 'Accede a mi currículum completo aquí',
 
 	// Página temporal del blog hasta que haya publicaciones.
 	'blog.seo.title': 'Blog — María Dimitropoulou López',
@@ -193,13 +195,12 @@ const es: Record<UIKey, string> = {
 	'contact.seo.title': 'Contacto — María Dimitropoulou López',
 	'contact.seo.description':
 		'Realiza tu consulta o pide información sobre los cursos y servicios de María Dimitropoulou López. Chalandri (Atenas) y online.',
-	'contact.title': 'Realiza tu consulta con María',
-	'contact.intro':
-		'¿Necesitas información? Puedo ayudarte y resolver tus dudas sobre mis cursos o servicios.',
+	'contact.title': 'Estoy aquí',
+	'contact.intro': 'Escríbeme con tus propias palabras, sin prisa y sin necesidad de tenerlo todo claro. Leo cada mensaje y te respondo personalmente para ver juntos cómo puedo acompañarte, online o en mi consulta.',
 	'contact.form.name': 'Nombre',
 	'contact.form.lastName': 'Apellidos',
 	'contact.form.email': 'Email',
-	'contact.form.message': 'Mensaje',
+	'contact.form.message': 'Cuéntame qué necesitas',
 	'contact.form.required': 'Este campo es obligatorio.',
 	'contact.form.invalidEmail': 'Introduce un email válido.',
 	'contact.form.privacyBefore': 'He leído y acepto la',
@@ -207,7 +208,7 @@ const es: Record<UIKey, string> = {
 	'contact.form.privacyRequired': 'Debes aceptar la política de privacidad.',
 	'contact.form.submit': 'Enviar mensaje',
 	'contact.form.sending': 'Enviando…',
-	'contact.form.success': '¡Gracias! Tu mensaje se ha enviado. Te responderé lo antes posible.',
+	'contact.form.success': 'Gracias por escribirme. He recibido tu mensaje y te responderé personalmente en cuanto pueda.',
 	'contact.form.error': 'No se ha podido enviar el mensaje. Inténtalo de nuevo o escríbeme por email.',
 
 	'sessions.seo.title': 'Sesiones — María Dimitropoulou López',
@@ -295,6 +296,7 @@ const en: Record<UIKey, string> = {
 	'about.title': 'About me',
 	'about.photoAlt': 'Portrait of María Dimitropoulou López',
 	'about.cta': 'Get in touch',
+	'about.linkedinCta': 'See my full CV here',
 
 	// Página temporal del blog hasta que haya publicaciones.
 	'blog.seo.title': 'Blog — María Dimitropoulou López',
@@ -310,13 +312,13 @@ const en: Record<UIKey, string> = {
 	'contact.seo.title': 'Contact — María Dimitropoulou López',
 	'contact.seo.description':
 		'Book a consultation or ask about the courses and services of María Dimitropoulou López. Chalandri (Athens) and online.',
-	'contact.title': 'Book your consultation with María',
-	'contact.intro':
-		'Need information? I can help you and answer your questions about my courses or services.',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'contact.title': "I'm here",
+	'contact.intro': 'Write to me in your own words, with no rush and no need to have everything figured out. I read every message and reply personally, so we can see together how I can support you, online or at my practice.',
 	'contact.form.name': 'First name',
 	'contact.form.lastName': 'Last name',
 	'contact.form.email': 'Email',
-	'contact.form.message': 'Message',
+	'contact.form.message': 'Tell me what you need',
 	'contact.form.required': 'This field is required.',
 	'contact.form.invalidEmail': 'Please enter a valid email.',
 	'contact.form.privacyBefore': 'I have read and accept the',
@@ -324,7 +326,7 @@ const en: Record<UIKey, string> = {
 	'contact.form.privacyRequired': 'You must accept the privacy policy.',
 	'contact.form.submit': 'Send message',
 	'contact.form.sending': 'Sending…',
-	'contact.form.success': 'Thank you! Your message has been sent. I will reply as soon as possible.',
+	'contact.form.success': 'Thank you for writing to me. I have received your message and will reply personally as soon as I can.',
 	'contact.form.error': 'Your message could not be sent. Please try again or email me.',
 
 	'sessions.seo.title': 'Sessions — María Dimitropoulou López',
