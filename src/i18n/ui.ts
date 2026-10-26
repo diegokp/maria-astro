@@ -189,7 +189,7 @@ const es: Record<UIKey, string> = {
 	'newsletter.name': 'Nombre',
 	'newsletter.email': 'Correo electrónico',
 	'newsletter.submit': 'Regístrate',
-	'newsletter.consent': 'Quiero recibir el boletín por email y he leído la',
+	'newsletter.consent': 'Quiero recibir la newsletter por email y he leído la',
 	'legal.updated': 'Última actualización',
 
 	'contact.seo.title': 'Contacto — María Dimitropoulou López',

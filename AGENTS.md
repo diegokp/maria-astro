@@ -134,7 +134,7 @@ src/
     forms/         ContactForm (Web3Forms, textos desde ui.ts, validación accesible)
     layout/        Header, Footer, LanguageSwitcher, MobileMenu
     seo/           SEO.astro (title, description, canonical, hreflang, OG)
-    ui/            Button, Card, SectionTitle… (piezas reutilizables sin lógica de negocio)
+    ui/            Button, Card, Divider… (piezas reutilizables sin lógica de negocio)
     sections/      Hero, ServicesGrid, Newsletter, CallToAction (reutilizable: home, servicios, posts), Testimonials, LatestPosts…
   content/
     blog/{el,es,en}/*.md
@@ -156,7 +156,7 @@ public/
   fonts/           MandysSketch (si no la gestiona la Fonts API)
   images/
 docs/
-  arquitectura-contenido.md   sitemap, brief por página y copy (fuente de verdad del contenido)
+  arquitectura-contenido.md   sitemap, brief por página y copy (⚠️ aún no existe en el repo)
   index.html                  página "en construcción" publicada (referencia visual)
 ```
 
@@ -198,18 +198,19 @@ Para evitar triplicar páginas, usa rutas dinámicas con `getStaticPaths()` que 
   description: string,        // entradilla bajo el H1 («Descripción» de María)
   metaTitle: string,
   metaDescription: string,    // máx. 160
-  order: number,              // orden en el índice; la home muestra los 3 primeros
+  order: number,              // orden en el índice de su grupo (Sesiones o Cursos)
   cta: string,                // texto del botón a Contacto
   image: image(),             // ilustración decorativa de la tarjeta y la cabecera
   testimonialKey?: string
 }
 ```
 
-- Archivos: `src/content/services/{el,es,en}/<serviceKey>.md`. La URL **no** sale del nombre del archivo sino de `routes.ts` (`service.<serviceKey>`); una sola ruta dinámica, `src/pages/[...servicePath].astro`, genera todas las páginas de detalle (omite los servicios sin grupo). Los índices «Sesiones» y «Cursos» los genera `src/pages/[...servicesPath].astro` (grupo × idioma). `ServicesGrid` (home e índices) también lee de la colección, filtrada por grupo.
+- Archivos: `src/content/services/{el,es,en}/<serviceKey>.md`. La URL **no** sale del nombre del archivo sino de `routes.ts` (`service.<serviceKey>`); una sola ruta dinámica, `src/pages/[...servicePath].astro`, genera todas las páginas de detalle (omite los servicios sin grupo). Los índices «Sesiones» y «Cursos» los genera `src/pages/[...servicesPath].astro` (grupo × idioma). `ServicesGrid` en los índices lee de la colección, filtrada por grupo; en la home muestra solo dos tarjetas (Sesiones y Cursos) con su botón al índice.
 - Cuerpo en markdown con las secciones de María: **¿Para quién es?** / **Duración y frecuencia** / **¿Qué se trabaja?** (en el/en: «Σε ποιους απευθύνεται; / Διάρκεια και συχνότητα / Σε τι δουλεύουμε;» y «Who is it for? / Duration and frequency / What do we work on?»). Si falta una sección, se omite con un comentario `<!-- TODO -->`.
 - Valores de texto del frontmatter **siempre entre comillas** (un `: ` dentro de un valor sin comillas rompe el YAML).
 - **Textos:** el español es de María y se publica tal cual (incluido su lenguaje inclusivo: «niñes», «Adult@s», «l@s niñ@s»); solo se corrigen erratas de tecleo evidentes. Durante la construcción, el/en son borradores con `# TODO: revisar traducción` en el frontmatter; María los revisa antes del lanzamiento y, una vez publicado el sitio, entregará siempre los textos ya corregidos en los tres idiomas.
 - Prosa del markdown: clase `.prose-content` en `global.css` (se reutilizará en el blog).
+- **Destacados** (negritas del Excel de María): en el cuerpo, `<span class="highlight">…</span>`; en `description` (frontmatter, texto plano), `**…**`, que `src/utils/highlight.ts` convierte en el mismo span (y elimina en las tarjetas). Estilo `.highlight` en `global.css`: Roboto 400 en color de títulos.
 
 ### `legal`
 
@@ -286,7 +287,7 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
 
 ## Convenciones de código
 
-- Componentes `.astro` por defecto; **cero JavaScript en cliente** salvo lo imprescindible (menú móvil, selector de idioma). Nada de React/Vue sin acordarlo.
+- Componentes `.astro` por defecto; **cero JavaScript en cliente** salvo lo imprescindible (menú móvil, selector de idioma, envío del formulario de contacto y avance automático del slider de testimonios, que se pausa con hover/foco y no actúa con `prefers-reduced-motion`). Nada de React/Vue sin acordarlo.
 - Props tipadas con `interface Props` en cada componente.
 - Utilidades de Tailwind en el marcado; `@apply` solo en `global.css` para estilos de prosa del blog o casos muy repetidos.
 - Imágenes siempre con `<Image />` / `<Picture />` de `astro:assets`, con `alt` descriptivo en el idioma de la página (vacío solo si es decorativa).
@@ -317,7 +318,7 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
 
 ## Formularios y servicios externos
 
-- Formulario de contacto: **Web3Forms** (`src/components/forms/ContactForm.astro`). Newsletter: **Mailchimp** (`src/components/forms/MailchimpForm.astro`, sección `sections/Newsletter.astro` en la home tras los servicios): formulario de inserción adaptado, sin JS ni recursos de Mailchimp/Intuit (se quitó la insignia), validación nativa y confirmación en pestaña nueva. No modificar el `action` ni el campo honeypot `b_…`, que identifican la lista. **Segmentación por idioma:** cada suscriptor recibe la etiqueta de Mailchimp de su idioma (`el`/`es`/`en`) mediante un campo oculto `tags`; los IDs numéricos de las etiquetas se configuran en `NEWSLETTER_TAG_IDS` (`src/consts.ts`) — ⚠️ pendientes (`TODO`): mientras sean `null`, se suscribe sin etiqueta.
+- Formulario de contacto: **Web3Forms** (`src/components/forms/ContactForm.astro`). Newsletter: **Mailchimp** (`src/components/forms/MailchimpForm.astro`, sección `sections/Newsletter.astro` en la home tras los servicios): formulario de inserción adaptado, sin JS ni recursos de Mailchimp/Intuit (se quitó la insignia), validación nativa y confirmación en pestaña nueva. No modificar el `action` ni el campo honeypot `b_…`, que identifican la lista. **Segmentación por idioma:** cada suscriptor recibe la etiqueta de Mailchimp de su idioma (`el`/`es`/`en`) mediante un campo oculto `tags`; los IDs numéricos de las etiquetas se configuran en `NEWSLETTER_TAG_IDS` (`src/consts.ts`) (configurados: el `24268402`, es `24268403`, en `24268404`). Las etiquetas deben seguir existiendo en Audience → Tags; el formulario embebido de Mailchimp no se usa. Limitación conocida: la página de confirmación y el correo de doble opt-in de Mailchimp salen en el idioma de la audiencia, no en el de quien se suscribe.
 - Todo formulario lleva casilla de aceptación de la política de privacidad (enlace a `privacy` en el idioma actual) y protección antispam (honeypot).
 - No cargar scripts de terceros (analítica, mapas, vídeos embebidos) sin consentimiento de cookies. El mapa de Contacto es opcional: si se incluye, que sea una imagen estática enlazada a Google Maps, no un iframe.
 
@@ -352,4 +353,4 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
 4. **Blog:** índice filtrable por categoría, post, RSS por idioma.
 5. **Pulido:** sitemap, OG, `llms.txt`, accesibilidad, Lighthouse, deploy.
 
-Estado actual: **Fase 2 completada** (colección `services` con 7 servicios × 3 idiomas; esquema `blog` definido, sin posts hasta la fase 4 — el build avisa de que la colección está vacía). **Fase 3 en curso:** hechas Inicio, Sesiones (índice + 3 detalles), Cursos (índice + 3 detalles; «Seminarios y charlas» aparcado), Sobre mí y Contacto (formulario Web3Forms en `src/components/forms/ContactForm.astro`), y una página temporal «Próximamente» en Blog; y legales (Aviso legal, Privacidad, Cookies) como borradores pendientes de revisión legal. Pendiente para cerrar la fase: auditoría SEO (skill `seo-audit`) y revisión de María/abogado/a de los textos legales. (Actualizar esta línea al cerrar cada fase.)
+Estado actual: **Fase 2 completada** (colección `services` con 7 servicios × 3 idiomas; esquema `blog` definido, sin posts hasta la fase 4 — el build avisa de que la colección está vacía). **Fase 3 casi cerrada:** hechas Inicio, Sesiones y Cursos (índices + 3 detalles cada uno; «Seminarios y charlas» aparcado), Sobre mí (colección `about`), Contacto (Web3Forms), testimonios (colección `testimonials`, solo Sesiones por ahora), newsletter con etiquetas por idioma, legales como borradores y una página temporal «Próximamente» en Blog. Primer draft completo en Vercel para revisión de María (ver `docs/revision-draft-2026-10-26.md`). Pendiente para cerrar la fase: validaciones de María, auditoría SEO (skill `seo-audit`) y revisión legal. (Actualizar esta línea al cerrar cada fase.)
