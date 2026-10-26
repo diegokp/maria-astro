@@ -14,7 +14,7 @@ const { lang } = Astro.props;
 
 <section class="mx-auto max-w-6xl px-4 pt-8 pb-16 sm:px-6 sm:pb-24 md:pt-12">
 	<div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
-		<div class="text-center md:text-left">
+		<div class="order-2 text-center md:order-none md:text-left">
 			<h1 class="font-display text-4xl text-text-heading sm:text-5xl lg:text-6xl">{t(lang, 'home.hero.title')}</h1>
 			<h2 class="mx-auto mt-5 max-w-xl font-sans text-lg font-light leading-relaxed text-text-soft md:mx-0 lg:text-xl">
 				{t(lang, 'home.hero.subtitle')}
@@ -24,7 +24,7 @@ const { lang } = Astro.props;
 			</div>
 		</div>
 
-		<div class="relative isolate mx-auto w-full max-w-sm md:max-w-none">
+		<div class="relative isolate order-1 mx-auto w-full max-w-sm md:order-none md:max-w-none">
 			<div
 				class="absolute inset-[12%] -z-10 rounded-full"
 				aria-hidden="true"
