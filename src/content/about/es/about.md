@@ -38,3 +38,12 @@ Hoy en día, divido mi tiempo entre la consulta clínica y la docencia:
 - **Educar desde la consciencia** y la corresponsabilidad parental.
 - **Organizar formación** para tu plantilla de profesionales de la infancia.
 - **Organizar escuela de padres** para las familias de tu centro educativo.
+
+## Colaboraciones
+
+- **Project Parenting:** colaboradora científica de esta plataforma educativa para padres en Grecia (2020) — <a href="https://www.projectparenting.gr" target="_blank" rel="noopener noreferrer">projectparenting.gr</a>.
+- **TeensNeurolink™:** colaboradora especializada en apoyo familiar de esta plataforma de neurodesarrollo y maduración adaptativa de adolescentes y jóvenes (2026).
+- **Universidad Nacional Kapodiastriaca de Atenas** - Servicio de formación profesional continuada a distancia (E-learning):
+  - 2020- Curso Teacher Talk R:  Certificacion Internacional del Método Hanen para el desarrollo del lenguaje en entornos naturales.
+  - 2026- Curso sobre "Aplicación de técnicas de relajación y meditación en el deporte"
+<!-- TODO: texto literal de María, pendiente de aclarar con ella si es una colaboración (imparte los cursos) o formación recibida, y de corregir redacción/ortografía antes del lanzamiento. -->

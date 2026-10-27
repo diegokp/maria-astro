@@ -67,6 +67,8 @@ const el = {
 	'about.photoAlt': 'Πορτρέτο της Μαρίας Δημητροπούλου Λόπεζ',
 	'about.cta': 'Επικοινωνήστε μαζί μου',
 	'about.linkedinCta': 'Δείτε το πλήρες βιογραφικό μου εδώ',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'about.collaborationCta': 'Εκπροσωπείτε έναν φορέα ή ένα έργο; Γράψτε μου για να εξετάσουμε μια συνεργασία.',
 
 	// Página temporal del blog hasta que haya publicaciones.
 	'blog.seo.title': 'Νέα — Μαρία Δημητροπούλου Λόπεζ',
@@ -180,6 +182,7 @@ const es: Record<UIKey, string> = {
 	'about.photoAlt': 'Retrato de María Dimitropoulou López',
 	'about.cta': 'Ponte en contacto',
 	'about.linkedinCta': 'Accede a mi currículum completo aquí',
+	'about.collaborationCta': '¿Representas una institución o un proyecto? Escríbeme para explorar una colaboración.',
 
 	// Página temporal del blog hasta que haya publicaciones.
 	'blog.seo.title': 'Blog — María Dimitropoulou López',
@@ -297,6 +300,8 @@ const en: Record<UIKey, string> = {
 	'about.photoAlt': 'Portrait of María Dimitropoulou López',
 	'about.cta': 'Get in touch',
 	'about.linkedinCta': 'See my full CV here',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'about.collaborationCta': 'Do you represent an organisation or a project? Write to me to explore a collaboration.',
 
 	// Página temporal del blog hasta que haya publicaciones.
 	'blog.seo.title': 'Blog — María Dimitropoulou López',

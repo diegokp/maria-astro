@@ -36,6 +36,10 @@ const { Content } = await render(bio);
 			<h1 class="font-display text-4xl text-text-heading sm:text-5xl">{t(lang, 'about.title')}</h1>
 			<div class="prose-content mt-8 max-w-3xl">
 				<Content />
+				{/* Cierre de «Colaboraciones»: enlace interno a Contacto (localizedPath, nunca a mano). */}
+				<p>
+					<a href={localizedPath('contact', lang)}>{t(lang, 'about.collaborationCta')}</a>
+				</p>
 				{/* CV completo: enlace externo a LinkedIn (SOCIAL.linkedin en consts.ts, fuente única). */}
 				<p>
 					<a href={SOCIAL.linkedin} target="_blank" rel="noopener noreferrer">
