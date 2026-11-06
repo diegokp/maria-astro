@@ -8,7 +8,7 @@ const el = {
 	// TODO: revisar traducción — «Συνεδρίες»/«Προγράμματα» son una propuesta.
 	'nav.sessions': 'Συνεδρίες',
 	'nav.courses': 'Προγράμματα',
-	'nav.about': 'Σχετικά',
+	'nav.about': 'Μαρία',
 	'nav.blog': 'Νέα',
 	'nav.contact': 'Επικοινωνία',
 	'nav.mobileMenu.open': 'Άνοιγμα μενού',
@@ -63,7 +63,7 @@ const el = {
 	'about.seo.title': 'Σχετικά με εμένα — Μαρία Δημητροπούλου Λόπεζ',
 	'about.seo.description':
 		'Ψυχολόγος, ψυχοπαιδαγωγός και Διδάκτωρ Γνωστικής Ψυχολογίας. Η πορεία και η προσέγγισή μου για παιδιά, οικογένειες και επαγγελματίες.',
-	'about.title': 'Σχετικά με εμένα',
+	'about.title': 'Μαρία',
 	'about.photoAlt': 'Πορτρέτο της Μαρίας Δημητροπούλου Λόπεζ',
 	'contact.photoAlt': 'Η Μαρία Δημητροπούλου Λόπεζ χαμογελά, με τζιν πουκάμισο, στο γραφείο της.',
 	'about.cta': 'Επικοινωνήστε μαζί μου',
@@ -131,7 +131,7 @@ const es: Record<UIKey, string> = {
 	'nav.home': 'Inicio',
 	'nav.sessions': 'Sesiones',
 	'nav.courses': 'Cursos',
-	'nav.about': 'Sobre mí',
+	'nav.about': 'María',
 	'nav.blog': 'Blog',
 	'nav.contact': 'Contacto',
 	'nav.mobileMenu.open': 'Abrir menú',
@@ -179,7 +179,7 @@ const es: Record<UIKey, string> = {
 	'about.seo.title': 'Sobre mí — María Dimitropoulou López',
 	'about.seo.description':
 		'Psicóloga, psicopedagoga y doctora en Psicología Cognitiva. Mi trayectoria y mi enfoque con niñ@s, familias y profesionales.',
-	'about.title': 'Sobre mí',
+	'about.title': 'María',
 	'about.photoAlt': 'Retrato de María Dimitropoulou López',
 	'contact.photoAlt': 'María Dimitropoulou López sonríe, con camisa vaquera, en su consulta.',
 	'about.cta': 'Ponte en contacto',
@@ -243,7 +243,7 @@ const en: Record<UIKey, string> = {
 	'nav.home': 'Home',
 	'nav.sessions': 'Sessions',
 	'nav.courses': 'Courses',
-	'nav.about': 'About',
+	'nav.about': 'María',
 	'nav.blog': 'Blog',
 	'nav.contact': 'Contact',
 	'nav.mobileMenu.open': 'Open menu',
@@ -298,7 +298,7 @@ const en: Record<UIKey, string> = {
 	'about.seo.title': 'About me — María Dimitropoulou López',
 	'about.seo.description':
 		'Psychologist, educational psychologist and PhD in Cognitive Psychology. My background and my approach with children, families and professionals.',
-	'about.title': 'About me',
+	'about.title': 'María',
 	'about.photoAlt': 'Portrait of María Dimitropoulou López',
 	'contact.photoAlt': 'María Dimitropoulou López smiling, wearing a denim shirt, in her practice.',
 	'about.cta': 'Get in touch',
