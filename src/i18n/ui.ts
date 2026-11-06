@@ -65,6 +65,7 @@ const el = {
 		'Ψυχολόγος, ψυχοπαιδαγωγός και Διδάκτωρ Γνωστικής Ψυχολογίας. Η πορεία και η προσέγγισή μου για παιδιά, οικογένειες και επαγγελματίες.',
 	'about.title': 'Σχετικά με εμένα',
 	'about.photoAlt': 'Πορτρέτο της Μαρίας Δημητροπούλου Λόπεζ',
+	'contact.photoAlt': 'Η Μαρία Δημητροπούλου Λόπεζ χαμογελά, με τζιν πουκάμισο, στο γραφείο της.',
 	'about.cta': 'Επικοινωνήστε μαζί μου',
 	'about.linkedinCta': 'Δείτε το πλήρες βιογραφικό μου εδώ',
 	// TODO: revisar traducción (borrador a partir del texto en español).
@@ -180,6 +181,7 @@ const es: Record<UIKey, string> = {
 		'Psicóloga, psicopedagoga y doctora en Psicología Cognitiva. Mi trayectoria y mi enfoque con niñ@s, familias y profesionales.',
 	'about.title': 'Sobre mí',
 	'about.photoAlt': 'Retrato de María Dimitropoulou López',
+	'contact.photoAlt': 'María Dimitropoulou López sonríe, con camisa vaquera, en su consulta.',
 	'about.cta': 'Ponte en contacto',
 	'about.linkedinCta': 'Accede a mi currículum completo aquí',
 	'about.collaborationCta': '¿Representas una institución o un proyecto? Escríbeme para explorar una colaboración.',
@@ -298,6 +300,7 @@ const en: Record<UIKey, string> = {
 		'Psychologist, educational psychologist and PhD in Cognitive Psychology. My background and my approach with children, families and professionals.',
 	'about.title': 'About me',
 	'about.photoAlt': 'Portrait of María Dimitropoulou López',
+	'contact.photoAlt': 'María Dimitropoulou López smiling, wearing a denim shirt, in her practice.',
 	'about.cta': 'Get in touch',
 	'about.linkedinCta': 'See my full CV here',
 	// TODO: revisar traducción (borrador a partir del texto en español).

@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import Button from '../ui/Button.astro';
-import portrait from '../../assets/images/YoTumbo.webp';
+import portrait from '../../assets/images/maria-about.webp';
 import { localizedPath, t } from '../../i18n/utils';
 import { SOCIAL } from '../../consts';
 import type { Lang } from '../../i18n/routes';
@@ -20,13 +20,13 @@ const { Content } = await render(bio);
 
 <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
 	<div class="grid items-start gap-10 sm:grid-cols-[14rem_1fr] sm:gap-12 lg:grid-cols-[18rem_1fr] lg:gap-16">
-		<div class="mx-auto w-full max-w-44 sm:max-w-none">
+		<div class="mx-auto w-3/4 sm:w-full">
 			{/* Misma máscara ovoidal irregular y trazo gris suave (text-soft) que en Intro. */}
 			<Image
 				src={portrait}
 				alt={t(lang, 'about.photoAlt')}
 				widths={[176, 224, 288, 448, 576]}
-				sizes="(min-width: 1024px) 288px, (min-width: 640px) 224px, 176px"
+				sizes="(min-width: 1024px) 288px, (min-width: 640px) 224px, 75vw"
 				loading="eager"
 				class="aspect-4/5 w-full rounded-[62%_38%_46%_54%/42%_58%_36%_64%] border-[5px] border-text-soft object-cover object-top"
 			/>

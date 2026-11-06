@@ -43,7 +43,7 @@ Today, I divide my time between clinical practice and teaching:
 ## Collaborations
 
 - **Project Parenting:** scientific collaborator for this educational platform for parents in Greece (2020) — <a href="https://www.projectparenting.gr" target="_blank" rel="noopener noreferrer">projectparenting.gr</a>.
-- **TeensNeurolink™:** specialist family-support collaborator for this neurodevelopment and adaptive-maturation platform for adolescents and young people (2026).
+- **TeensNeurolink™:** specialist family-support collaborator for this neurodevelopment and adaptive-maturation platform for adolescents and young people (2026) — <a href="https://teensneurolink.com/" target="_blank" rel="noopener noreferrer">teensneurolink.com</a>.
 - **National and Kapodistrian University of Athens** - Distance continuing professional education service (e-learning):
   - 2020- Teacher Talk® course: International Hanen Method certification for language development in natural environments.
   - 2026- Course on applying relaxation and meditation techniques in sport
