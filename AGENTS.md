@@ -23,6 +23,7 @@ npm run build      # build de preview/desarrollo: noindex + robots.txt «Disallo
 npm run build:prod # build de PRODUCCIÓN (SITE_ENV=production): indexable. Es el único que se sube a Nicalia
 npm run preview    # previsualizar el build
 npx astro check    # tipos y diagnósticos; ejecutar antes de cada commit
+npm run seo:check # build de producción + verificación SEO de dist/ (scripts/seo-check.mjs) + informe docs/SEO-VERIFICACION.md; falla con código 1 si hay errores
 npm run images:webp              # convierte PNG/JPG nuevos a WebP (conserva originales)
 npm run images:webp -- --delete  # convierte y borra los originales
 ```
@@ -311,8 +312,9 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
   · **Por plantilla:** Inicio `WebPage`; María `ProfilePage`; índices `CollectionPage` + `ItemList`; sesiones `Service` (`#service-<clave>`); cursos `Course` (`#course-<clave>`, sin `CourseInstance` mientras no haya fechas de edición); Contacto `ContactPage`; Blog y legales `WebPage`; páginas internas con `BreadcrumbList`.
   · **Posts del blog (fase 4):** `BlogPosting` con `author` → `#person`, `datePublished`/`dateModified`, `inLanguage` e `image` absoluta; traducciones enlazadas con `workTranslation`/`translationOfWork`.
   · **Prohibido:** `Review`/`AggregateRating` (los testimonios son solo contenido visible), afirmaciones clínicas, tipos médicos (`Physician`), propiedades vacías o datos que la página no muestre. Lo pendiente está en `docs/SEO-DATOS-PENDIENTES.md`.
+- **Verificación automática:** `scripts/seo-check.mjs` se ejecuta tras cada build (`postbuild`, también en Vercel) y se adapta al entorno: en producción comprueba, por página e idioma, `lang`, título (único, ≤ 60), description (única, 150–160), un `h1`, canonical, `hreflang` recíproco, Open Graph, JSON-LD, robots, `alt` y enlaces, y en el sitio entero sitemap, `robots.txt`, `llms.txt`, 404, `.htaccess` y Plausible; en preview, que todo sea `noindex` y no haya sitemap ni analítica. Un error rompe el build (código 1); las advertencias no. `npm run seo:check` lo ejecuta sobre un build de producción y regenera `docs/SEO-VERIFICACION.md`.
 - **Guard de entorno:** `SITE_ENV` (`astro:env`, `astro.config.mjs`; `IS_PRODUCTION` en `consts.ts`). Solo `npm run build:prod` es indexable; cualquier otro build (dev, previews de Vercel) lleva `noindex, nofollow` y `robots.txt` con `Disallow: /`. Las páginas con `noindex` explícito (blog «Próximamente») lo mantienen en producción.
-- Decisiones SEO del 10/11/2026: modalidad online + presencial en Chalandri; griego en la raíz sin prefijo; crawlers de IA permitidos; legales indexables. Auditoría y pendientes: `docs/SEO-AUDITORIA.md` y `docs/SEO-DATOS-PENDIENTES.md`.
+- Decisiones SEO del 10/11/2026: modalidad online + presencial en Chalandri; griego en la raíz sin prefijo; crawlers de IA permitidos; legales indexables. Estado final, riesgos y comprobaciones manuales: `docs/SEO-INFORME-FINAL.md`; auditoría inicial: `docs/SEO-AUDITORIA.md`; datos pendientes: `docs/SEO-DATOS-PENDIENTES.md`.
 - **Mientras el sitio no esté lanzado, los despliegues de preview llevan `noindex`.** La página "en construcción" sigue en producción hasta el lanzamiento.
 
 ## Despliegue

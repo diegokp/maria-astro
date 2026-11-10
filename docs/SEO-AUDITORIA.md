@@ -1,5 +1,7 @@
 # Auditoría SEO — Fase 1 (solo informe)
 
+> **Informe histórico de la fase 1.** Los problemas que recoge se resolvieron en las fases 2 a 7; el estado final, las decisiones aplicadas, los riesgos abiertos y las comprobaciones manuales están en [`SEO-INFORME-FINAL.md`](SEO-INFORME-FINAL.md).
+
 **Fecha:** 10/11/2026 · **Rama:** `draft/revision-maria` (commit `df7e139`) · **Fuente:** build de producción (`npm run build` → `dist/`), 45 páginas.
 
 **Alcance:** el prompt de «Revisión y cierre completo del SEO», **adaptado a la arquitectura actual** (decisión del 10/11/2026). No se ha tocado código. Las referencias del prompt se traducen así:
