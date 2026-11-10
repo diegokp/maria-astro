@@ -35,6 +35,8 @@ El draft está listo para enseñarse. No hay errores de tipos, el build es limpi
 
 ## Pendiente de María (contenido)
 
+> María pasará un documento Word con todas las correcciones de los textos; ver [correcciones-maria.md](correcciones-maria.md). Esta versión no se publica en producción hasta aplicarlo.
+
 Nada de esto bloquea el draft, pero conviene repasarlo con ella:
 
 1. **Traducciones al griego y al inglés:** están marcadas como `TODO: revisar traducción`. Afectan a:
