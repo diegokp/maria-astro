@@ -27,6 +27,8 @@ export interface Props {
 	image?: { src: ImageMetadata; alt: string };
 	/** Página 404: sin canonical, hreflang, og:url ni JSON-LD, y siempre noindex. */
 	notFound?: boolean;
+	/** Texto que acompaña a la imagen al compartir (og/twitter:description). Por defecto, la meta description. */
+	ogDescription?: string;
 }
 
 const {
@@ -39,6 +41,7 @@ const {
 	noindex: noindexProp = false,
 	image,
 	notFound = false,
+	ogDescription,
 } = Astro.props;
 const noindex = noindexProp || notFound;
 
@@ -101,7 +104,7 @@ const jsonLd = buildGraph({
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content={SITE_NAME} />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={ogDescription ?? description} />
 {!notFound && <meta property="og:url" content={canonical} />}
 <meta property="og:locale" content={OG_LOCALE[lang]} />
 {
@@ -117,7 +120,7 @@ const jsonLd = buildGraph({
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={ogDescription ?? description} />
 <meta name="twitter:image" content={ogImageUrl} />
 <meta name="twitter:image:alt" content={ogImageAlt} />
 

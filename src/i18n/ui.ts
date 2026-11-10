@@ -33,6 +33,8 @@ const el = {
 	'home.intro.quoteGoal':
 		'**Αν θέλεις να θέσεις έναν προσωπικό στόχο, στόχευσε στο να είσαι πιο καλός/ή με τον εαυτό σου.**',
 	'home.intro.cta': 'Γνώρισέ με καλύτερα',
+	'home.ogDescription':
+		'Είμαι η Μαρία, ψυχολόγος και ψυχοπαιδαγωγός, ειδικευμένη στην διαχείριση του άγχους μέσω των εφαρμογών της Ενσυνειδητότητας (Mindfulness) και στη Ενσυνείδητη Γονεϊκότητα (Mindful Parenting).',
 	'home.intro.imageAlt': 'Η Μαρία Δημητροπούλου Λόπεζ χαμογελά με σταυρωμένα τα χέρια, φορώντας ριγέ πουκάμισο.',
 	// TODO: revisar traducción (borrador a partir del texto en español).
 	'sessions.heading':
@@ -161,6 +163,9 @@ const es: Record<UIKey, string> = {
 	'home.intro.quoteGoal':
 		'**Si vas a proponerte un objetivo personal, proponte ser más buen@ contigo mism@**',
 	'home.intro.cta': 'Conóceme mejor',
+	// TODO: revisar traducción (borrador a partir del texto en griego de María).
+	'home.ogDescription':
+		'Soy María, psicóloga y psicopedagoga, especializada en la gestión del estrés mediante las aplicaciones de la Conciencia Plena (Mindfulness) y en la Parentalidad Consciente (Mindful Parenting).',
 	'home.intro.imageAlt': 'María Dimitropoulou López sonríe con los brazos cruzados, vestida con una camisa de rayas.',
 	'sessions.heading':
 		'Sesiones de apoyo psicológico para niños, adultos y familias',
@@ -280,6 +285,9 @@ const en: Record<UIKey, string> = {
 	'home.intro.quoteGoal':
 		"**If you're going to set yourself a personal goal, let it be to be kinder to yourself.**",
 	'home.intro.cta': 'Get to know me',
+	// TODO: revisar traducción (borrador a partir del texto en griego de María).
+	'home.ogDescription':
+		"I'm María, a psychologist and psychopedagogue specialising in stress management through the applications of Mindfulness and in Mindful Parenting.",
 	'home.intro.imageAlt': 'María Dimitropoulou López smiling with her arms crossed, wearing a striped shirt.',
 	'sessions.heading':
 		'Psychological support sessions for children, adults and families',

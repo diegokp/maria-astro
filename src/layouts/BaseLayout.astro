@@ -20,10 +20,21 @@ export interface Props {
 	noindex?: boolean;
 	image?: { src: ImageMetadata; alt: string };
 	notFound?: boolean;
+	ogDescription?: string;
 }
 
-const { title, description, routeKey, lang, schema, breadcrumbs, noindex, image, notFound } =
-	Astro.props;
+const {
+	title,
+	description,
+	routeKey,
+	lang,
+	schema,
+	breadcrumbs,
+	noindex,
+	image,
+	notFound,
+	ogDescription,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -47,6 +58,7 @@ const { title, description, routeKey, lang, schema, breadcrumbs, noindex, image,
 			noindex={noindex}
 			image={image}
 			notFound={notFound}
+			ogDescription={ogDescription}
 		/>
 		{
 			/* Analítica sin cookies (Plausible), solo en producción. is:inline: Astro no la procesa. */

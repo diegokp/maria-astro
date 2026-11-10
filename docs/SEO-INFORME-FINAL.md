@@ -66,6 +66,7 @@ Matriz de verificación (48 páginas = 45 + 3 de 404, 11 comprobaciones por pág
 | Longitud de description | Objetivo 150–160; fuera de rango = advertencia | ✅ validado en Zod y en `seo-check` |
 | `og:locale` del inglés | `en_GB` | ✅ |
 | Imagen al compartir | Retrato de María | ✅ |
+| Texto que acompaña la imagen al compartir (home, 3 idiomas) | `og:description` y `twitter:description` = presentación de María (clave `home.ogDescription` de `ui.ts`), distinta de la meta description de Google; el resto de páginas usan su meta description | ✅ prop `ogDescription` de `SEO.astro`; español e inglés son traducciones mías pendientes de validar |
 | Blog «Próximamente» | `noindex` hasta el primer post | ✅ **ver riesgo 3** |
 | Redirecciones de los 49 posts antiguos | 301 a `/nea/` (opción A) | ✅ |
 | Analítica | Plausible, solo en producción | ✅ falta revisión legal de la base jurídica |
