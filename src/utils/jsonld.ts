@@ -100,6 +100,15 @@ export function buildGraph(ctx: PageContext) {
 		knowsAbout: PERSON.knowsAbout[lang],
 		alumniOf: PERSON.alumniOf?.map((name) => ({ '@type': 'CollegeOrUniversity', name })),
 		affiliation: PERSON.affiliations.map((org) => ({ '@type': 'Organization', ...org })),
+		// Colegiación: solo si consta (se muestra en el Aviso legal).
+		hasCredential: PERSON.credential
+			? {
+					'@type': 'EducationalOccupationalCredential',
+					credentialCategory: 'Professional registration',
+					identifier: PERSON.credential.number,
+					recognizedBy: { '@type': 'Organization', name: PERSON.credential.body },
+				}
+			: null,
 		worksFor: ref(LD_ID.practice),
 		sameAs: [SOCIAL.facebook, SOCIAL.instagram, SOCIAL.linkedin],
 	};

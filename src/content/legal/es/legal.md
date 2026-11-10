@@ -23,8 +23,8 @@ La RESPONSABLE se reserva el derecho de modificar cualquier tipo de información
 | **Nombre comercial** | María Dimitropoulou López |
 | **Titular** | María Dimitropoulou López |
 | **Actividad** | Psicóloga |
-| **Número de identificación fiscal (ΑΦΜ)** | 11****947 |
-| **Colegiación profesional** | TODO: pendiente |
+| **Número de identificación fiscal** | 11****947 |
+| **Colegiación profesional** | P02486 — Colegio Oficial de Psicólogos de Las Palmas |
 | **Domicilio** | Λέσβου 8, Χαλάνδρι, 152 31 Αθήνα, Grecia |
 | **E-mail** | dimitropoulou.mar@gmail.com |
 | **Teléfono** | +30 694 027 0745 |

@@ -57,8 +57,11 @@ export const PERSON = {
 	nameGreek: 'Μαρία Δημητροπούλου Λόπεζ',
 	// Universidades de grado, másteres y doctorado: pendiente (María).
 	alumniOf: null as string[] | null,
-	// Número y colegio profesional: pendiente (María).
-	credential: null as string | null,
+	// Colegiación profesional (publicada en el Aviso legal).
+	credential: {
+		number: 'P02486',
+		body: 'Colegio Oficial de Psicólogos de Las Palmas',
+	} as { number: string; body: string } | null,
 	// Áreas de conocimiento: las disciplinas que la página «María» muestra
 	// («Un enfoque multidisciplinar» y su doctorado).
 	knowsAbout: {

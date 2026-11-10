@@ -13,7 +13,7 @@
 | Horario de atención | `openingHoursSpecification` (solo si es presencial y si quiere publicarlo) | María | `CONTACT.openingHours` (nuevo) |
 | Enlace a Google Maps / ficha de Google Business | `hasMap`, `sameAs` | María | `CONTACT.mapUrl`, `SOCIAL` |
 | Universidades de su formación (grado, dos másteres, doctorado) | `alumniOf` de `Person` (hoy la web solo dice «dos másteres universitarios», sin nombres) | María | `PERSON.alumniOf` (nuevo) |
-| Número de colegiación profesional y colegio | `hasCredential`, Aviso legal | María | `PERSON.credential` + `legal/*.md` |
+| ~~Número de colegiación profesional y colegio~~ | `hasCredential`, Aviso legal | ✅ P02486, Colegio Oficial de Psicólogos de Las Palmas (10/11/2026) | `PERSON.credential` + `legal/*.md` |
 | ~~ΑΦΜ (NIF griego)~~ | Aviso legal | ✅ Publicado enmascarado (`11****947`) el 10/11/2026, por recomendación legal y de protección de datos | `legal/*.md` |
 | URL de la Universidad / curso UNKA (y si es colaboración o formación recibida) | `affiliation`/`memberOf` solo si es colaboración real; enlace en Colaboraciones | María | `about/*.md` + `PERSON.affiliation` |
 | Consentimiento escrito de cada testimonio | Publicación de testimonios (RGPD, datos de salud) | María | `testimonials/*.md` (hoy `approved: true`) |

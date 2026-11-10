@@ -220,7 +220,7 @@ Para evitar triplicar páginas, usa rutas dinámicas con `getStaticPaths()` que 
 ```
 
 - Archivos: `src/content/legal/{el,es,en}/<legalKey>.md`; la clave legal es directamente su `routeKey`. Ruta única: `src/pages/[...legalPath].astro`.
-- **Marco legal: solo RGPD** (y Directiva 2002/58/CE para cookies). La ley nacional aplicable, la autoridad de control, la jurisdicción, el ΑΦΜ y la colegiación profesional son `TODO` para revisión por un/a abogado/a; no se inventan.
+- **Marco legal: solo RGPD** (y Directiva 2002/58/CE para cookies). La ley nacional aplicable, la autoridad de control y la jurisdicción son `TODO` para revisión por un/a abogado/a; no se inventan. El ΑΦΜ se publica enmascarado (`11****947`, por recomendación legal) y la colegiación consta (P02486, Colegio Oficial de Psicólogos de Las Palmas; `PERSON.credential` en `consts.ts`).
 - Los textos deben describir la web real: hoy **no usa cookies** (fuentes autoalojadas, sin embeds), mide las visitas con **Plausible** (analítica sin cookies ni datos personales, solo en producción) y el formulario pasa por **Web3Forms** → Gmail. Si cambia algo de esto (analítica, mapa, newsletter, hosting), actualiza Privacidad y Cookies en los tres idiomas.
 - Al editar un texto legal, actualiza `updatedDate`.
 

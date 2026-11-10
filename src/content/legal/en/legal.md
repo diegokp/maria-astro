@@ -23,8 +23,8 @@ The CONTROLLER reserves the right to modify any information that may appear on t
 | **Trade name** | María Dimitropoulou López |
 | **Owner** | María Dimitropoulou López |
 | **Activity** | Psychologist |
-| **Tax identification number (ΑΦΜ)** | 11****947 |
-| **Professional registration** | TODO: pending |
+| **Tax identification number** | 11****947 |
+| **Professional registration** | P02486 — Colegio Oficial de Psicólogos de Las Palmas |
 | **Address** | Lesvou 8, Chalandri, 152 31 Athens, Greece |
 | **E-mail** | dimitropoulou.mar@gmail.com |
 | **Phone** | +30 694 027 0745 |
