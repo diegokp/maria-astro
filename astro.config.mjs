@@ -94,7 +94,7 @@ export default defineConfig({
                   {
                       weight: 400,
                       style: 'normal',
-                      src: ['./src/assets/fonts/MandysSketch.ttf'],
+                      src: ['./src/assets/fonts/MandysSketch.woff2'],
                   },
               ],
           },

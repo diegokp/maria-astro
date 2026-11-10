@@ -4,7 +4,7 @@ legalKey: legal
 lang: es
 title: "Aviso legal"
 description: "Aviso legal del sitio web de María Dimitropoulou López: datos identificativos del titular, propiedad intelectual, exención de responsabilidades y ley aplicable."
-updatedDate: 2026-10-05
+updatedDate: 2026-11-10
 ---
 
 María Dimitropoulou López, titular del sitio web, en adelante la RESPONSABLE, pone a disposición de los usuarios el presente documento, con el que pretende dar cumplimiento a las obligaciones de información que le son aplicables, así como informar a todos los usuarios del sitio web respecto a cuáles son las condiciones de uso.
@@ -23,7 +23,7 @@ La RESPONSABLE se reserva el derecho de modificar cualquier tipo de información
 | **Nombre comercial** | María Dimitropoulou López |
 | **Titular** | María Dimitropoulou López |
 | **Actividad** | Psicóloga |
-| **Número de identificación fiscal (ΑΦΜ)** | TODO: pendiente |
+| **Número de identificación fiscal (ΑΦΜ)** | 11****947 |
 | **Colegiación profesional** | TODO: pendiente |
 | **Domicilio** | Λέσβου 8, Χαλάνδρι, 152 31 Αθήνα, Grecia |
 | **E-mail** | dimitropoulou.mar@gmail.com |

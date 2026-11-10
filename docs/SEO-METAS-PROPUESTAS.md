@@ -121,9 +121,9 @@ Redactadas a partir del contenido visible de cada página, con el objetivo SEO d
 
 | Idioma | Título | Description | Car. |
 |---|---|---|---|
-| el | Πολιτική cookies — María Dimitropoulou López | Πολιτική cookies του ιστότοπου της Μαρίας Δημητροπούλου Λόπεζ: ο ιστότοπος δεν χρησιμοποιεί δικά του cookies ούτε cookies τρίτων, εργαλεία ανάλυσης ή διαφήμιση. | 160 |
-| es | Política de cookies — María Dimitropoulou López | Política de cookies del sitio web de María Dimitropoulou López: este sitio no utiliza cookies propias ni de terceros, ni herramientas de analítica o publicidad. | 160 |
-| en | Cookie policy — María Dimitropoulou López | Cookie policy for the website of María Dimitropoulou López: this site uses no first-party or third-party cookies, and no analytics, advertising or embeds. | 154 |
+| el | Πολιτική cookies — María Dimitropoulou López | Πολιτική cookies του ιστότοπου της Μαρίας Δημητροπούλου Λόπεζ: δεν χρησιμοποιεί cookies και μετρά τις επισκέψεις με το Plausible, ανάλυση χωρίς cookies. | 152 |
+| es | Política de cookies — María Dimitropoulou López | Política de cookies de la web de María Dimitropoulou López: no usa cookies propias ni de terceros y mide las visitas con Plausible, una analítica sin cookies. | 158 |
+| en | Cookie policy — María Dimitropoulou López | Cookie policy for María Dimitropoulou López's website: it uses no first-party or third-party cookies and measures visits with Plausible, a cookieless tool. | 155 |
 
 ## Seminarios y charlas (aparcado, sin página)
 

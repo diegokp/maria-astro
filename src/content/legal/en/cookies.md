@@ -3,8 +3,8 @@
 legalKey: cookies
 lang: en
 title: "Cookie policy"
-description: "Cookie policy for the website of María Dimitropoulou López: this site uses no first-party or third-party cookies, and no analytics, advertising or embeds."
-updatedDate: 2026-10-05
+description: "Cookie policy for María Dimitropoulou López's website: it uses no first-party or third-party cookies and measures visits with Plausible, a cookieless tool."
+updatedDate: 2026-11-10
 ---
 
 Under Directive 2002/58/EC (the ePrivacy Directive), in conjunction with Regulation (EU) 2016/679, the General Data Protection Regulation (GDPR), websites that use non-essential cookies must obtain the user's express consent before the user browses them.
@@ -13,7 +13,7 @@ Under Directive 2002/58/EC (the ePrivacy Directive), in conjunction with Regulat
 
 ## Cookies used on this website
 
-**This website does not use its own or third-party cookies.** It includes no analytics or advertising tools or embedded third-party content, and fonts are served from the site's own domain.
+**This website does not use its own or third-party cookies.** To know how many people visit it, it uses **Plausible Analytics**, an analytics tool that sets no cookies and collects no personal data: it only gathers aggregated, anonymous statistics (pages viewed, referral source, country, device type and browser). It includes no advertising or embedded third-party content, and fonts are served from the site's own domain.
 
 Links to social networks (Facebook, Instagram and LinkedIn) lead to third-party sites, which apply their own cookie policies when you visit them.
 

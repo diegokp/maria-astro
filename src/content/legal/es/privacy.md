@@ -4,7 +4,7 @@ legalKey: privacy
 lang: es
 title: "Política de privacidad"
 description: "Política de privacidad: cómo trata María Dimitropoulou López los datos del formulario de contacto y de la newsletter, para qué y cómo ejercer tus derechos."
-updatedDate: 2026-10-05
+updatedDate: 2026-11-10
 ---
 
 ## ¿Quién es la responsable del tratamiento de tus datos personales?
@@ -31,6 +31,12 @@ Si en tu mensaje incluyes información sobre tu salud o la de tus hijos/as, esta
 
 Si te suscribes al boletín, se recogen tu nombre (opcional) y tu dirección de e-mail para enviarte información sobre cursos, servicios y novedades. *(Por tu consentimiento, art. 6.1.a RGPD)* Puedes darte de baja en cualquier momento desde el enlace incluido en cada envío.
 
+### Estadísticas de visitas
+
+Para saber cuántas personas visitan la web y qué páginas consultan se utiliza **Plausible Analytics**, que no instala cookies ni guarda datos que permitan identificarte: la dirección IP solo se usa de forma temporal y cifrada para contar visitas únicas, y no se almacena. Se obtienen únicamente estadísticas agregadas y anónimas. *(Por interés legítimo, art. 6.1.f RGPD)*
+
+<!-- TODO: confirmar con el/la abogado/a la base jurídica (interés legítimo) y la ausencia de consentimiento para una analítica sin cookies (pendiente de revisión legal). -->
+
 ### ¿Durante cuánto tiempo guardaremos tus datos personales?
 
 Se conservarán durante no más tiempo del necesario para mantener el fin del tratamiento o mientras existan prescripciones legales que dictaminen su custodia. Cuando ya no sea necesario para ello, se suprimirán con medidas de seguridad adecuadas para garantizar la anonimización de los datos o la destrucción total de los mismos.
@@ -42,6 +48,7 @@ No está prevista ninguna comunicación de datos personales a terceros salvo, si
 - **Web3Forms**, servicio que envía al e-mail de la responsable los mensajes del formulario de contacto.
 - **Google (Gmail)**, proveedor del correo electrónico en el que se reciben los mensajes.
 - **Mailchimp (Intuit)**, plataforma de gestión y envío del boletín.
+- **Plausible Analytics (Plausible Insights OÜ, Unión Europea)**, estadísticas de visitas anónimas y agregadas, sin cookies.
 - **Nicalia**, proveedor de alojamiento del sitio web.
 
 Estos proveedores pueden tratar datos fuera del Espacio Económico Europeo. En ese caso, las transferencias se amparan en las garantías previstas en el Capítulo V del RGPD.

@@ -11,10 +11,20 @@ export interface Props {
 	image?: ImageMetadata;
 	/** Nivel del título según la jerarquía de la página (h2 bajo un h1, h3 bajo un h2, h4 bajo un h3). */
 	titleAs?: 'h2' | 'h3' | 'h4';
+	/** `eager` para la primera tarjeta visible (suele ser el LCP de la página). */
+	loading?: 'eager' | 'lazy';
 	class?: string;
 }
 
-const { title, description, href, image, titleAs: Title = 'h3', class: className } = Astro.props;
+const {
+	title,
+	description,
+	href,
+	image,
+	titleAs: Title = 'h3',
+	loading = 'lazy',
+	class: className,
+} = Astro.props;
 
 const Tag = href ? 'a' : 'div';
 
@@ -31,6 +41,8 @@ const base = 'block rounded-base p-4 text-center transition-colors';
 				alt=""
 				widths={[240, 360, 480, 720]}
 				sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
+				loading={loading}
+				fetchpriority={loading === 'eager' ? 'high' : undefined}
 				class="aspect-square w-full object-contain"
 			/>
 		)

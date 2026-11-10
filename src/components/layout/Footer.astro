@@ -42,7 +42,7 @@ const labelClass = 'font-mono text-xs uppercase tracking-wide text-text-heading'
 		class="mx-auto grid max-w-6xl grid-cols-1 items-start justify-items-center gap-10 px-4 py-12 text-center lg:text-left font-mono text-sm sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:gap-8"
 	>
 		<div class="w-full">
-			<h3 class={labelClass}>{t(lang, 'footer.contactHeading')}</h3>
+			<h2 class={labelClass}>{t(lang, 'footer.contactHeading')}</h2>
 			<ul class="mt-4 space-y-2 text-text-soft">
 				<li>
 					<a href={`mailto:${CONTACT.email}`} class="rounded-sm px-1 lg:-mx-1 wrap-break-word transition-colors hover:bg-hover hover:text-text">{CONTACT.email}</a>
@@ -62,7 +62,7 @@ const labelClass = 'font-mono text-xs uppercase tracking-wide text-text-heading'
 		</div>
 
 		<div class="w-full">
-			<h3 class={labelClass}>{t(lang, 'footer.followHeading')}</h3>
+			<h2 class={labelClass}>{t(lang, 'footer.followHeading')}</h2>
 			<ul class="mt-4 flex justify-center gap-3 lg:justify-start">
 				{
 					socialLinks.map((social) => (
@@ -91,7 +91,7 @@ const labelClass = 'font-mono text-xs uppercase tracking-wide text-text-heading'
 		</div>
 
 		<div class="w-full">
-			<h3 class={labelClass}>{t(lang, 'footer.legalHeading')}</h3>
+			<h2 class={labelClass}>{t(lang, 'footer.legalHeading')}</h2>
 			<ul class="mt-4 space-y-2 text-text-soft">
 				<li>
 					<a href={localizedPath('legal', lang)} class="rounded-sm px-1 lg:-mx-1 transition-colors hover:bg-hover hover:text-text">

@@ -221,7 +221,7 @@ Para evitar triplicar páginas, usa rutas dinámicas con `getStaticPaths()` que 
 
 - Archivos: `src/content/legal/{el,es,en}/<legalKey>.md`; la clave legal es directamente su `routeKey`. Ruta única: `src/pages/[...legalPath].astro`.
 - **Marco legal: solo RGPD** (y Directiva 2002/58/CE para cookies). La ley nacional aplicable, la autoridad de control, la jurisdicción, el ΑΦΜ y la colegiación profesional son `TODO` para revisión por un/a abogado/a; no se inventan.
-- Los textos deben describir la web real: hoy **no usa cookies** (fuentes autoalojadas, sin analítica ni embeds) y el formulario pasa por **Web3Forms** → Gmail. Si cambia algo de esto (analítica, mapa, newsletter, hosting), actualiza Privacidad y Cookies en los tres idiomas.
+- Los textos deben describir la web real: hoy **no usa cookies** (fuentes autoalojadas, sin embeds), mide las visitas con **Plausible** (analítica sin cookies ni datos personales, solo en producción) y el formulario pasa por **Web3Forms** → Gmail. Si cambia algo de esto (analítica, mapa, newsletter, hosting), actualiza Privacidad y Cookies en los tres idiomas.
 - Al editar un texto legal, actualiza `updatedDate`.
 
 ### `about`
@@ -261,7 +261,7 @@ Tomado de la página "en construcción" (`docs/index.html`), que a su vez sigue 
 | `--color-mustard-soft` | `rgba(248, 205, 126, 0.35)` | fondos suaves, resaltados |
 | `--color-mint` | `#E9F6F3` | acento secundario: fondo de hover y enlace activo |
 | `--color-ink` | `#525252` | texto principal |
-| `--color-ink-soft` | `rgba(58, 58, 58, 0.66)` | texto secundario |
+| `--color-ink-soft` | `rgba(58, 58, 58, 0.75)` | texto secundario (subido de 0,66 el 10/11/2026 para cumplir AA: 5,3:1 sobre blanco, 4,8:1 sobre crema) |
 | `--color-heading` | `#606060` | color de los títulos (`h1`/`h2`/`h3`), distinto del texto principal |
 | `--color-coral` | `#E47869` | solo foco (**nunca hover ni enlace activo**) |
 | `--color-sage` | `#7A8C38` | acento verde |
@@ -275,7 +275,7 @@ Tomado de la página "en construcción" (`docs/index.html`), que a su vez sigue 
 
 ### Tipografía
 
-- **Titulares:** "Mandys Sketch" (manuscrita, peso 400). Solo para H1/H2 y detalles decorativos, nunca para párrafos ni texto pequeño. Verificar que tiene los glifos griegos; si no, definir un fallback de titulares para `el`.
+- **Titulares:** "Mandys Sketch" (manuscrita, peso 400). Solo para H1/H2 y detalles decorativos, nunca para párrafos ni texto pequeño. Incluye el alfabeto griego (verificado). Se sirve como `src/assets/fonts/MandysSketch.woff2`, **recortada** a latín con acentos, griego (también politónico), puntuación tipográfica, € ® ™ y flechas: 59 KB frente a los 378 KB del TTF original, que sigue en el historial de git (Lighthouse: LCP). Si un título necesita un carácter fuera de esos rangos, hay que volver a generar el WOFF2 con `pyftsubset` ampliando `--unicodes`.
 - **Cuerpo:** Roboto 300 y 400.
 - **Monoespaciada:** Roboto Mono (datos de contacto, pie, detalles).
 - **Todas las fuentes autoalojadas** (Fonts API de Astro o archivos locales). Nada de Google Fonts por CDN: el sitio debe cumplir el RGPD.
@@ -288,12 +288,14 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
 
 ## Convenciones de código
 
-- Componentes `.astro` por defecto; **cero JavaScript en cliente** salvo lo imprescindible (menú móvil, selector de idioma, envío del formulario de contacto y avance automático del slider de testimonios, que se pausa con hover/foco y no actúa con `prefers-reduced-motion`). Nada de React/Vue sin acordarlo.
+- Componentes `.astro` por defecto; **cero JavaScript en cliente** salvo lo imprescindible (menú móvil, selector de idioma, envío del formulario de contacto, analítica de Plausible (solo en producción) y avance automático del slider de testimonios, que se pausa con hover/foco y no actúa con `prefers-reduced-motion`). Nada de React/Vue sin acordarlo.
 - Props tipadas con `interface Props` en cada componente.
 - Utilidades de Tailwind en el marcado; `@apply` solo en `global.css` para estilos de prosa del blog o casos muy repetidos.
 - Imágenes siempre con `<Image />` / `<Picture />` de `astro:assets`, con `alt` descriptivo en el idioma de la página (vacío solo si es decorativa).
 - Nombres de archivo de componentes en PascalCase; rutas y slugs en kebab-case.
 - HTML semántico: un solo `<h1>` por página, jerarquía de encabezados correcta, `<nav>` con `aria-label`, landmarks.
+- Los comentarios HTML (`<!-- TODO … -->`) de los Markdown no se publican: `src/middleware.ts` los quita de cada página en el build. Sirven como notas internas en el contenido.
+- La imagen LCP de cada página va con `loading="eager"` y `fetchpriority="high"` (hero, retratos de María y Contacto, cabecera de servicio, primera tarjeta de los índices).
 - Foco visible en todos los elementos interactivos (outline coral de 2px, como en `index.html`).
 - Mobile first. Probar a 360px de ancho sin scroll horizontal.
 
@@ -324,7 +326,8 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
 
 - Formulario de contacto: **Web3Forms** (`src/components/forms/ContactForm.astro`). Newsletter: **Mailchimp** (`src/components/forms/MailchimpForm.astro`, sección `sections/Newsletter.astro` en la home tras los servicios): formulario de inserción adaptado, sin JS ni recursos de Mailchimp/Intuit (se quitó la insignia), validación nativa y confirmación en pestaña nueva. No modificar el `action` ni el campo honeypot `b_…`, que identifican la lista. **Segmentación por idioma:** cada suscriptor recibe la etiqueta de Mailchimp de su idioma (`el`/`es`/`en`) mediante un campo oculto `tags`; los IDs numéricos de las etiquetas se configuran en `NEWSLETTER_TAG_IDS` (`src/consts.ts`) (configurados: el `24268402`, es `24268403`, en `24268404`). Las etiquetas deben seguir existiendo en Audience → Tags; el formulario embebido de Mailchimp no se usa. Limitación conocida: la página de confirmación y el correo de doble opt-in de Mailchimp salen en el idioma de la audiencia, no en el de quien se suscribe.
 - Todo formulario lleva casilla de aceptación de la política de privacidad (enlace a `privacy` en el idioma actual) y protección antispam (honeypot).
-- No cargar scripts de terceros (analítica, mapas, vídeos embebidos) sin consentimiento de cookies. El mapa de Contacto es opcional: si se incluye, que sea una imagen estática enlazada a Google Maps, no un iframe.
+- **Analítica: Plausible** (`PLAUSIBLE_SCRIPT` en `consts.ts`, cargado en `BaseLayout.astro` solo con `IS_PRODUCTION`). No usa cookies ni datos personales, así que no requiere banner de consentimiento; figura en Privacidad (sección «Estadísticas de visitas» y encargados) y en Cookies, con un `TODO` de revisión legal de la base jurídica. Cualquier otro script de terceros (mapas, vídeos embebidos, analítica con cookies) **sí** requiere consentimiento.
+- No cargar scripts de terceros (mapas, vídeos embebidos) sin consentimiento de cookies. El mapa de Contacto es opcional: si se incluye, que sea una imagen estática enlazada a Google Maps, no un iframe.
 
 ---
 

@@ -50,11 +50,12 @@ const shown = (
 				{/* Flex centrado: con un número de tarjetas que no llena la última fila
 				    (p. ej. 4 = 3 + 1), la fila incompleta queda centrada. */}
 				<ul class="mt-10 flex flex-wrap justify-center gap-6">
-					{shown.map((service) => (
+					{shown.map((service, i) => (
 						<li class="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]">
 							<Card
 								title={service.data.title}
 								titleAs="h2"
+								loading={i === 0 ? 'eager' : 'lazy'}
 								href={localizedPath(serviceRouteKey(service.data.serviceKey), lang)}
 								description={service.data.description}
 								image={service.data.image}

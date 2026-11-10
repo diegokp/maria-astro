@@ -4,7 +4,7 @@ legalKey: legal
 lang: en
 title: "Legal notice"
 description: "Legal notice for the website of María Dimitropoulou López: identification of the owner, intellectual property, disclaimer of liability and applicable law."
-updatedDate: 2026-10-05
+updatedDate: 2026-11-10
 ---
 
 María Dimitropoulou López, owner of this website, hereinafter the CONTROLLER, makes this document available to users in order to comply with the information obligations that apply to her and to inform all users of the website of its terms of use.
@@ -23,7 +23,7 @@ The CONTROLLER reserves the right to modify any information that may appear on t
 | **Trade name** | María Dimitropoulou López |
 | **Owner** | María Dimitropoulou López |
 | **Activity** | Psychologist |
-| **Tax identification number (ΑΦΜ)** | TODO: pending |
+| **Tax identification number (ΑΦΜ)** | 11****947 |
 | **Professional registration** | TODO: pending |
 | **Address** | Lesvou 8, Chalandri, 152 31 Athens, Greece |
 | **E-mail** | dimitropoulou.mar@gmail.com |

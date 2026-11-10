@@ -60,10 +60,7 @@ Nada de esto bloquea el draft, pero conviene repasarlo con ella:
 
 ## Pendiente técnico
 
-- **Titulares en griego:** la fuente manuscrita (Mandys Sketch) no tiene letras griegas, así que el navegador usa otra fuente para el griego.
-  - **Efecto visible:** los títulos griegos no tienen el aire manuscrito del resto.
-  - **Títulos mixtos:** en los que mezclan alfabetos, como «Εγγραφείτε στο newsletter μου», se ven dos fuentes distintas en la misma línea.
-  - **Decisión pendiente:** elegir una fuente manuscrita con griego como alternativa para `el` (CLAUDE.md ya lo prevé). Es lo más visible si María navega en griego.
+- ~~**Titulares en griego:** la fuente manuscrita no tiene letras griegas.~~ **Corregido el 10/11/2026:** el archivo de Mandys Sketch sí incluye el alfabeto griego (135 caracteres, comprobado con fonttools); la diferencia de aspecto de los títulos griegos es el diseño de esas letras, no una fuente de sustitución. No hace falta un fallback para `el`.
 - **Imagen para compartir (`og:image`):** no hay. Al compartir el enlace por WhatsApp o redes no saldrá imagen de vista previa. Para la fase 5: la URL debe ser absoluta en el dominio de producción, que hoy aún muestra «en construcción».
 - **Fase 5 (antes del lanzamiento):** página 404, sitemap y línea `Sitemap:` en `robots.txt`, método de subida a Nicalia, y `SITE_LAUNCHED = true`.
 - **Newsletter:** la página de confirmación y el correo de doble opt-in de Mailchimp salen en el idioma de la audiencia, no en el de quien se suscribe. Es una limitación de Mailchimp, no del código.

@@ -4,7 +4,7 @@ legalKey: privacy
 lang: en
 title: "Privacy policy"
 description: "Privacy policy: how María Dimitropoulou López processes data from the contact form and the newsletter, for what purpose and how to exercise your rights."
-updatedDate: 2026-10-05
+updatedDate: 2026-11-10
 ---
 
 ## Who is the controller of your personal data?
@@ -31,6 +31,12 @@ If your message includes information about your health or your children's health
 
 If you subscribe to the newsletter, your first name (optional) and e-mail address are collected to send you information about courses, services and news. *(Based on your consent, art. 6.1.a GDPR)* You can unsubscribe at any time using the link included in every e-mail.
 
+### Visit statistics
+
+To know how many people visit the website and which pages they read, we use **Plausible Analytics**, which sets no cookies and stores no data that could identify you: the IP address is only used temporarily and in hashed form to count unique visits, and it is not stored. Only aggregated, anonymous statistics are collected. *(Legitimate interest, art. 6.1.f GDPR)*
+
+<!-- TODO: have a lawyer confirm the legal basis (legitimate interest) and that no consent is needed for cookieless analytics (pending legal review). -->
+
 ### How long will we keep your personal data?
 
 It will be kept for no longer than necessary to fulfil the purpose of the processing or for as long as legal requirements oblige us to keep it. When it is no longer necessary, it will be deleted with appropriate security measures to guarantee its anonymisation or complete destruction.
@@ -42,6 +48,7 @@ No disclosure of personal data to third parties is planned except, where necessa
 - **Web3Forms**, the service that delivers contact form messages to the controller's e-mail.
 - **Google (Gmail)**, the e-mail provider where messages are received.
 - **Mailchimp (Intuit)**, the platform used to manage and send the newsletter.
+- **Plausible Analytics (Plausible Insights OÜ, European Union)**, anonymous, aggregated visit statistics, with no cookies.
 - **Nicalia**, the website hosting provider.
 
 These providers may process data outside the European Economic Area. In that case, transfers are covered by the safeguards set out in Chapter V of the GDPR.

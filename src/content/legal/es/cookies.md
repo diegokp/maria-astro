@@ -3,8 +3,8 @@
 legalKey: cookies
 lang: es
 title: "Política de cookies"
-description: "Política de cookies del sitio web de María Dimitropoulou López: este sitio no utiliza cookies propias ni de terceros, ni herramientas de analítica o publicidad."
-updatedDate: 2026-10-05
+description: "Política de cookies de la web de María Dimitropoulou López: no usa cookies propias ni de terceros y mide las visitas con Plausible, una analítica sin cookies."
+updatedDate: 2026-11-10
 ---
 
 Conforme con la Directiva 2002/58/CE (Directiva sobre la privacidad y las comunicaciones electrónicas), en relación con el Reglamento (UE) 2016/679 General de Protección de Datos (RGPD), es obligado obtener el consentimiento expreso del usuario de todas las páginas web que usan cookies prescindibles, antes de que este navegue por ellas.
@@ -13,7 +13,7 @@ Conforme con la Directiva 2002/58/CE (Directiva sobre la privacidad y las comuni
 
 ## Cookies utilizadas en este sitio web
 
-**Este sitio web no utiliza cookies propias ni de terceros.** No incluye herramientas de analítica, publicidad ni contenidos incrustados de terceros, y las fuentes tipográficas se sirven desde el propio dominio.
+**Este sitio web no utiliza cookies propias ni de terceros.** Para conocer cuántas personas lo visitan utiliza **Plausible Analytics**, una herramienta de analítica que no instala cookies ni recoge datos personales: solo obtiene estadísticas agregadas y anónimas (páginas vistas, procedencia de la visita, país, tipo de dispositivo y navegador). No incluye publicidad ni contenidos incrustados de terceros, y las fuentes tipográficas se sirven desde el propio dominio.
 
 Los enlaces a redes sociales (Facebook, Instagram y LinkedIn) llevan a sitios de terceros, que aplican sus propias políticas de cookies cuando los visitas.
 

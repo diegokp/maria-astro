@@ -21,6 +21,11 @@ export const AI_CRAWLERS: 'allow' | 'block' = 'allow';
 // Open Graph: locale por idioma (inglés británico, decidido el 10/11/2026).
 export const OG_LOCALE: Record<Lang, string> = { el: 'el_GR', es: 'es_ES', en: 'en_GB' };
 
+// Analítica de visitas: Plausible (sin cookies ni datos personales). Solo se
+// carga en el build de producción, para no contar las visitas de los previews
+// ni del desarrollo. Script propio del sitio en plausible.io.
+export const PLAUSIBLE_SCRIPT = 'https://plausible.io/js/pa-jvU60SWxCNlw1G1qi3v2-.js';
+
 // Color de la interfaz del navegador en móvil (cabecera blanca).
 export const THEME_COLOR = '#ffffff';
 

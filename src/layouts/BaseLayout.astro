@@ -6,6 +6,7 @@ import type { PageSchema } from '../utils/jsonld';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import { t } from '../i18n/utils';
+import { IS_PRODUCTION, PLAUSIBLE_SCRIPT } from '../consts';
 import type { Lang, RouteKey } from '../i18n/routes';
 import '../styles/global.css';
 
@@ -47,6 +48,18 @@ const { title, description, routeKey, lang, schema, breadcrumbs, noindex, image,
 			image={image}
 			notFound={notFound}
 		/>
+		{
+			/* Analítica sin cookies (Plausible), solo en producción. is:inline: Astro no la procesa. */
+			IS_PRODUCTION && (
+				<Fragment>
+					<script is:inline async src={PLAUSIBLE_SCRIPT} />
+					<script is:inline>
+						window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+						plausible.init()
+					</script>
+				</Fragment>
+			)
+		}
 	</head>
 	<body>
 		<a
