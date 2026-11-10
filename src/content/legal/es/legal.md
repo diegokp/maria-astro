@@ -3,7 +3,7 @@
 legalKey: legal
 lang: es
 title: "Aviso legal"
-description: "Información legal y condiciones de uso del sitio web de María Dimitropoulou López."
+description: "Aviso legal del sitio web de María Dimitropoulou López: datos identificativos del titular, propiedad intelectual, exención de responsabilidades y ley aplicable."
 updatedDate: 2026-10-05
 ---
 

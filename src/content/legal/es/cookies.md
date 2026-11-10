@@ -3,7 +3,7 @@
 legalKey: cookies
 lang: es
 title: "Política de cookies"
-description: "Información sobre el uso de cookies en el sitio web de María Dimitropoulou López."
+description: "Política de cookies del sitio web de María Dimitropoulou López: este sitio no utiliza cookies propias ni de terceros, ni herramientas de analítica o publicidad."
 updatedDate: 2026-10-05
 ---
 

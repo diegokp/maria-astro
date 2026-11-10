@@ -3,7 +3,7 @@
 legalKey: legal
 lang: en
 title: "Legal notice"
-description: "Legal information and terms of use of María Dimitropoulou López's website."
+description: "Legal notice for the website of María Dimitropoulou López: identification of the owner, intellectual property, disclaimer of liability and applicable law."
 updatedDate: 2026-10-05
 ---
 

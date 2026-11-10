@@ -3,8 +3,8 @@ serviceKey: matrescence
 lang: es
 title: "Acompañamiento durante la transición a la maternidad (matrescencia)"
 description: "Sesiones **online 1:1** de **acompañamiento** seguro y compasivo **emocional y práctico** para comprender, procesar y validar la **profunda transformación psicológica**, física y social que vive la mujer al convertirse en madre."
-metaTitle: "Matrescencia, transición a la maternidad — María Dimitropoulou López"
-metaDescription: "Acompañamiento 1:1 seguro y compasivo para comprender, procesar y validar la transformación psicológica, física y social de convertirse en madre."
+metaTitle: "Matrescencia y maternidad — María Dimitropoulou López"
+metaDescription: "Sesiones online 1:1 de acompañamiento emocional y práctico en la matrescencia: preconcepción, embarazo y posparto, en un espacio seguro y libre de juicios."
 order: 3
 cta: "Pide cita"
 image: ../../../assets/images/matrescencia.webp

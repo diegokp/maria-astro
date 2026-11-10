@@ -19,7 +19,8 @@ Lee este archivo al inicio de cada sesión. Si una decisión contradice lo que h
 ## Comandos
 
 ```bash
-npm run build      # build de producción (debe pasar sin errores)
+npm run build      # build de preview/desarrollo: noindex + robots.txt «Disallow: /» (debe pasar sin errores)
+npm run build:prod # build de PRODUCCIÓN (SITE_ENV=production): indexable. Es el único que se sube a Nicalia
 npm run preview    # previsualizar el build
 npx astro check    # tipos y diagnósticos; ejecutar antes de cada commit
 npm run images:webp              # convierte PNG/JPG nuevos a WebP (conserva originales)
@@ -300,20 +301,23 @@ Cálido, sereno, cercano; mucho aire; nada corporativo ni clínico. Formas suave
 
 - Cada página pasa `title`, `description` y `routeKey` (o alternates) al componente `SEO.astro`.
 - Canonical absoluto con el dominio `https://mariadimitropouloulopez.com`.
-- Open Graph y Twitter card con imagen por defecto si la página no tiene una propia.
-- Sitemap con alternates i18n. `robots.txt` en `public/`.
-- **Datos estructurados (JSON-LD)**, generados en el componente SEO y renderizados en el HTML estático (nada inyectado por JS en cliente):
-  · Inicio y Sobre mí: `Person` (María: credenciales, `sameAs` a sus redes) + `ProfessionalService` (área, idiomas, consulta en Chalandri y online).
-  · Posts: `BlogPosting` con `author` → `Person`, fechas e `inLanguage`.
-  · Todas las páginas internas: `BreadcrumbList`.
-  · Sin datos inventados: dirección, teléfono u horarios en `TODO` se omiten del JSON-LD hasta confirmarlos.
+- Open Graph y Twitter card (`summary_large_image`) con imagen por defecto si la página no tiene una propia: retrato de María, `src/assets/images/og-default.webp` (1200×630), que el build sirve en JPEG. `og:locale`: `el_GR`, `es_ES`, `en_GB`.
+- Title ≤ 60 caracteres y meta description de **150–160** (validado en los esquemas de `services` y `legal`; el build de producción avisa de las de `ui.ts` fuera de rango).
+- Sitemap con alternates i18n (fase 4). `robots.txt` **generado** en `src/pages/robots.txt.ts` según el entorno; crawlers de IA permitidos (`AI_CRAWLERS` en `consts.ts`).
+- **Datos estructurados (JSON-LD)**: un único `<script type="application/ld+json">` con `@graph` por página, generado en `SEO.astro` con `src/utils/jsonld.ts` y renderizado en el HTML estático (nada por JS en cliente). Cada ruta declara su tipo con la prop `schema` de `BaseLayout`.
+  · **Capa global en todas las páginas:** `WebSite` (`#website`), `ProfessionalService` (`#practice`: dirección de Chalandri porque la modalidad es online + presencial; `geo`, `hasMap` y horarios se omiten mientras sean `null` en `consts.ts`) y `Person` (`#person`: `knowsAbout`, `affiliation` con Project Parenting y TeensNeurolink, foto). Los `@id` son neutros al idioma (`https://mariadimitropouloulopez.com/#…`); nombres y descripciones se localizan.
+  · **Por plantilla:** Inicio `WebPage`; María `ProfilePage`; índices `CollectionPage` + `ItemList`; sesiones `Service` (`#service-<clave>`); cursos `Course` (`#course-<clave>`, sin `CourseInstance` mientras no haya fechas de edición); Contacto `ContactPage`; Blog y legales `WebPage`; páginas internas con `BreadcrumbList`.
+  · **Posts del blog (fase 4):** `BlogPosting` con `author` → `#person`, `datePublished`/`dateModified`, `inLanguage` e `image` absoluta; traducciones enlazadas con `workTranslation`/`translationOfWork`.
+  · **Prohibido:** `Review`/`AggregateRating` (los testimonios son solo contenido visible), afirmaciones clínicas, tipos médicos (`Physician`), propiedades vacías o datos que la página no muestre. Lo pendiente está en `docs/SEO-DATOS-PENDIENTES.md`.
+- **Guard de entorno:** `SITE_ENV` (`astro:env`, `astro.config.mjs`; `IS_PRODUCTION` en `consts.ts`). Solo `npm run build:prod` es indexable; cualquier otro build (dev, previews de Vercel) lleva `noindex, nofollow` y `robots.txt` con `Disallow: /`. Las páginas con `noindex` explícito (blog «Próximamente») lo mantienen en producción.
+- Decisiones SEO del 10/11/2026: modalidad online + presencial en Chalandri; griego en la raíz sin prefijo; crawlers de IA permitidos; legales indexables. Auditoría y pendientes: `docs/SEO-AUDITORIA.md` y `docs/SEO-DATOS-PENDIENTES.md`.
 - **Mientras el sitio no esté lanzado, los despliegues de preview llevan `noindex`.** La página "en construcción" sigue en producción hasta el lanzamiento.
 
 ## Despliegue
 
-- **Producción: servidor de Nicalia** (hosting compartido). Se sube el contenido de `dist/` tras `npm run build`; el sitio es 100 % estático (`output: 'static'`), sin funciones de servidor.
+- **Producción: servidor de Nicalia** (hosting compartido). Se sube el contenido de `dist/` tras `npm run build:prod`; el sitio es 100 % estático (`output: 'static'`), sin funciones de servidor.
 - **Vercel solo para vistas previas** de revisión con María (rama `draft/revision-maria` y similares). No añadir el dominio real en Vercel ni usar APIs específicas de Vercel (funciones, `@astrojs/vercel`, middleware en edge).
-- Pendiente para la fase 5: página `404` (y `ErrorDocument` en `.htaccess` si el servidor es Apache), `robots.txt`, método de subida a Nicalia (FTP/SFTP o despliegue automático) y poner `SITE_LAUNCHED = true` al lanzar.
+- Pendiente para la fase 5: página `404` (y `ErrorDocument` en `.htaccess` si el servidor es Apache), `robots.txt`, método de subida a Nicalia (FTP/SFTP o despliegue automático) y construir con `npm run build:prod` (`SITE_ENV=production`) al lanzar.
 - Nicalia figura como encargado del tratamiento en Privacidad y como proveedor de alojamiento en el Aviso legal (tres idiomas).
 
 ## Formularios y servicios externos

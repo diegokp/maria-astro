@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, fontProviders } from 'astro/config';
+import { defineConfig, envField, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 import icon from 'astro-icon';
@@ -9,6 +9,21 @@ export default defineConfig({
   site: 'https://mariadimitropouloulopez.com',
   output: 'static',
   trailingSlash: 'always',
+
+  // Entorno del build. Solo `SITE_ENV=production` (npm run build:prod, para
+  // Nicalia) genera un sitio indexable; cualquier otro build —incluidos los
+  // previews de Vercel, que no definen la variable— sale con noindex y un
+  // robots.txt que lo bloquea todo. Ver CLAUDE.md, «SEO».
+  env: {
+      schema: {
+          SITE_ENV: envField.enum({
+              context: 'server',
+              access: 'public',
+              values: ['production', 'preview'],
+              default: 'preview',
+          }),
+      },
+  },
 
   i18n: {
       locales: ['el', 'es', 'en'],

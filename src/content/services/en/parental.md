@@ -5,7 +5,7 @@ lang: en
 title: "Parental/family therapy"
 description: "**Online 1:1** sessions applying **Mindfulness and respectful parenting** to face the daily challenges of raising children, with the aim of **respecting each person's individuality and strengthening co-parenting and parent–child bonds**"
 metaTitle: "Parental/family therapy — María Dimitropoulou López"
-metaDescription: "Online 1:1 sessions on Mindfulness and respectful parenting to face the daily challenges of raising children and strengthen family bonds."
+metaDescription: "Online 1:1 sessions on Mindfulness and respectful parenting for mothers, fathers and caregivers: more calm in daily challenges and stronger family bonds."
 order: 2
 cta: "Book a session"
 image: ../../../assets/images/ApoypParental.webp

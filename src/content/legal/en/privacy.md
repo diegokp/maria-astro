@@ -3,7 +3,7 @@
 legalKey: privacy
 lang: en
 title: "Privacy policy"
-description: "Information about the processing of personal data on María Dimitropoulou López's website."
+description: "Privacy policy: how María Dimitropoulou López processes data from the contact form and the newsletter, for what purpose and how to exercise your rights."
 updatedDate: 2026-10-05
 ---
 

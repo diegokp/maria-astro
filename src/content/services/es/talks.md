@@ -4,7 +4,7 @@ lang: es
 title: "Seminarios y charlas para instituciones y empresas"
 description: "Charlas, cursos y seminarios, online y en persona, en Español, Inglés y Griego."
 metaTitle: "Seminarios y charlas para instituciones y empresas — María Dimitropoulou López"
-metaDescription: "Charlas, cursos y seminarios para instituciones y empresas, online y en persona, en español, inglés y griego."
+metaDescription: "Charlas, cursos y seminarios para instituciones y empresas impartidos por María Dimitropoulou López, online y en persona, en español, inglés y griego."
 order: 7
 cta: "Solicita información"
 image: ../../../assets/images/maria-contact.webp

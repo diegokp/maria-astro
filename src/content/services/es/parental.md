@@ -4,7 +4,7 @@ lang: es
 title: "Terapia parental/familiar"
 description: "Sesiones **online 1:1** en las aplicaciones de la **Conciencia Plena y la crianza respetuosa** para afrontar los desafíos diarios de la crianza con el objetivo de **respetar las individualidades y fortalecer los vínculos coparentales y paternofiliales**"
 metaTitle: "Terapia parental/familiar — María Dimitropoulou López"
-metaDescription: "Sesiones online 1:1 de Conciencia Plena y crianza respetuosa para afrontar los desafíos diarios de la crianza y fortalecer los vínculos familiares."
+metaDescription: "Sesiones online 1:1 de Conciencia Plena y crianza respetuosa para madres, padres y cuidadores: calma ante los desafíos diarios y vínculos familiares fuertes."
 order: 2
 cta: "Pide cita"
 image: ../../../assets/images/ApoypParental.webp

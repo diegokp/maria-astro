@@ -28,7 +28,7 @@ const { lang } = Astro.props;
 	description={t(lang, 'home.seo.description')}
 	routeKey="home"
 	lang={lang}
-	personSchema
+	schema={{ type: 'home' }}
 >
 	<Hero lang={lang} />
 	<Intro lang={lang} />

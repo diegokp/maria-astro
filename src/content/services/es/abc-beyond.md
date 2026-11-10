@@ -4,7 +4,7 @@ lang: es
 title: "Curso ABC and Beyond™"
 description: "**Certificación internacional Hanen** para **profesionales de la primera infancia** con el objetivo de proporcionar **estrategias prácticas para promover la alfabetización emergente** y las habilidades de lenguaje en **niñes de 3 a 5 años** en entornos escolares o de cuidado infantil. **Formato Online**"
 metaTitle: "Curso ABC and Beyond™ (Hanen) — María Dimitropoulou López"
-metaDescription: "Certificación internacional Hanen con estrategias prácticas para promover la alfabetización emergente y el lenguaje en niños de 3 a 5 años."
+metaDescription: "Curso ABC and Beyond™: certificación internacional Hanen con estrategias para promover la alfabetización emergente y el lenguaje de 3 a 5 años. Online."
 order: 5
 cta: "Solicita información"
 image: ../../../assets/images/abc-beyond.webp

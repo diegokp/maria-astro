@@ -45,6 +45,14 @@ const breadcrumbs = [
 	{ name: t(lang, `nav.${group}`), url: absoluteUrl(localizedPath(group, lang)) },
 	{ name: title, url: absoluteUrl(localizedPath(routeKey, lang)) },
 ];
+
+// JSON-LD: las sesiones 1:1 son Service; los cursos por cohortes, Course.
+const schema = {
+	type: group === 'courses' ? ('course' as const) : ('service' as const),
+	key: serviceKey,
+	name: title,
+	description,
+};
 ---
 
 <BaseLayout
@@ -53,6 +61,7 @@ const breadcrumbs = [
 	routeKey={routeKey}
 	lang={lang}
 	breadcrumbs={breadcrumbs}
+	schema={schema}
 >
 	<article class="mx-auto max-w-6xl px-4 pt-12 sm:px-6 sm:pt-16">
 		<header class="grid items-center gap-8 sm:grid-cols-[12rem_1fr] sm:gap-10 lg:grid-cols-[16rem_1fr] lg:gap-14">

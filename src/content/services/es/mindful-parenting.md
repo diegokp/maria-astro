@@ -3,8 +3,8 @@ serviceKey: mindful-parenting
 lang: es
 title: "Mindful Parenting"
 description: "**Escuela de padres sobre la Parentalidad Consciente (Mindful Parenting)** - ciclo de 8 reuniones grupales - **Modalidad en vivo remoto**"
-metaTitle: "Mindful Parenting, escuela de padres online — María Dimitropoulou López"
-metaDescription: "Escuela de padres online sobre Parentalidad Consciente (Mindful Parenting): ciclo de 8 reuniones grupales en remoto."
+metaTitle: "Mindful Parenting para padres — María Dimitropoulou López"
+metaDescription: "Mindful Parenting: escuela de padres sobre Parentalidad Consciente en 8 reuniones grupales semanales en vivo y en remoto, con práctica diaria en casa."
 order: 6
 cta: "Solicita información"
 image: ../../../assets/images/Mindfulness.webp

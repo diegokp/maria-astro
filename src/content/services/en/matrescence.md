@@ -4,8 +4,8 @@ serviceKey: matrescence
 lang: en
 title: "Support through the transition to motherhood (matrescence)"
 description: "**Online 1:1** sessions offering safe, compassionate **emotional and practical support** to understand, process and validate the **profound psychological, physical and social transformation** a woman goes through when she becomes a mother."
-metaTitle: "Matrescence, the transition to motherhood — María Dimitropoulou López"
-metaDescription: "Safe, compassionate 1:1 support to understand, process and validate the psychological, physical and social transformation of becoming a mother."
+metaTitle: "Matrescence and motherhood — María Dimitropoulou López"
+metaDescription: "Online 1:1 emotional and practical support through matrescence, the transition to motherhood: preconception, pregnancy and postpartum, free of judgment."
 order: 3
 cta: "Book a session"
 image: ../../../assets/images/matrescencia.webp

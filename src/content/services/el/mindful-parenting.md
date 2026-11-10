@@ -4,8 +4,8 @@ serviceKey: mindful-parenting
 lang: el
 title: "Mindful Parenting"
 description: "**Σχολή γονέων Ενσυνείδητης Γονεϊκότητας (Mindful Parenting)** - κύκλος 8 ομαδικών συναντήσεων - **Ζωντανά, εξ αποστάσεως**"
-metaTitle: "Mindful Parenting, online σχολή γονέων — Μαρία Δημητροπούλου Λόπεζ"
-metaDescription: "Online σχολή γονέων για τη Συνειδητή Γονεϊκότητα (Mindful Parenting): κύκλος 8 ομαδικών συναντήσεων εξ αποστάσεως."
+metaTitle: "Mindful Parenting, σχολή γονέων — Μαρία Δημητροπούλου Λόπεζ"
+metaDescription: "Mindful Parenting: σχολή γονέων Ενσυνείδητης Γονεϊκότητας με κύκλο 8 εβδομαδιαίων ομαδικών συναντήσεων, ζωντανά και εξ αποστάσεως, και καθημερινή εξάσκηση."
 order: 6
 cta: "Ζητήστε πληροφορίες"
 image: ../../../assets/images/Mindfulness.webp

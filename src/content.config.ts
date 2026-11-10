@@ -14,7 +14,7 @@ const services = defineCollection({
 			title: z.string(), // H1 y título de la tarjeta
 			description: z.string(), // entradilla bajo el H1
 			metaTitle: z.string(),
-			metaDescription: z.string().max(160),
+			metaDescription: z.string().min(150).max(160), // objetivo SEO 150–160 car.
 			order: z.number().int().positive(), // orden en la home (3 primeros) y en el índice
 			cta: z.string(),
 			image: image(), // ilustración decorativa (alt vacío)
@@ -29,7 +29,7 @@ const blog = defineCollection({
 		z
 			.object({
 				title: z.string(),
-				description: z.string().max(160),
+				description: z.string().min(150).max(160),
 				pubDate: z.coerce.date(),
 				updatedDate: z.coerce.date().optional(),
 				// Provisional: confirmar la lista con María (CLAUDE.md).
@@ -54,7 +54,7 @@ const legal = defineCollection({
 		legalKey: z.enum(LEGAL_KEYS),
 		lang: z.enum(LOCALES),
 		title: z.string(),
-		description: z.string().max(160),
+		description: z.string().min(150).max(160), // también es la entradilla visible
 		updatedDate: z.coerce.date(),
 	}),
 });

@@ -1,6 +1,8 @@
 ---
 import { Font } from 'astro:assets';
 import SEO, { type Breadcrumb } from '../components/seo/SEO.astro';
+import type { ImageMetadata } from 'astro';
+import type { PageSchema } from '../utils/jsonld';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import { t } from '../i18n/utils';
@@ -12,11 +14,13 @@ export interface Props {
 	description: string;
 	routeKey: RouteKey;
 	lang: Lang;
-	personSchema?: boolean;
+	schema?: PageSchema;
 	breadcrumbs?: Breadcrumb[];
+	noindex?: boolean;
+	image?: { src: ImageMetadata; alt: string };
 }
 
-const { title, description, routeKey, lang, personSchema, breadcrumbs } = Astro.props;
+const { title, description, routeKey, lang, schema, breadcrumbs, noindex, image } = Astro.props;
 ---
 
 <!doctype html>
@@ -35,8 +39,10 @@ const { title, description, routeKey, lang, personSchema, breadcrumbs } = Astro.
 			description={description}
 			routeKey={routeKey}
 			lang={lang}
-			personSchema={personSchema}
+			schema={schema}
 			breadcrumbs={breadcrumbs}
+			noindex={noindex}
+			image={image}
 		/>
 	</head>
 	<body>

@@ -5,7 +5,7 @@ lang: en
 title: "Teacher Talk® course"
 description: "**International Hanen certification for early childhood professionals** to **promote the development of language, communication and social skills** in children's natural environments - **Online format**"
 metaTitle: "Teacher Talk® course (Hanen) — María Dimitropoulou López"
-metaDescription: "International Hanen certification for early childhood professionals: language, communication and social skills in natural environments."
+metaDescription: "Teacher Talk® course: international Hanen certification for early childhood professionals on language, communication and social skills. Online format."
 order: 4
 cta: "Request information"
 image: ../../../assets/images/teacher-talk.webp

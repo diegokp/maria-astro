@@ -4,8 +4,8 @@ serviceKey: mindful-parenting
 lang: en
 title: "Mindful Parenting"
 description: "**Parenting school on Mindful Parenting** - a cycle of 8 group meetings - **Live remote format**"
-metaTitle: "Mindful Parenting, online parenting school — María Dimitropoulou López"
-metaDescription: "Online parenting school on Mindful Parenting: a cycle of 8 remote group meetings."
+metaTitle: "Mindful Parenting for parents — María Dimitropoulou López"
+metaDescription: "Mindful Parenting: a parenting school on mindful parenting with 8 live weekly group meetings held remotely, plus 15–20 minutes of daily practice at home."
 order: 6
 cta: "Request information"
 image: ../../../assets/images/Mindfulness.webp

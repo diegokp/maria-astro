@@ -4,7 +4,7 @@ lang: es
 title: "Apoyo psicoterapéutico"
 description: "Sesiones **online 1:1** de apoyo psicológico para **niños** (terapia de juego), **adolescentes** y **adultos** (conciencia plena/Mindfulness)."
 metaTitle: "Apoyo psicoterapéutico — María Dimitropoulou López"
-metaDescription: "Sesiones online 1:1 de apoyo psicológico para niños (terapia de juego), adolescentes y adultos (conciencia plena/Mindfulness)."
+metaDescription: "Sesiones online 1:1 de apoyo psicológico para niños, con terapia de juego, y para adolescentes y adultos, con Mindfulness. Cada sesión dura 55 minutos."
 order: 1
 cta: "Pide cita"
 image: ../../../assets/images/ApoyoPsico.webp

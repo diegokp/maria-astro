@@ -5,7 +5,7 @@ lang: en
 title: "Psychotherapeutic support"
 description: "**Online 1:1** psychological support sessions for **children** (play therapy), **adolescents** and **adults** (Mindfulness)."
 metaTitle: "Psychotherapeutic support — María Dimitropoulou López"
-metaDescription: "Online 1:1 psychological support sessions for children (play therapy), adolescents and adults (Mindfulness)."
+metaDescription: "Online 1:1 psychological support sessions for children through play therapy, and for adolescents and adults through Mindfulness. Each session lasts 55 minutes."
 order: 1
 cta: "Book a session"
 image: ../../../assets/images/ApoyoPsico.webp

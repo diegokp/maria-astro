@@ -3,7 +3,7 @@
 legalKey: cookies
 lang: en
 title: "Cookie policy"
-description: "Information about the use of cookies on María Dimitropoulou López's website."
+description: "Cookie policy for the website of María Dimitropoulou López: this site uses no first-party or third-party cookies, and no analytics, advertising or embeds."
 updatedDate: 2026-10-05
 ---
 

@@ -20,7 +20,7 @@ const el = {
 
 	'home.seo.title': 'Μαρία Δημητροπούλου Λόπεζ — Ψυχολόγος',
 	'home.seo.description':
-		'Ψυχοθεραπευτική υποστήριξη, γονεϊκή και οικογενειακή θεραπεία, μετάβαση στη μητρότητα, Mindful Parenting και κατάρτιση επαγγελματιών. Χαλάνδρι και online.',
+		'Μαρία Δημητροπούλου Λόπεζ, ψυχολόγος και ψυχοπαιδαγωγός: διαχείριση του άγχους με Ενσυνειδητότητα και Ενσυνείδητη Γονεϊκότητα. Online και στο Χαλάνδρι.',
 	'home.hero.title': 'Μαρία Δημητροπούλου Λόπεζ',
 	'home.hero.subtitle':
 		'Ψυχολογική υποστήριξη για την διαχείριση του άγχους και την εύρεση ροής και εσωτερικής γαλήνης στην καθημερινότητα όλης της οικογένειας.',
@@ -62,7 +62,7 @@ const el = {
 	// revisión de María. «psicopedagoga» se ha vertido como «ψυχοπαιδαγωγός».
 	'about.seo.title': 'Σχετικά με εμένα — Μαρία Δημητροπούλου Λόπεζ',
 	'about.seo.description':
-		'Ψυχολόγος, ψυχοπαιδαγωγός και Διδάκτωρ Γνωστικής Ψυχολογίας. Η πορεία και η προσέγγισή μου για παιδιά, οικογένειες και επαγγελματίες.',
+		'Μαρία Δημητροπούλου Λόπεζ, ψυχολόγος, ψυχοπαιδαγωγός και διδάκτωρ Γνωστικής Ψυχολογίας: η ερευνητική και διδακτική πορεία, η προσέγγιση και οι συνεργασίες.',
 	'about.title': 'Μαρία',
 	'about.photoAlt': 'Πορτρέτο της Μαρίας Δημητροπούλου Λόπεζ',
 	'contact.photoAlt': 'Η Μαρία Δημητροπούλου Λόπεζ χαμογελά, με τζιν πουκάμισο, στο γραφείο της.',
@@ -73,7 +73,8 @@ const el = {
 
 	// Página temporal del blog hasta que haya publicaciones.
 	'blog.seo.title': 'Νέα — Μαρία Δημητροπούλου Λόπεζ',
-	'blog.seo.description': 'Τα νέα και τα άρθρα θα είναι διαθέσιμα σύντομα.',
+	'blog.seo.description':
+		'Σύντομα το ιστολόγιο της ψυχολόγου Μαρίας Δημητροπούλου Λόπεζ, με άρθρα για την ενσυνείδητη γονεϊκότητα, το mindfulness, την παιδική ηλικία και την οικογένεια.',
 	'blog.comingSoon': 'Σύντομα',
 	'newsletter.title': 'Εγγραφείτε στο newsletter μου',
 	'newsletter.name': 'Όνομα',
@@ -84,7 +85,7 @@ const el = {
 
 	'contact.seo.title': 'Επικοινωνία — Μαρία Δημητροπούλου Λόπεζ',
 	'contact.seo.description':
-		'Κλείστε το ραντεβού σας ή ρωτήστε για τα σεμινάρια και τις υπηρεσίες της Μαρίας Δημητροπούλου Λόπεζ. Χαλάνδρι και online.',
+		'Γράψε στη Μαρία Δημητροπούλου Λόπεζ για ραντεβού ή πληροφορίες για συνεδρίες και προγράμματα. Απαντά σε κάθε μήνυμα, online ή στο γραφείο της στο Χαλάνδρι.',
 	// TODO: revisar traducción (borrador a partir del texto en español).
 	'contact.title': 'Είμαι εδώ',
 	'contact.intro': 'Γράψε μου αυτό που σε απασχολεί, όπως το νιώθεις και ας μην είναι ξεκάθαρο. Διαβάζω κάθε μήνυμα και απαντώ, για να δούμε μαζί πώς μπορώ να σε υποστηρίξω, online ή στο γραφείο μου.',
@@ -104,10 +105,10 @@ const el = {
 
 	'sessions.seo.title': 'Συνεδρίες — Μαρία Δημητροπούλου Λόπεζ',
 	'sessions.seo.description':
-		'Ψυχοθεραπευτική υποστήριξη, γονεϊκή και οικογενειακή θεραπεία και μετάβαση στη μητρότητα για παιδιά, ενήλικες και οικογένειες.',
+		'Συνεδρίες ψυχολογικής υποστήριξης για παιδιά, εφήβους, ενήλικες και οικογένειες: ψυχοθεραπευτική υποστήριξη, γονεϊκή συμβουλευτική και μετάβαση στη μητρότητα.',
 	'courses.seo.title': 'Προγράμματα — Μαρία Δημητροπούλου Λόπεζ',
 	'courses.seo.description':
-		'Εκπαιδευτικά προγράμματα Teacher Talk, ABC and Beyond (Hanen) και Mindful Parenting για γονείς και επαγγελματίες της παιδικής ηλικίας.',
+		'Εκπαιδευτικά προγράμματα για γονείς και επαγγελματίες: διεθνείς πιστοποιήσεις Hanen Teacher Talk® και ABC and Beyond™ και σχολή γονέων Mindful Parenting.',
 
 
 	'person.jobTitle': 'Ψυχολόγος',
@@ -143,7 +144,7 @@ const es: Record<UIKey, string> = {
 
 	'home.seo.title': 'María Dimitropoulou López — Psicóloga',
 	'home.seo.description':
-		'Apoyo psicoterapéutico, terapia parental y familiar, matrescencia, Mindful Parenting y formación para profesionales. Chalandri, Atenas y online.',
+		'María Dimitropoulou López, psicóloga y psicopedagoga experta en Mindfulness y Parentalidad Consciente. Sesiones y cursos online y en Chalandri, Atenas.',
 	'home.hero.title': 'María Dimitropoulou López',
 	'home.hero.subtitle':
 		'Apoyo psicológico para liberar el estrés de toda la familia y encontrar la fluidez y la paz interior en el día a día.',
@@ -178,7 +179,7 @@ const es: Record<UIKey, string> = {
 	// Texto de María (erratas corregidas). «l@s niñ@s» se mantiene tal cual.
 	'about.seo.title': 'Sobre mí — María Dimitropoulou López',
 	'about.seo.description':
-		'Psicóloga, psicopedagoga y doctora en Psicología Cognitiva. Mi trayectoria y mi enfoque con niñ@s, familias y profesionales.',
+		'María Dimitropoulou López, psicóloga, psicopedagoga y doctora en Psicología Cognitiva: trayectoria investigadora y docente, su enfoque y colaboraciones.',
 	'about.title': 'María',
 	'about.photoAlt': 'Retrato de María Dimitropoulou López',
 	'contact.photoAlt': 'María Dimitropoulou López sonríe, con camisa vaquera, en su consulta.',
@@ -187,8 +188,10 @@ const es: Record<UIKey, string> = {
 	'about.collaborationCta': '¿Representas una institución o un proyecto? Escríbeme para explorar una colaboración.',
 
 	// Página temporal del blog hasta que haya publicaciones.
-	'blog.seo.title': 'Blog — María Dimitropoulou López',
-	'blog.seo.description': 'Los artículos del blog estarán disponibles próximamente.',
+	'blog.seo.title':
+		'Blog — María Dimitropoulou López, psicóloga',
+	'blog.seo.description':
+		'Próximamente, el blog de María Dimitropoulou López, psicóloga: artículos sobre crianza consciente, mindfulness, infancia y bienestar emocional de la familia.',
 	'blog.comingSoon': 'Próximamente',
 	'newsletter.title': 'Suscríbete a mi newsletter',
 	'newsletter.name': 'Nombre',
@@ -199,7 +202,7 @@ const es: Record<UIKey, string> = {
 
 	'contact.seo.title': 'Contacto — María Dimitropoulou López',
 	'contact.seo.description':
-		'Realiza tu consulta o pide información sobre los cursos y servicios de María Dimitropoulou López. Chalandri (Atenas) y online.',
+		'Escribe a María Dimitropoulou López para pedir cita o información sobre sesiones y cursos. Responde a cada mensaje, online o en su consulta de Chalandri.',
 	'contact.title': 'Estoy aquí',
 	'contact.intro': 'Escríbeme con tus propias palabras, sin prisa y sin necesidad de tenerlo todo claro. Leo cada mensaje y te respondo personalmente para ver juntos cómo puedo acompañarte, online o en mi consulta.',
 	'contact.form.name': 'Nombre',
@@ -218,10 +221,10 @@ const es: Record<UIKey, string> = {
 
 	'sessions.seo.title': 'Sesiones — María Dimitropoulou López',
 	'sessions.seo.description':
-		'Apoyo psicoterapéutico, terapia parental y familiar y matrescencia para niños, adultos y familias.',
+		'Sesiones de apoyo psicológico para niños, adolescentes, adultos y familias: psicoterapia, terapia parental/familiar y matrescencia, online y en Atenas.',
 	'courses.seo.title': 'Cursos — María Dimitropoulou López',
 	'courses.seo.description':
-		'Cursos Teacher Talk, ABC and Beyond (Hanen) y Mindful Parenting para padres y profesionales de primera infancia.',
+		'Cursos de formación para padres y profesionales de la infancia: certificaciones Hanen Teacher Talk® y ABC and Beyond™ y escuela de padres Mindful Parenting.',
 
 
 	'person.jobTitle': 'Psicóloga',
@@ -255,7 +258,7 @@ const en: Record<UIKey, string> = {
 
 	'home.seo.title': 'María Dimitropoulou López — Psychologist',
 	'home.seo.description':
-		'Psychotherapeutic support, parental and family therapy, matrescence, Mindful Parenting and professional training. Chalandri, Athens and online.',
+		'María Dimitropoulou López, psychologist and psychopedagogue specialising in Mindfulness and Mindful Parenting. Sessions and courses online and in Chalandri.',
 	'home.hero.title': 'María Dimitropoulou López',
 	'home.hero.subtitle':
 		'Psychological support to release stress for the whole family and find flow and inner peace in everyday life.',
@@ -297,7 +300,7 @@ const en: Record<UIKey, string> = {
 	// psychologist»; confirmar el título equivalente.
 	'about.seo.title': 'About me — María Dimitropoulou López',
 	'about.seo.description':
-		'Psychologist, educational psychologist and PhD in Cognitive Psychology. My background and my approach with children, families and professionals.',
+		'María Dimitropoulou López, psychologist, psychopedagogue and PhD in Cognitive Psychology: her research and teaching career, approach and collaborations.',
 	'about.title': 'María',
 	'about.photoAlt': 'Portrait of María Dimitropoulou López',
 	'contact.photoAlt': 'María Dimitropoulou López smiling, wearing a denim shirt, in her practice.',
@@ -307,8 +310,10 @@ const en: Record<UIKey, string> = {
 	'about.collaborationCta': 'Do you represent an organisation or a project? Write to me to explore a collaboration.',
 
 	// Página temporal del blog hasta que haya publicaciones.
-	'blog.seo.title': 'Blog — María Dimitropoulou López',
-	'blog.seo.description': 'Blog articles will be available soon.',
+	'blog.seo.title':
+		'Blog — María Dimitropoulou López, psychologist',
+	'blog.seo.description':
+		'Coming soon: the blog of María Dimitropoulou López, psychologist, with articles on mindful parenting, mindfulness, childhood and family emotional wellbeing.',
 	'blog.comingSoon': 'Coming soon',
 	'newsletter.title': 'Subscribe to my newsletter',
 	'newsletter.name': 'Name',
@@ -319,7 +324,7 @@ const en: Record<UIKey, string> = {
 
 	'contact.seo.title': 'Contact — María Dimitropoulou López',
 	'contact.seo.description':
-		'Book a consultation or ask about the courses and services of María Dimitropoulou López. Chalandri (Athens) and online.',
+		'Write to María Dimitropoulou López to book a session or ask about her courses. She replies to every message, online or at her practice in Chalandri, Athens.',
 	// TODO: revisar traducción (borrador a partir del texto en español).
 	'contact.title': "I'm here",
 	'contact.intro': 'Write to me in your own words, with no rush and no need to have everything figured out. I read every message and reply personally, so we can see together how I can support you, online or at my practice.',
@@ -339,10 +344,10 @@ const en: Record<UIKey, string> = {
 
 	'sessions.seo.title': 'Sessions — María Dimitropoulou López',
 	'sessions.seo.description':
-		'Psychotherapeutic support, parental and family therapy and matrescence for children, adults and families.',
+		'Psychological support sessions for children, adolescents, adults and families: psychotherapy, parental and family therapy and matrescence, online and in Athens.',
 	'courses.seo.title': 'Courses — María Dimitropoulou López',
 	'courses.seo.description':
-		'Teacher Talk, ABC and Beyond (Hanen) and Mindful Parenting courses for parents and early childhood professionals.',
+		'Training courses for parents and childhood professionals: Hanen Teacher Talk® and ABC and Beyond™ certifications and the Mindful Parenting school for parents.',
 
 
 	'person.jobTitle': 'Psychologist',

@@ -4,7 +4,7 @@ lang: es
 title: "Curso Teacher Talk®"
 description: "**Certificación internacional Hanen para profesionales de la primera infancia** para el **fomento del desarrollo del lenguaje, de la comunicación y de las habilidades sociales** en los entornos naturales de la infancia - **Formato Online**"
 metaTitle: "Curso Teacher Talk® (Hanen) — María Dimitropoulou López"
-metaDescription: "Certificación internacional Hanen para profesionales de la infancia: desarrollo del lenguaje, la comunicación y las habilidades sociales en entornos naturales."
+metaDescription: "Curso Teacher Talk®: certificación internacional Hanen para profesionales de la primera infancia sobre lenguaje, comunicación y habilidades sociales. Online."
 order: 4
 cta: "Solicita información"
 image: ../../../assets/images/teacher-talk.webp
