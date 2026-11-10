@@ -18,9 +18,11 @@ export interface Props {
 	breadcrumbs?: Breadcrumb[];
 	noindex?: boolean;
 	image?: { src: ImageMetadata; alt: string };
+	notFound?: boolean;
 }
 
-const { title, description, routeKey, lang, schema, breadcrumbs, noindex, image } = Astro.props;
+const { title, description, routeKey, lang, schema, breadcrumbs, noindex, image, notFound } =
+	Astro.props;
 ---
 
 <!doctype html>
@@ -43,6 +45,7 @@ const { title, description, routeKey, lang, schema, breadcrumbs, noindex, image 
 			breadcrumbs={breadcrumbs}
 			noindex={noindex}
 			image={image}
+			notFound={notFound}
 		/>
 	</head>
 	<body>

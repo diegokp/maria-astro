@@ -1,0 +1,186 @@
+# mariadimitropouloulopez.com — Apache (Nicalia). Se copia a dist/ en el build.
+# Ver docs/DESPLIEGUE.md y docs/REDIRECCIONES-WORDPRESS.md (redirecciones del
+# antiguo WordPress, aprobadas el 10/11/2026).
+
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+AddDefaultCharset utf-8
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# 0. Redirecciones 301 del antiguo WordPress (aprobadas el 10/11/2026;
+	#    docs/REDIRECCIONES-WORDPRESS.md). Van ANTES de las reglas de HTTPS y
+	#    barra final, con destino absoluto, para que cada URL antigua haga un
+	#    único 301 (sin cadenas). Apache compara la ruta ya decodificada (UTF-8).
+	# --- Páginas
+	RewriteRule ^mindful-parenting/?$ https://mariadimitropouloulopez.com/programmata/mindful-parenting/ [L,R=301]
+	RewriteRule ^mindfulparentingcourse/?$ https://mariadimitropouloulopez.com/programmata/mindful-parenting/ [L,R=301]
+	RewriteRule ^servicios/?$ https://mariadimitropouloulopez.com/es/sesiones/ [L,R=301]
+	RewriteRule ^υπηρεσίες/?$ https://mariadimitropouloulopez.com/synedries/ [L,R=301]
+	RewriteRule ^συμβουλευτική-γονέων/?$ https://mariadimitropouloulopez.com/synedries/goneiki-oikogeneiaki-therapeia/ [L,R=301]
+	RewriteRule ^eπιμόρφωση-επαγγελματιών/?$ https://mariadimitropouloulopez.com/programmata/ [L,R=301]
+	RewriteRule ^mindfulness/?$ https://mariadimitropouloulopez.com/synedries/psychotherapeftiki-ypostirixi/ [L,R=301]
+	RewriteRule ^τελευταία-νέα/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# --- Archivo y rutas de WordPress
+	RewriteRule ^(category|tag)/ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^(comments/)?feed/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^(wp-admin|wp-content|wp-includes)/ - [G]
+	RewriteRule ^(wp-login\.php|xmlrpc\.php)$ - [G]
+	# --- Posts (49): al blog griego hasta que María los republique. Al
+	#     republicar uno, cambiar su destino por la URL nueva del post.
+	# wp 1502
+	RewriteRule ^εκπαιδευτικοί-σε-καραντίνα-live-facebook-qa/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1563
+	RewriteRule ^διαδικτυακή-συνάντηση-με-τους-γονείς/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1558
+	RewriteRule ^επιστροφή-στις-νέες-τάξεις-facebook-live-qa/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1588
+	RewriteRule ^αγαπημένε-μου-αη-βασίλη-για-φέτος-θέλω/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1617
+	RewriteRule ^άρθρο-στο-project-parenting/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1622
+	RewriteRule ^νέα-συνεργασία-project-parenting/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1608
+	RewriteRule ^συνκηδεμονία-σε-καιρούς-covid-19-πώς-μπορώ-ν/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1603
+	RewriteRule ^1603/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1635
+	RewriteRule ^γονείς-σε-καραντίνα/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1663
+	RewriteRule ^η-ζωή-τον-καιρό-του-covid-19-μέσα-από-τα-μάτια-τ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1722
+	RewriteRule ^άρθρο-στο-project-parenting-πώς-να-είμαι-οκ-γονιός-σε/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1720
+	RewriteRule ^νέα-συνεργασία-με-το-project-parenting/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 1723
+	RewriteRule ^νέο-άρθρο-στο-project-parenting-συνκηδεμονία-σε-καιρ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2182
+	RewriteRule ^είναι-το-γονεϊκό-στρες-μια-έκφραση-της/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2178
+	RewriteRule ^μαθήματα-από-τη-μογγολία-δεν-αποφασίζ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2184
+	RewriteRule ^1ος-κορον-αναστοχασμός-θα-περάσει-και-α/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2189
+	RewriteRule ^μια-άσκηση-για-να-αντέχω-τα-δύσκολα-συν/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2205
+	RewriteRule ^νέο-άρθρο-στο-project-parenting-δεν-φταις-γιατί-οι-γο/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3011
+	RewriteRule ^πρόγραμμα-διαχείρισης-γονεϊκού-στρε/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2223
+	RewriteRule ^απλοί-τρόποι-για-να-είμαστε-πιο-mindful-στην/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3242
+	RewriteRule ^3242/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2543
+	RewriteRule ^γονεϊκότητα-σε-κοινή-θέα-πώς-να-μην-μ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2548
+	RewriteRule ^δεν-φταις-γιατί-οι-γονείς-δεν-είναι-υπε/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2538
+	RewriteRule ^πώς-να-μιλάω-στο-παιδί-μου-όσο-μαθαίνει/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2519
+	RewriteRule ^7-τρόποι-για-να-βοηθήσω-το-παιδί-μου-να-μ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2517
+	RewriteRule ^nέα-σειρά-βίντεο-γονιός-χωρίς-στρες-γ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2995
+	RewriteRule ^2995/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 2983
+	RewriteRule ^5-προτάσεις-για-να-ενισχύσεις-τη-γλωσσι/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3027
+	RewriteRule ^γιατί-μας-τρομάζει-τόσο-πολύ-να-μην-αρέ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3004
+	RewriteRule ^ενσυνείδητη-γονεϊκότητα-μindful-parenting-με-μια/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3017
+	RewriteRule ^νέος-κύκλος-πρόγραμμα-διαχείρισης-γο/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3022
+	RewriteRule ^3022/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3030
+	RewriteRule ^3030/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3251
+	RewriteRule ^προκλήσεις-και-λύσεις-για-μπαμπάδες-μ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3254
+	RewriteRule ^5-τρόποι-για-να-ενισχύσεις-την-γλωσσική/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3338
+	RewriteRule ^live-για-μέλη-project-parenting-χτίσε-και-διατήρησε-ευτυ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3284
+	RewriteRule ^γιατί-να-συμμετάσχεις-ενεργά-στις-θερ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3403
+	RewriteRule ^3403/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3302
+	RewriteRule ^live-για-μέλη-project-parenting-πώς-να-απελευθερωθώ-από/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3307
+	RewriteRule ^facebook-live-για-μέλη-project-parenting/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3375
+	RewriteRule ^βίντεο-σειρά-project-parenting-πώς-να-υποστηρίξω-την/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3320
+	RewriteRule ^ποιά-μορφή-μπορούν-να-πάρουν-οι-φοβίες/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3355
+	RewriteRule ^πώς-να-αφήνω-τις-δύσκολες-σκέψεις-να-φ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3367
+	RewriteRule ^πώς-να-μιλήσω-στο-παιδί-μου-για-τον-πόλε/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3343
+	RewriteRule ^3343/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3380
+	RewriteRule ^facebook-live/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3313
+	RewriteRule ^free-live-yπέροχες-γυναίκες/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 3391
+	RewriteRule ^nέα-σειρά-βίντεο-project-parenting/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# wp 4152
+	RewriteRule ^ομιλία-μείωσε-το-άγχος-σου-ως-γονιός-κα/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+
+	# 1. Un único origen: HTTPS y sin www (igual que el canonical).
+	#    Si el hosting termina el SSL en un proxy, %{HTTPS} puede venir "off":
+	#    en ese caso, cambiar la primera condición por
+	#    RewriteCond %{HTTP:X-Forwarded-Proto} !=https [OR]
+	RewriteCond %{HTTPS} !=on [OR]
+	RewriteCond %{HTTP_HOST} ^www\. [NC]
+	RewriteRule ^ https://mariadimitropouloulopez.com%{REQUEST_URI} [L,R=301,NE]
+
+	# 2. /…/index.html → /…/ (evita contenido duplicado).
+	RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+	RewriteRule ^(.*/)?index\.html$ /$1 [L,R=301,NE]
+
+	# 3. Barra final en las rutas sin extensión (trailingSlash: 'always').
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_URI} !/$
+	RewriteCond %{REQUEST_URI} !\.[A-Za-z0-9]{1,5}$
+	RewriteRule ^(.*)$ /$1/ [L,R=301,NE]
+
+</IfModule>
+
+# 404 en el idioma de la ruta (código HTTP 404 real; las páginas llevan noindex).
+ErrorDocument 404 /404.html
+<If "%{REQUEST_URI} =~ m#^/es/#">
+	ErrorDocument 404 /es/404/index.html
+</If>
+<If "%{REQUEST_URI} =~ m#^/en/#">
+	ErrorDocument 404 /en/404/index.html
+</If>
+
+# Tipos MIME (Search Console necesita el sitemap como XML).
+AddType application/xml .xml
+AddType text/plain .txt
+AddType image/webp .webp
+AddType font/woff2 .woff2
+AddCharset utf-8 .html .xml .txt .css .js
+
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+	# Recursos con hash en el nombre (/_astro/): caché de un año, inmutable.
+	<If "%{REQUEST_URI} =~ m#^/_astro/#">
+		Header set Cache-Control "public, max-age=31536000, immutable"
+	</If>
+	# HTML, robots.txt y sitemap: siempre revalidar, para que los cambios se vean al momento.
+	<FilesMatch "\.(html|xml|txt)$">
+		Header set Cache-Control "no-cache"
+	</FilesMatch>
+	# Imágenes sin hash (logo, favicon): una semana.
+	<FilesMatch "\.(webp|ico)$">
+		Header set Cache-Control "public, max-age=604800"
+	</FilesMatch>
+	Header always set X-Content-Type-Options "nosniff"
+	Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

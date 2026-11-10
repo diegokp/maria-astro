@@ -76,6 +76,11 @@ const el = {
 	'blog.seo.description':
 		'Σύντομα το ιστολόγιο της ψυχολόγου Μαρίας Δημητροπούλου Λόπεζ, με άρθρα για την ενσυνείδητη γονεϊκότητα, το mindfulness, την παιδική ηλικία και την οικογένεια.',
 	'blog.comingSoon': 'Σύντομα',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'notFound.seo.title': 'Η σελίδα δεν βρέθηκε — Μαρία Δημητροπούλου Λόπεζ',
+	'notFound.seo.description': 'Η σελίδα που αναζητάς δεν υπάρχει ή άλλαξε διεύθυνση.',
+	'notFound.title': 'Η σελίδα δεν βρέθηκε',
+	'notFound.text': 'Ίσως άλλαξε διεύθυνση με τη νέα ιστοσελίδα. Από εδώ μπορείς να συνεχίσεις:',
 	'newsletter.title': 'Εγγραφείτε στο newsletter μου',
 	'newsletter.name': 'Όνομα',
 	'newsletter.email': 'Email',
@@ -193,6 +198,10 @@ const es: Record<UIKey, string> = {
 	'blog.seo.description':
 		'Próximamente, el blog de María Dimitropoulou López, psicóloga: artículos sobre crianza consciente, mindfulness, infancia y bienestar emocional de la familia.',
 	'blog.comingSoon': 'Próximamente',
+	'notFound.seo.title': 'Página no encontrada — María Dimitropoulou López',
+	'notFound.seo.description': 'La página que buscas no existe o ha cambiado de dirección.',
+	'notFound.title': 'Página no encontrada',
+	'notFound.text': 'Puede que haya cambiado de dirección con la nueva web. Desde aquí puedes seguir:',
 	'newsletter.title': 'Suscríbete a mi newsletter',
 	'newsletter.name': 'Nombre',
 	'newsletter.email': 'Correo electrónico',
@@ -315,6 +324,11 @@ const en: Record<UIKey, string> = {
 	'blog.seo.description':
 		'Coming soon: the blog of María Dimitropoulou López, psychologist, with articles on mindful parenting, mindfulness, childhood and family emotional wellbeing.',
 	'blog.comingSoon': 'Coming soon',
+	// TODO: revisar traducción (borrador a partir del texto en español).
+	'notFound.seo.title': 'Page not found — María Dimitropoulou López',
+	'notFound.seo.description': 'The page you are looking for does not exist or has moved.',
+	'notFound.title': 'Page not found',
+	'notFound.text': 'It may have moved with the new website. You can continue from here:',
 	'newsletter.title': 'Subscribe to my newsletter',
 	'newsletter.name': 'Name',
 	'newsletter.email': 'Email',

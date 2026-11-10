@@ -1,0 +1,31 @@
+---
+// 404 en español e inglés: /es/404/ y /en/404/. Apache las sirve para las rutas
+// inexistentes bajo /es/ y /en/ (ErrorDocument en public/.htaccess).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NotFound from '../components/sections/NotFound.astro';
+import { t } from '../i18n/utils';
+import { DEFAULT_LOCALE, LOCALES, type Lang } from '../i18n/routes';
+
+export function getStaticPaths() {
+	return LOCALES.filter((lang) => lang !== DEFAULT_LOCALE).map((lang) => ({
+		params: { notFoundPath: `${lang}/404` },
+		props: { lang },
+	}));
+}
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<BaseLayout
+	title={t(lang, 'notFound.seo.title')}
+	description={t(lang, 'notFound.seo.description')}
+	routeKey="home"
+	lang={lang}
+	notFound
+>
+	<NotFound lang={lang} />
+</BaseLayout>

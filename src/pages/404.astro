@@ -1,0 +1,17 @@
+---
+// 404 en griego (idioma por defecto). Apache la sirve para cualquier ruta
+// inexistente fuera de /es/ y /en/ (ErrorDocument en public/.htaccess).
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NotFound from '../components/sections/NotFound.astro';
+import { t } from '../i18n/utils';
+---
+
+<BaseLayout
+	title={t('el', 'notFound.seo.title')}
+	description={t('el', 'notFound.seo.description')}
+	routeKey="home"
+	lang="el"
+	notFound
+>
+	<NotFound lang="el" />
+</BaseLayout>

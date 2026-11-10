@@ -25,6 +25,8 @@ export interface Props {
 	noindex?: boolean;
 	/** Imagen para compartir propia (1200×630). Por defecto, el retrato de María. */
 	image?: { src: ImageMetadata; alt: string };
+	/** Página 404: sin canonical, hreflang, og:url ni JSON-LD, y siempre noindex. */
+	notFound?: boolean;
 }
 
 const {
@@ -34,9 +36,11 @@ const {
 	lang,
 	schema = { type: 'webpage' },
 	breadcrumbs,
-	noindex = false,
+	noindex: noindexProp = false,
 	image,
+	notFound = false,
 } = Astro.props;
+const noindex = noindexProp || notFound;
 
 // Robots: fuera de producción, nada se indexa ni se sigue (previews de Vercel,
 // dev). En producción, solo las páginas marcadas como noindex.
@@ -82,12 +86,13 @@ const jsonLd = buildGraph({
 
 <title>{title}</title>
 <meta name="description" content={description} />
-<link rel="canonical" href={canonical} />
+{!notFound && <link rel="canonical" href={canonical} />}
 
 <meta name="theme-color" content={THEME_COLOR} />
 {robots && <meta name="robots" content={robots} />}
 
 {
+	!notFound &&
 	alternates.map((alt) => (
 		<link rel="alternate" hreflang={alt.lang} href={alt.url} />
 	))
@@ -97,7 +102,7 @@ const jsonLd = buildGraph({
 <meta property="og:site_name" content={SITE_NAME} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:url" content={canonical} />
+{!notFound && <meta property="og:url" content={canonical} />}
 <meta property="og:locale" content={OG_LOCALE[lang]} />
 {
 	LOCALES.filter((l) => l !== lang).map((l) => (
@@ -116,4 +121,4 @@ const jsonLd = buildGraph({
 <meta name="twitter:image" content={ogImageUrl} />
 <meta name="twitter:image:alt" content={ogImageAlt} />
 
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+{!notFound && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}

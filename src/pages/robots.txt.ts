@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { AI_CRAWLERS, IS_PRODUCTION } from '../consts';
+import { AI_CRAWLERS, IS_PRODUCTION, SITE } from '../consts';
 
 // Crawlers de IA que se bloquearían si AI_CRAWLERS = 'block' (consts.ts).
 const AI_BOTS = [
@@ -16,7 +16,7 @@ const AI_BOTS = [
 // robots.txt generado en el build según el entorno (CLAUDE.md, «SEO»):
 // - preview/dev: bloquea todo, para que ningún entorno de pruebas se indexe;
 // - producción: permite el rastreo (incluidos los crawlers de IA, decisión del
-//   10/11/2026). La línea `Sitemap:` se añade en la fase 4, con el sitemap.
+//   10/11/2026) y apunta al sitemap, que solo existe en producción.
 export const GET: APIRoute = () => {
 	const lines = IS_PRODUCTION
 		? [
@@ -25,6 +25,8 @@ export const GET: APIRoute = () => {
 				...(AI_CRAWLERS === 'block'
 					? AI_BOTS.flatMap((bot) => ['', `User-agent: ${bot}`, 'Disallow: /'])
 					: []),
+				'',
+				`Sitemap: ${SITE}/sitemap-index.xml`,
 			]
 		: ['# Entorno de pruebas: no indexar.', 'User-agent: *', 'Disallow: /'];
 
