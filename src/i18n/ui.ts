@@ -163,9 +163,8 @@ const es: Record<UIKey, string> = {
 	'home.intro.quoteGoal':
 		'**Si vas a proponerte un objetivo personal, proponte ser más buen@ contigo mism@**',
 	'home.intro.cta': 'Conóceme mejor',
-	// TODO: revisar traducción (borrador a partir del texto en griego de María).
 	'home.ogDescription':
-		'Soy María, psicóloga y psicopedagoga, especializada en la gestión del estrés mediante las aplicaciones de la Conciencia Plena (Mindfulness) y en la Parentalidad Consciente (Mindful Parenting).',
+		'Soy María psicóloga y psicopedagoga especialista en Mindfulness y Parentalidad Consciente.',
 	'home.intro.imageAlt': 'María Dimitropoulou López sonríe con los brazos cruzados, vestida con una camisa de rayas.',
 	'sessions.heading':
 		'Sesiones de apoyo psicológico para niños, adultos y familias',
@@ -285,9 +284,8 @@ const en: Record<UIKey, string> = {
 	'home.intro.quoteGoal':
 		"**If you're going to set yourself a personal goal, let it be to be kinder to yourself.**",
 	'home.intro.cta': 'Get to know me',
-	// TODO: revisar traducción (borrador a partir del texto en griego de María).
 	'home.ogDescription':
-		"I'm María, a psychologist and psychopedagogue specialising in stress management through the applications of Mindfulness and in Mindful Parenting.",
+		"I'm María, a psychologist and psychopedagogue specialising in Mindfulness and Mindful Parenting.",
 	'home.intro.imageAlt': 'María Dimitropoulou López smiling with her arms crossed, wearing a striped shirt.',
 	'sessions.heading':
 		'Psychological support sessions for children, adults and families',
