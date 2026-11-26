@@ -1,6 +1,6 @@
 # Propuesta de correcciones tras el lanzamiento (fase 2), **sin aplicar**
 
-**Fecha:** 26/11/2026 · **Estado:** ✅ **aprobadas y aplicadas R1–R4 y la opción D de R5** (26/11/2026) en `public/.htaccess`, `public/es/.htaccess` y `public/en/.htaccess`. R1 con 301 (no 410). En R3, `/blog/` sigue sin regla. R5 opción C con los 14 candidatos firmes; los «dudosos» siguen yendo a `/nea/` hasta que María decida. **R6 no aprobada** (no aplicada). `routes.ts` y los slugs no cambian.
+**Fecha:** 26/11/2026 · **Estado:** ✅ **aprobadas y aplicadas R1–R4 y la opción D de R5** (26/11/2026) en `public/.htaccess`, `public/es/.htaccess` y `public/en/.htaccess`. R1 con 301 (no 410). En R3, `/blog/` sigue sin regla. R5 opción C con los 14 candidatos firmes; los «dudosos» siguen yendo a `/nea/` hasta que María decida. **R6 no aprobada** (no aplicada). **Subido a Nicalia y verificado en producción el 26/11/2026** (`docs/REDIRECCIONES-VERIFICACION.md`: 286/286 variantes y 31 rutas extra correctas; la 404 sale en es/en: LiteSpeed lee los `.htaccess` por carpeta). `routes.ts` y los slugs no cambian.
 
 **Base:** la batería contra producción (`docs/REDIRECCIONES-VERIFICACION.md`, `scripts/check-redirects.mjs`) y el XML del WordPress (vault AsData, `web-maria/referencias/`). Las **57 redirecciones existentes funcionan** (un solo 301, destino 200, en todas las variantes), así que lo que sigue son huecos, no reglas rotas.
 

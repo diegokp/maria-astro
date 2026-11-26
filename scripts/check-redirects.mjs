@@ -151,11 +151,23 @@ for (const u of old) {
 		for (const [ename, enc] of [['wp', encLower], ['nav', encUpper]]) {
 			if (oname !== 'https' && oname !== 'base' && ename === 'nav') continue; // http/www: basta con una codificación
 			for (const slash of oname === 'http' || oname === 'www' ? [true] : [true, false]) {
+				// Los 410 (anuncios retirados) solo con 2 variantes: una racha de 4xx puede disparar el cortafuegos.
+				if (u.gone && !(oname === 'https' && ((ename === 'wp' && slash) || (ename === 'nav' && !slash)))) continue;
 				const p = enc(slash ? u.path : noSlash(u.path));
 				cases.push({ ...u, variant: `${oname}·${ename === 'wp' ? 'cod. minúsc.' : 'cod. mayúsc.'}·${slash ? 'con /' : 'sin /'}`, url: origin + p, expected: u.gone ? { code: 410, hops: 0 } : u.dest && { code: 301, location: abs(u.dest), hops: 1, finalCode: 200 } });
 			}
 		}
 	}
+}
+
+// Los casos que esperan 410 se reparten entre los demás: nunca más de uno seguido.
+{
+	const gone = cases.filter((c) => c.expected?.code === 410);
+	const rest = cases.filter((c) => c.expected?.code !== 410);
+	const every = Math.max(2, Math.floor(rest.length / Math.max(1, gone.length)));
+	cases.length = 0;
+	rest.forEach((c, i) => { cases.push(c); if ((i + 1) % every === 0 && gone.length) cases.push(gone.shift()); });
+	cases.push(...gone);
 }
 
 // ---------- 2. Rutas de WordPress, sitemaps antiguos y sin prefijo ----------
@@ -289,7 +301,8 @@ console.log(`Rutas extra: ${extraRes.filter((r) => r.pass).length} correctas, ${
 for (const r of failed) console.log(`  ❌ ${disp(r.url)} [${r.variant}] → ${r.code} ${disp(r.location)} (${r.hops} saltos, final ${r.finalCode})`);
 for (const c of [...robotsChecks, ...sitemapChecks, ...plausibleChecks]) console.log(`${mark(c[1])} ${c[0]}${c[2] && !c[1] ? ` — ${c[2]}` : ''}`);
 
-if (args.report) {
+if (args.report && consecutiveErrors >= 3) console.error('⛔ Informe NO escrito: la batería quedó incompleta (se conserva el anterior).');
+else if (args.report) {
 	const date = new Date().toISOString().slice(0, 10);
 	const summary = (rs) => {
 		const by = new Map();
