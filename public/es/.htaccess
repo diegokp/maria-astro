@@ -1,0 +1,3 @@
+# 404 en español para todo /es/ (ver public/.htaccess). Sin reglas de
+# reescritura: las del .htaccess raíz siguen aplicándose.
+ErrorDocument 404 /es/404/index.html

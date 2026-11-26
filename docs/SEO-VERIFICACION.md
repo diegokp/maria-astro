@@ -1,6 +1,6 @@
 # Verificación SEO automática
 
-**Fecha:** 2026-11-10 · **Entorno del build:** producción (`npm run build:prod`) · **Páginas:** 48
+**Fecha:** 2026-11-26 · **Entorno del build:** producción (`npm run build:prod`) · **Páginas:** 48
 **Resultado:** ✅ sin errores · 8 advertencias
 
 Generado por `scripts/seo-check.mjs` (`npm run seo:check`). Falla el build con código ≠ 0 si hay algún error.
@@ -21,6 +21,7 @@ Generado por `scripts/seo-check.mjs` (`npm run seo:check`). Falla el build con c
 | 404 por idioma | ✅ | /404.html, /es/404/ y /en/404/ |
 | Plausible solo en producción | ✅ | presente en 48/48 páginas |
 | .htaccess en el build | ✅ | con ErrorDocument 404 |
+| 404 por idioma en es/ y en/.htaccess (no en <If>) | ✅ | dist/es/.htaccess y dist/en/.htaccess |
 | sitemap-index.xml | ✅ | existe |
 | URLs del sitemap: existen, canónicas e indexables | ✅ | 42 URLs |
 | toda página indexable está en el sitemap | ✅ | completo |

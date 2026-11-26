@@ -1,6 +1,9 @@
 # mariadimitropouloulopez.com — Apache (Nicalia). Se copia a dist/ en el build.
 # Ver docs/DESPLIEGUE.md y docs/REDIRECCIONES-WORDPRESS.md (redirecciones del
-# antiguo WordPress, aprobadas el 10/11/2026).
+# antiguo WordPress, aprobadas el 10/11/2026; ampliadas el 26/11/2026 según
+# docs/REDIRECCIONES-PROPUESTA-2026-11-26.md: R1–R4 y opción D).
+# Servidor real: LiteSpeed (compatible con este archivo salvo ErrorDocument
+# dentro de <If>, que ignora: por eso la 404 por idioma va en es/ y en/.htaccess).
 
 Options -Indexes -MultiViews
 DirectoryIndex index.html
@@ -22,19 +25,49 @@ AddDefaultCharset utf-8
 	RewriteRule ^eπιμόρφωση-επαγγελματιών/?$ https://mariadimitropouloulopez.com/programmata/ [L,R=301]
 	RewriteRule ^mindfulness/?$ https://mariadimitropouloulopez.com/synedries/psychotherapeftiki-ypostirixi/ [L,R=301]
 	RewriteRule ^τελευταία-νέα/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# --- URLs cortas por id (ids del XML de WordPress). RewriteRule no ve la
+	#     query: va en RewriteCond. El «?» final del destino descarta la query.
+	RewriteCond %{QUERY_STRING} ^page_id=1659$
+	RewriteRule ^$ https://mariadimitropouloulopez.com/? [L,R=301]
+	RewriteCond %{QUERY_STRING} ^page_id=(1681|3045)$
+	RewriteRule ^$ https://mariadimitropouloulopez.com/programmata/mindful-parenting/? [L,R=301]
+	RewriteCond %{QUERY_STRING} ^page_id=2561$
+	RewriteRule ^$ https://mariadimitropouloulopez.com/es/sesiones/? [L,R=301]
+	RewriteCond %{QUERY_STRING} ^page_id=3700$
+	RewriteRule ^$ https://mariadimitropouloulopez.com/synedries/? [L,R=301]
+	RewriteCond %{QUERY_STRING} ^page_id=3921$
+	RewriteRule ^$ https://mariadimitropouloulopez.com/nea/? [L,R=301]
+	RewriteCond %{QUERY_STRING} ^page_id=4000$
+	RewriteRule ^$ https://mariadimitropouloulopez.com/synedries/goneiki-oikogeneiaki-therapeia/? [L,R=301]
+	RewriteCond %{QUERY_STRING} ^page_id=4011$
+	RewriteRule ^$ https://mariadimitropouloulopez.com/synedries/psychotherapeftiki-ypostirixi/? [L,R=301]
+	RewriteCond %{QUERY_STRING} ^page_id=4033$
+	RewriteRule ^$ https://mariadimitropouloulopez.com/programmata/? [L,R=301]
+	# Posts: ?p=<id> al blog griego. Al republicar un post, añadir ENCIMA de
+	# esta regla su pareja (# wp <id>, RewriteCond ^p=<id>$) hacia la URL nueva.
+	RewriteCond %{QUERY_STRING} ^p=[0-9]+$
+	RewriteRule ^$ https://mariadimitropouloulopez.com/nea/? [L,R=301]
+	# Páginas de adjuntos del WordPress (624 imágenes): sin equivalente → 410
+	RewriteCond %{QUERY_STRING} (^|&)attachment_id=[0-9]+
+	RewriteRule ^$ - [G]
 	# --- Archivo y rutas de WordPress
 	RewriteRule ^(category|tag)/ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	RewriteRule ^(comments/)?feed/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# Sitemaps antiguos (Rank Math y WordPress) → sitemap nuevo. No captura
+	# sitemap-index.xml ni sitemap-0.xml (llevan guion).
+	RewriteRule ^(sitemap|sitemap_index|wp-sitemap[a-z0-9-]*|(post|page|category|post_tag|attachment|author|local)-sitemap[0-9]*)\.xml$ https://mariadimitropouloulopez.com/sitemap-index.xml [L,R=301]
 	RewriteRule ^(wp-admin|wp-content|wp-includes)/ - [G]
 	RewriteRule ^(wp-login\.php|xmlrpc\.php)$ - [G]
 	# --- Posts (49): al blog griego hasta que María los republique. Al
 	#     republicar uno, cambiar su destino por la URL nueva del post.
+	#     «- [G]» (410) = anuncio de evento o promoción ya pasado, sin
+	#     equivalente (opción D, 26/11/2026).
 	# wp 1502
-	RewriteRule ^εκπαιδευτικοί-σε-καραντίνα-live-facebook-qa/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^εκπαιδευτικοί-σε-καραντίνα-live-facebook-qa/?$ - [G]
 	# wp 1563
-	RewriteRule ^διαδικτυακή-συνάντηση-με-τους-γονείς/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^διαδικτυακή-συνάντηση-με-τους-γονείς/?$ - [G]
 	# wp 1558
-	RewriteRule ^επιστροφή-στις-νέες-τάξεις-facebook-live-qa/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^επιστροφή-στις-νέες-τάξεις-facebook-live-qa/?$ - [G]
 	# wp 1588
 	RewriteRule ^αγαπημένε-μου-αη-βασίλη-για-φέτος-θέλω/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 1617
@@ -44,7 +77,7 @@ AddDefaultCharset utf-8
 	# wp 1608
 	RewriteRule ^συνκηδεμονία-σε-καιρούς-covid-19-πώς-μπορώ-ν/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 1603
-	RewriteRule ^1603/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^1603/?$ - [G]
 	# wp 1635
 	RewriteRule ^γονείς-σε-καραντίνα/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 1663
@@ -66,7 +99,7 @@ AddDefaultCharset utf-8
 	# wp 2205
 	RewriteRule ^νέο-άρθρο-στο-project-parenting-δεν-φταις-γιατί-οι-γο/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 3011
-	RewriteRule ^πρόγραμμα-διαχείρισης-γονεϊκού-στρε/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^πρόγραμμα-διαχείρισης-γονεϊκού-στρε/?$ - [G]
 	# wp 2223
 	RewriteRule ^απλοί-τρόποι-για-να-είμαστε-πιο-mindful-στην/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 3242
@@ -90,25 +123,25 @@ AddDefaultCharset utf-8
 	# wp 3004
 	RewriteRule ^ενσυνείδητη-γονεϊκότητα-μindful-parenting-με-μια/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 3017
-	RewriteRule ^νέος-κύκλος-πρόγραμμα-διαχείρισης-γο/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^νέος-κύκλος-πρόγραμμα-διαχείρισης-γο/?$ - [G]
 	# wp 3022
 	RewriteRule ^3022/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 3030
-	RewriteRule ^3030/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^3030/?$ - [G]
 	# wp 3251
 	RewriteRule ^προκλήσεις-και-λύσεις-για-μπαμπάδες-μ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 3254
 	RewriteRule ^5-τρόποι-για-να-ενισχύσεις-την-γλωσσική/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 3338
-	RewriteRule ^live-για-μέλη-project-parenting-χτίσε-και-διατήρησε-ευτυ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^live-για-μέλη-project-parenting-χτίσε-και-διατήρησε-ευτυ/?$ - [G]
 	# wp 3284
 	RewriteRule ^γιατί-να-συμμετάσχεις-ενεργά-στις-θερ/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 3403
-	RewriteRule ^3403/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^3403/?$ - [G]
 	# wp 3302
-	RewriteRule ^live-για-μέλη-project-parenting-πώς-να-απελευθερωθώ-από/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^live-για-μέλη-project-parenting-πώς-να-απελευθερωθώ-από/?$ - [G]
 	# wp 3307
-	RewriteRule ^facebook-live-για-μέλη-project-parenting/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^facebook-live-για-μέλη-project-parenting/?$ - [G]
 	# wp 3375
 	RewriteRule ^βίντεο-σειρά-project-parenting-πώς-να-υποστηρίξω-την/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 3320
@@ -120,13 +153,17 @@ AddDefaultCharset utf-8
 	# wp 3343
 	RewriteRule ^3343/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 3380
-	RewriteRule ^facebook-live/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^facebook-live/?$ - [G]
 	# wp 3313
-	RewriteRule ^free-live-yπέροχες-γυναίκες/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^free-live-yπέροχες-γυναίκες/?$ - [G]
 	# wp 3391
 	RewriteRule ^nέα-σειρά-βίντεο-project-parenting/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	# wp 4152
-	RewriteRule ^ομιλία-μείωσε-το-άγχος-σου-ως-γονιός-κα/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	RewriteRule ^ομιλία-μείωσε-το-άγχος-σου-ως-γονιός-κα/?$ - [G]
+	# --- Slugs inglés/español sin prefijo de idioma → su página (no son URLs
+	#     del WordPress; p. ej. /contact/ en Plausible). /blog/ no: es ambiguo.
+	RewriteRule ^(contact|about|sessions|courses|legal-notice|privacy)/?$ https://mariadimitropouloulopez.com/en/$1/ [L,R=301]
+	RewriteRule ^(contacto|sobre-mi|sesiones|cursos|aviso-legal|privacidad)/?$ https://mariadimitropouloulopez.com/es/$1/ [L,R=301]
 
 	# 1. Un único origen: HTTPS y sin www (igual que el canonical).
 	#    Si el hosting termina el SSL en un proxy, %{HTTPS} puede venir "off":
@@ -148,14 +185,12 @@ AddDefaultCharset utf-8
 
 </IfModule>
 
-# 404 en el idioma de la ruta (código HTTP 404 real; las páginas llevan noindex).
+# Páginas de error (código HTTP real; las páginas llevan noindex). La 404 en
+# español e inglés la fijan es/.htaccess y en/.htaccess: LiteSpeed ignora
+# ErrorDocument dentro de <If>. El 410 muestra la 404 griega en vez de la
+# página por defecto del servidor.
 ErrorDocument 404 /404.html
-<If "%{REQUEST_URI} =~ m#^/es/#">
-	ErrorDocument 404 /es/404/index.html
-</If>
-<If "%{REQUEST_URI} =~ m#^/en/#">
-	ErrorDocument 404 /en/404/index.html
-</If>
+ErrorDocument 410 /404.html
 
 # Tipos MIME (Search Console necesita el sitemap como XML).
 AddType application/xml .xml

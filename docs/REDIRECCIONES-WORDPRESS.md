@@ -2,6 +2,15 @@
 
 **Estado:** **aprobada y aplicada** el 10/11/2026 en `public/.htaccess` (bloque 0): opción **A** para los posts (301 → `/nea/`) y el resto de la tabla tal como se propuso. `/mindfulness/` → Apoyo psicoterapéutico (propuesta por defecto; cambiar la línea si se prefiere Mindful Parenting). Probado con Apache 2.4 en local: las 57 URLs, con y sin barra final, devuelven un único 301 a su destino; `wp-admin`/`wp-login.php` → 410.
 
+**Ampliada el 26/11/2026** tras la revisión post-lanzamiento (`docs/REDIRECCIONES-PROPUESTA-2026-11-26.md`, aprobadas R1–R4 y la **opción D** para los posts). Cambios:
+- **14 anuncios de eventos y promociones ya pasados → 410** (marcados `· **410**` en la lista de la sección 2); los otros 35 posts siguen yendo a `/nea/`.
+- Sitemaps antiguos → `/sitemap-index.xml`.
+- `?page_id=` y `?p=` → su destino por id; `?attachment_id=` → 410.
+- Slugs en/es sin prefijo → su página.
+- 404 por idioma con `.htaccess` por carpeta (el servidor es LiteSpeed).
+
+Probado en Apache local: 228/228 variantes y 31 rutas extra correctas. **Verificación en producción:** `node scripts/check-redirects.mjs --report` → `docs/REDIRECCIONES-VERIFICACION.md`.
+
 **Fuente:** `urls-antiguas-wordpress.csv` (exportación del WordPress clonado). Contiene 9 páginas y 49 posts publicados, 5 categorías y 44 etiquetas. Los borradores (`draft`) nunca fueron públicos y no se redirigen.
 
 **Por qué hace falta:** el WordPress estuvo publicado en este dominio. Sus URLs pueden seguir en el índice de Google y en enlaces de redes sociales o de otras webs. Sin redirección, al lanzar darían 404; con un 301, la visita llega a la página equivalente y Google traslada la autoridad de la URL antigua.
@@ -20,7 +29,7 @@
 | `/mindfulness/` | `/synedries/psychotherapeftiki-ypostirixi/` | ⚠️ **A confirmar:** la página antigua trataba de Mindfulness. Encaja con el apoyo psicoterapéutico a adultos (Mindfulness), pero también podría ir a Mindful Parenting |
 | `/τελευταία-νέα/` | `/nea/` | Últimas noticias → Blog |
 
-## 2. Posts publicados (49) → decisión pendiente
+## 2. Posts publicados (49) → opción D (26/11/2026): 410 para los anuncios pasados, `/nea/` para el resto
 
 Todos están en griego (2020–2022) y **ninguno se ha republicado todavía**: su destino definitivo no existe. Opciones:
 
@@ -32,16 +41,16 @@ Todos están en griego (2020–2022) y **ninguno se ha republicado todavía**: s
 
 **Recomendación:** opción **A** ahora y, a medida que María republique, sustituir la línea del post por un 301 a su nueva URL. Los anuncios de eventos y directos ya pasados (Facebook Live, ομιλία, Free live…) son candidatos a la opción C si María no los va a republicar.
 
-Lista de los 49 posts (ruta decodificada · id de WordPress):
+Lista de los 49 posts (ruta decodificada · id de WordPress · **410** si se retiró). La lee `scripts/check-redirects.mjs`: si cambia un destino, cambiar también esta lista. **Al republicar un post**, cambiar su línea `# wp <id>` en `public/.htaccess` por la URL nueva y añadir su pareja `?p=<id>` encima de la regla genérica de `?p=`.
 
-- `/εκπαιδευτικοί-σε-καραντίνα-live-facebook-qa/` · 1502
-- `/διαδικτυακή-συνάντηση-με-τους-γονείς/` · 1563
-- `/επιστροφή-στις-νέες-τάξεις-facebook-live-qa/` · 1558
+- `/εκπαιδευτικοί-σε-καραντίνα-live-facebook-qa/` · 1502 · **410**
+- `/διαδικτυακή-συνάντηση-με-τους-γονείς/` · 1563 · **410**
+- `/επιστροφή-στις-νέες-τάξεις-facebook-live-qa/` · 1558 · **410**
 - `/αγαπημένε-μου-αη-βασίλη-για-φέτος-θέλω/` · 1588
 - `/άρθρο-στο-project-parenting/` · 1617
 - `/νέα-συνεργασία-project-parenting/` · 1622
 - `/συνκηδεμονία-σε-καιρούς-covid-19-πώς-μπορώ-ν/` · 1608
-- `/1603/` · 1603
+- `/1603/` · 1603 · **410**
 - `/γονείς-σε-καραντίνα/` · 1635
 - `/η-ζωή-τον-καιρό-του-covid-19-μέσα-από-τα-μάτια-τ/` · 1663
 - `/άρθρο-στο-project-parenting-πώς-να-είμαι-οκ-γονιός-σε/` · 1722
@@ -52,7 +61,7 @@ Lista de los 49 posts (ruta decodificada · id de WordPress):
 - `/1ος-κορον-αναστοχασμός-θα-περάσει-και-α/` · 2184
 - `/μια-άσκηση-για-να-αντέχω-τα-δύσκολα-συν/` · 2189
 - `/νέο-άρθρο-στο-project-parenting-δεν-φταις-γιατί-οι-γο/` · 2205
-- `/πρόγραμμα-διαχείρισης-γονεϊκού-στρε/` · 3011
+- `/πρόγραμμα-διαχείρισης-γονεϊκού-στρε/` · 3011 · **410**
 - `/απλοί-τρόποι-για-να-είμαστε-πιο-mindful-στην/` · 2223
 - `/3242/` · 3242
 - `/γονεϊκότητα-σε-κοινή-θέα-πώς-να-μην-μ/` · 2543
@@ -64,25 +73,25 @@ Lista de los 49 posts (ruta decodificada · id de WordPress):
 - `/5-προτάσεις-για-να-ενισχύσεις-τη-γλωσσι/` · 2983
 - `/γιατί-μας-τρομάζει-τόσο-πολύ-να-μην-αρέ/` · 3027
 - `/ενσυνείδητη-γονεϊκότητα-μindful-parenting-με-μια/` · 3004
-- `/νέος-κύκλος-πρόγραμμα-διαχείρισης-γο/` · 3017
+- `/νέος-κύκλος-πρόγραμμα-διαχείρισης-γο/` · 3017 · **410**
 - `/3022/` · 3022
-- `/3030/` · 3030
+- `/3030/` · 3030 · **410**
 - `/προκλήσεις-και-λύσεις-για-μπαμπάδες-μ/` · 3251
 - `/5-τρόποι-για-να-ενισχύσεις-την-γλωσσική/` · 3254
-- `/live-για-μέλη-project-parenting-χτίσε-και-διατήρησε-ευτυ/` · 3338
+- `/live-για-μέλη-project-parenting-χτίσε-και-διατήρησε-ευτυ/` · 3338 · **410**
 - `/γιατί-να-συμμετάσχεις-ενεργά-στις-θερ/` · 3284
-- `/3403/` · 3403
-- `/live-για-μέλη-project-parenting-πώς-να-απελευθερωθώ-από/` · 3302
-- `/facebook-live-για-μέλη-project-parenting/` · 3307
+- `/3403/` · 3403 · **410**
+- `/live-για-μέλη-project-parenting-πώς-να-απελευθερωθώ-από/` · 3302 · **410**
+- `/facebook-live-για-μέλη-project-parenting/` · 3307 · **410**
 - `/βίντεο-σειρά-project-parenting-πώς-να-υποστηρίξω-την/` · 3375
 - `/ποιά-μορφή-μπορούν-να-πάρουν-οι-φοβίες/` · 3320
 - `/πώς-να-αφήνω-τις-δύσκολες-σκέψεις-να-φ/` · 3355
 - `/πώς-να-μιλήσω-στο-παιδί-μου-για-τον-πόλε/` · 3367
 - `/3343/` · 3343
-- `/facebook-live/` · 3380
-- `/free-live-yπέροχες-γυναίκες/` · 3313
+- `/facebook-live/` · 3380 · **410**
+- `/free-live-yπέροχες-γυναίκες/` · 3313 · **410**
 - `/nέα-σειρά-βίντεο-project-parenting/` · 3391
-- `/ομιλία-μείωσε-το-άγχος-σου-ως-γονιός-κα/` · 4152
+- `/ομιλία-μείωσε-το-άγχος-σου-ως-γονιός-κα/` · 4152 · **410**
 
 Algunas rutas mezclan alfabetos: `nέα`, `yπέροχες` y `μindful` llevan letras latinas sueltas, como en el WordPress original. Hay que redirigirlas tal cual.
 
@@ -93,7 +102,11 @@ Algunas rutas mezclan alfabetos: `nέα`, `yπέροχες` y `μindful` llevan 
 | `/category/*` (Εκδηλώσεις, Blog, Νέα, Πόροι, Uncategorized) | `/nea/` | Patrón |
 | `/tag/*` (44 etiquetas) | `/nea/` | Patrón |
 | `/feed/`, `/comments/feed/` | `/nea/` | Patrón |
-| `/?p=<id>` y `/?page_id=<id>` (enlaces cortos) | Igual que la página/post de ese id | Opcional |
+| `/?page_id=<id>` (9 páginas, ids del XML) | Igual que la URL bonita de esa página | Una pareja `RewriteCond`/`RewriteRule` por destino |
+| `/?p=<id>` (posts) | `/nea/` | Patrón; los republicados llevan su propia línea encima |
+| `/?attachment_id=<id>` (624 páginas de adjuntos) | 410 Gone | Patrón |
+| Sitemaps de Rank Math y WordPress (`sitemap.xml`, `sitemap_index.xml`, `post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`, `post_tag-sitemap.xml`, `wp-sitemap*.xml`…) | `/sitemap-index.xml` | Patrón |
+| Slugs en/es sin prefijo (`/contact/`, `/about/`, `/sessions/`, `/courses/`, `/legal-notice/`, `/privacy/`, `/contacto/`, `/sobre-mi/`, `/sesiones/`, `/cursos/`, `/aviso-legal/`, `/privacidad/`) | Su página en `/en/` o `/es/` | Patrón. No son URLs del WordPress; `/blog/` queda en 404 (ambiguo) |
 | `/wp-admin/`, `/wp-login.php`, `/xmlrpc.php` | 410 Gone | Patrón (también corta bots) |
 | `/wp-content/uploads/…` (imágenes enlazadas desde fuera) | 410 Gone | Patrón |
 

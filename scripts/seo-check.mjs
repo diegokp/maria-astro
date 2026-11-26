@@ -248,6 +248,8 @@ siteCheck('Plausible solo en producción', PROD ? plausible === pages.size : pla
 const sitemapIndex = join(DIST, 'sitemap-index.xml');
 if (PROD) {
 	siteCheck('.htaccess en el build', existsSync(join(DIST, '.htaccess')) && /ErrorDocument 404/.test(read(join(DIST, '.htaccess'))), 'con ErrorDocument 404');
+	// LiteSpeed (Nicalia) ignora ErrorDocument dentro de <If>: la 404 por idioma va por carpeta.
+	siteCheck('404 por idioma en es/ y en/.htaccess (no en <If>)', ['es', 'en'].every((l) => existsSync(join(DIST, l, '.htaccess')) && read(join(DIST, l, '.htaccess')).includes(`ErrorDocument 404 /${l}/404/index.html`)) && !/<If[^>]*>\s*ErrorDocument/.test(read(join(DIST, '.htaccess'))), 'dist/es/.htaccess y dist/en/.htaccess');
 	siteCheck('sitemap-index.xml', existsSync(sitemapIndex), 'existe');
 	const sitemapUrls = [];
 	if (existsSync(sitemapIndex)) {
