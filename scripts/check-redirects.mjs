@@ -175,6 +175,8 @@ const extra = [
 	['WordPress', '/category/blog/', { code: 301, location: abs('/nea/') }],
 	['WordPress', '/category/εκδηλώσεις/', { code: 301, location: abs('/nea/') }],
 	['WordPress', '/tag/mindfulness/', { code: 301, location: abs('/nea/') }],
+	['WordPress', '/author/maria/', { code: 301, location: abs('/sxetika/'), hops: 1, finalCode: 200 }],
+	['WordPress', '/el/', { code: 301, location: abs('/'), hops: 1, finalCode: 200 }],
 	['WordPress', '/feed/', { code: 301, location: abs('/nea/') }],
 	['WordPress', '/comments/feed/', { code: 301, location: abs('/nea/') }],
 	['WordPress', '/?p=2178', { code: 301, location: abs('/nea/'), hops: 1, finalCode: 200 }],

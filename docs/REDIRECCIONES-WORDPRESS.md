@@ -102,6 +102,8 @@ Algunas rutas mezclan alfabetos: `nέα`, `yπέροχες` y `μindful` llevan 
 | `/category/*` (Εκδηλώσεις, Blog, Νέα, Πόροι, Uncategorized) | `/nea/` | Patrón |
 | `/tag/*` (44 etiquetas) | `/nea/` | Patrón |
 | `/feed/`, `/comments/feed/` | `/nea/` | Patrón |
+| `/author/*` (archivo de autora; `/author/maria/` la rastreó Google) | `/sxetika/` | Patrón (27/11/2026) |
+| `/el/` (prefijo del idioma por defecto; origen desconocido) | `/` | Solo `/el/` (27/11/2026) |
 | `/?page_id=<id>` (9 páginas, ids del XML) | Igual que la URL bonita de esa página | Una pareja `RewriteCond`/`RewriteRule` por destino |
 | `/?p=<id>` (posts) | `/nea/` | Patrón; los republicados llevan su propia línea encima |
 | `/?attachment_id=<id>` (624 páginas de adjuntos) | 410 Gone | Patrón |

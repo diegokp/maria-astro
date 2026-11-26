@@ -53,6 +53,10 @@ AddDefaultCharset utf-8
 	# --- Archivo y rutas de WordPress
 	RewriteRule ^(category|tag)/ https://mariadimitropouloulopez.com/nea/ [L,R=301]
 	RewriteRule ^(comments/)?feed/?$ https://mariadimitropouloulopez.com/nea/ [L,R=301]
+	# Archivo de autora del WordPress (/author/maria/, rastreada por Google) → página de María.
+	RewriteRule ^author/ https://mariadimitropouloulopez.com/sxetika/ [L,R=301]
+	# /el/: prefijo del idioma por defecto; el griego va en la raíz sin prefijo.
+	RewriteRule ^el/?$ https://mariadimitropouloulopez.com/ [L,R=301]
 	# Sitemaps antiguos (Rank Math y WordPress) → sitemap nuevo. No captura
 	# sitemap-index.xml ni sitemap-0.xml (llevan guion).
 	RewriteRule ^(sitemap|sitemap_index|wp-sitemap[a-z0-9-]*|(post|page|category|post_tag|attachment|author|local)-sitemap[0-9]*)\.xml$ https://mariadimitropouloulopez.com/sitemap-index.xml [L,R=301]
